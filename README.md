@@ -16,17 +16,20 @@ While we were building our own SSR stack suddenly `zeit/next.js` popped up and j
 - `npm run dev` to start working locally.
 - `npm run build` to build for production.
 - `npm start` to run in production.
-- TBD: static rendering into plain html
+- TBD: static rendering into plain html (next export)
 
 ## Folder structure
 
-- pages
-
-components
-elements
-services
-static
-TBD
+- `./components`
+  Holds all components (repeating sections / widgets) that are used by `pages` to composite pages.
+- `./elements`
+  Holds all elements (repeating elements) that are used by `components` across the site. Classic candidates are buttons, form components etc.
+- `./pages`
+  Holds all pages (containers), each file should represent one route. They are automatically routed by their filename, but can have a custom route name (see further down below).
+- `./services`
+  Every piece of JavaScript that does not export a Component should be housed here. Classic candidates are Singletons that encapsulate functionality like SDKs.
+- `./static`
+  Holds all static files (fonts / images / videos etc.), can also be used to transfer things like `robots.txt` or `favicon.ico`.
 
 The `/pages` convention is pretty nifty and forces you to do bright decisions and poses a simple way for a new developer that works on the project to understand which comp is rendered from which route. Think the React way, for example if you want to use a layout across pages, simply create a component, call it for example `Layout` and use it as the top-level component inside your `pages`:
 
