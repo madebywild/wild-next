@@ -1,5 +1,5 @@
 /*
- * These are 'magically' globally available as CONSTANTS
+ * These are 'magically' globally available as CONSTANTS.
  */
 
 // define all environments you expect here
@@ -8,6 +8,9 @@ const environments = {
     'PUBLIC_URL': 'https://localhost'
   },
   staging: {
+    'PUBLIC_URL': 'https://staging.example.com'
+  },
+  production: {
     'PUBLIC_URL': 'https://example.com'
   }
 }

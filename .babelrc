@@ -1,4 +1,4 @@
 {
   "presets": [ "./babel-preset", "stage-0" ],
-  "plugins": [ "inline-react-svg", "transform-define", "./env.config.js" ]
+  "plugins": [ "inline-react-svg", [ "transform-define", "./env.config.js" ] ]
 }

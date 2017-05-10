@@ -1,6 +1,4 @@
-<center>
 # wild next boilerplate
-</center>
 
 <p align="center">
   <a href="https://twitter.com/madebywild">
@@ -10,21 +8,20 @@
 
 ## Introduction
 
-While we were building our own SSR stack suddenly zeit/next popped up and just did everything right. Moving from our rather custom solution to next we came accustomed to a certain workflow and syntax, so we decided to ditch the old stuff and create a sane base configuration to kickoff new projects.
-
-If you are familiar with `next` and `cssnext`, then you don't have to read all of the following, just `npm i or yarn` your way to start off.
+While we were building our own SSR stack suddenly `zeit/next.js` popped up and just did everything right. Moving from our rather custom solution to next we came accustomed to a certain workflow and syntax, so we decided to ditch the old stuff and create a sane base configuration to kickoff new projects.
 
 ## Usage
 
-`npm i` or `yarn` once to install dependencies.
-`npm run dev` to start working locally.
-`npm run build` to build for production.
-`npm start` to run in production.
-TBD: static rendering into plain html
+- `npm i` or `yarn` once to install dependencies.
+- `npm run dev` to start working locally.
+- `npm run build` to build for production.
+- `npm start` to run in production.
+- TBD: static rendering into plain html
 
 ## Folder structure
 
-pages
+- pages
+
 components
 elements
 services
@@ -33,7 +30,7 @@ TBD
 
 The `/pages` convention is pretty nifty and forces you to do bright decisions and poses a simple way for a new developer that works on the project to understand which comp is rendered from which route. Think the React way, for example if you want to use a layout across pages, simply create a component, call it for example `Layout` and use it as the top-level component inside your `pages`:
 
-```
+```js
 export default () => (
   <Layout>
     <div>Hello World.</div>
@@ -56,15 +53,175 @@ import Cat from '../static/images/cat.svg';
 Next runs mostly on convention over configuration, we'll highlight a few important pieces here, but for all your questions, simply head to their [zeit/next repository](https://github.com/zeit/next.js) to get all your questions answered.
 Most importantly, your can safely write next-generation code and expect it to be transpiled (eg. `await/async`), to be exact we go as far as `stage-0`.
 
-INFO TBD:
-Head
-Routing
-Static Files
-Fetching Data
+### Routing
+
+Out of the box `next` has the convention of automatically gathering routes by `.js`-files in the `/pages` directory. As soon as you want parameterized urls, this alone is not really that beneficial anymore. Instead we have a `routes.js` file in the root that routes URLs to pages within the `/pages` directory. This file is used both on the server and the client.
+
+**Note:** If you have no dynamic urls, simply don't add any routes in the `routes.js` file. The regular routes from the `/pages` filenames continue to work.
+
+```js
+// routes.js
+const nextRoutes = require('next-routes')
+const routes = module.exports = nextRoutes()
+
+routes.add('blog', '/blog/:slug')
+routes.add('about', '/about-us/:foo(bar|baz)', 'index')
+```
+
+API: `routes.add(name, pattern, page = name)`
+
+- `name` - The route name
+- `pattern` - Express-style route pattern (uses [path-to-regexp](https://github.com/pillarjs/path-to-regexp))
+- `page` - Page inside ./pages to be rendered (defaults to name)
+
+The page component receives the matched URL parameters merged into `query`
+
+```js
+export default class Blog extends React.Component {
+  static async getInitialProps ({query}) {
+    // query.slug
+  }
+  render () {
+    // this.props.url.query.slug
+  }
+}
+```
+
+Since this is custom, we can't use the default `Link` and `Router` interfaces from `next`. Thin wrappers around `Link` and `Router` add support for generated URLs based on route name and parameters. Just import them from your `routes` file:
+
+#### `Link` example
+
+```jsx
+// pages/index.js
+import {Link} from '../routes'
+
+export default () => (
+  <div>
+    <div>Welcome to next.js!</div>
+    <Link route='blog' params={{slug: 'hello-world'}}>
+      <a>Hello world</a>
+    </Link>
+  </div>
+)
+
+```
+
+API: `<Link route="name" params={params}>...</Link>`
+
+- `route` - Name of a route
+- `params` - Optional parameters for the route URL
+
+It generates the URL and passes `href` and `as` props to `next/link`. Other props like `prefetch` will work as well.
+
+---
+
+#### `Router` example
+
+```jsx
+// pages/blog.js
+import React from 'react'
+import {Router} from '../routes'
+
+export default class extends React.Component {
+  handleClick () {
+    Router.pushRoute('about', {foo: 'bar'})
+  }
+  render () {
+    return (
+      <div>
+        <div>{this.props.url.query.slug}</div>
+        <button onClick={this.handleClick}>
+          Home
+        </button>
+      </div>
+    )
+  }
+}
+```
+API:
+
+`Router.pushRoute(name, params, options)`
+
+`Router.replaceRoute(name, params, options)`
+
+- `name` - Name of a route
+- `params` - Optional parameters for the route URL
+- `options` - Optional options
+
+It generates the URL and passes `href` and `as` parameters to `next/router`.
+
+You can optionally provide custom `Link` and `Router` objects, for example:
+
+```javascript
+// routes.js
+const nextRoutes = require('next-routes')
+const Link = require('./my/link')
+const Router = require('./my/router')
+const routes = module.exports = nextRoutes({Link, Router})
+```
+
+### Head
+
+For changing things that happen in the `<head>` part of the page, make use of the `next/head` helper, see this example as it is pretty self-explanatory:
+
+```js
+import Head from 'next/head'
+export default () => (
+  <div>
+    <Head>
+      <title>My page title</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
+    <p>Hello world!</p>
+  </div>
+)
+```
+
+_Note: The contents of <head> get cleared upon unmounting the component, so make sure each page completely defines what it needs in <head>, without making assumptions about what other pages added_
+
+### Fetching Data
+
+Our stack uses a headless CMS, so chance are very high that you want to fetch data before rendering a component (server-side-rendering) or navigating to a new page on the client. `next` uses a static async function called `getInitialProps()` that should be used exactly for that. Do yourself a favor and use the `async/await` syntax for added beauty.
+
+```js
+import React from 'react';
+export default class extends React.Component {
+  static async getInitialProps() {
+    const res = await fetch('https://api.example.com/article/1');
+    const json = await res.json();
+    return { headline: json.headline }
+  }
+  render() {
+    return (
+      <div>
+        Hello World {this.props.headline}
+      </div>
+    );
+  }
+}
+```
+
+`getInitialProps` receives a context object with the following properties:
+
+- `pathname` - path section of URL
+- `query` - query string section of URL parsed as an object
+- `asPath` - the actual url path
+- `req` - HTTP request object (server only)
+- `res` - HTTP response object (server only)
+- `jsonPageRes` - Fetch Response object (client only)
+- `err` - Error object if any error is encountered during the rendering
+
+## Environments
+
+As you will probably work off a `local`, a `staging` and a `production` environment, you can make use of the `env.config.js` file which reads the currently set `NODE_ENV` and replaces constants during compilation with the respective values. The keys of the environment object are then usable as if there was a global variable with that name.
+
+This way you can easily build against different environments and eg. insert a different _Google Analytics snippet_ to staging than production.
+
+Make sure you fill out all fields you use for all environments you use, there is **no checking from the boilerplate if you do so** to keep things simple and flexible.
 
 ## Server and Middleware
 
-INFO TBD:
+In our boilerplate `next` is per default integrated into a `express` server. That means you can easily integrate middleware or a full database-fetching API into the server. Simply open up `server.js` in the root and edit to your likings. There is a sample line for an API route in there for your convenience.
 
 ## CSS Styles
 
@@ -202,7 +359,8 @@ Or, if you want to stick to CSS syntax, use the functions that will be available
 
 ## Dev-Ops Helpers
 
-Here's a sample nginx reverse proxy config:
+<details>
+<summary><strong>Sample nginx reverse proxy config</strong></summary>
 
 ```
 location / {
@@ -220,9 +378,13 @@ location / {
   # try_files $uri $uri/ =404;
 }
 ```
+</details>
 
-Here's a sample pm2 line to start the server:
+
+<details>
+<summary><strong>Sample pm2 line to start the server</strong></summary>
 
 ```bash
 pm2 start npm --name "next" -- start
 ```
+</details>

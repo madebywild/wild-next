@@ -1,3 +1,5 @@
+/* global PUBLIC_URL */
+
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -37,7 +39,7 @@ export default class extends React.Component {
           <title>Chobani</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
-        Welcome to next.js! {this.props.stars}
+        Welcome to the wild-next! at { PUBLIC_URL }
         <Link prefetch href="/about"><a>About</a></Link>
         <div className="goo"><span>gogo</span></div>
         <Cat />

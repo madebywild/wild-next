@@ -1,7 +1,7 @@
 {
   "name": "wild-next",
   "version": "1.0.0",
-  "description": "tbd",
+  "description": "Our next.js boilerplate with sane base configuration.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,21 +9,23 @@
     "dev": "node server.js",
     "build": "next build",
     "start-next": "next start",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "clean-babel-cache": "rm -Rf ./node_modules/.cache/babel-loader/*"
   },
   "author": "Thomas Strobl <thomas@thomas-strobl.com> (http://thomas-strobl.com/)",
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.2",
     "next": "^2.2.0",
+    "next-routes": "^1.0.24",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
+    "babel-plugin-inline-react-svg": "^0.2.0",
     "babel-plugin-transform-define": "^1.2.0",
     "babel-preset-stage-0": "^6.24.1",
-    "babel-plugin-inline-react-svg": "^0.2.0",
-    "styled-jsx-postcss": "^0.2.0",
-    "postcss-cssnext": "^2.10.0"
+    "postcss-cssnext": "^2.10.0",
+    "styled-jsx-postcss": "^0.2.0"
   }
 }
