@@ -12,7 +12,7 @@ export default class extends React.Component {
         </Head>
         <Navigation />
         <div className="about">
-          This is totally "about" and stuff. Wooah.
+          This product is called {this.props.url.query.slug}
         </div>
         <style jsx>{`
           .about {

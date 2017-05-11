@@ -1,14 +1,21 @@
 # wild next boilerplate <a href="https://twitter.com/madebywild"><img alt="@madebywild" src="https://img.shields.io/twitter/follow/madebywild.svg?style=social&label=Follow&style=plastic"></a>
 
-<p align="center">
-  <a href="https://twitter.com/madebywild"><img alt="@madebywild" src="https://img.shields.io/twitter/follow/madebywild.svg?style=social&label=Follow&style=plastic"></a>
-</p>
-
 While we were building our own SSR stack suddenly `zeit/next.js` popped up and just did everything right. Moving from our rather custom solution to next we came accustomed to a certain workflow and syntax, so we decided to ditch the old stuff and create a sane base configuration of `next` to kickoff new projects.
+
+## Installation
+
+`wildplate` had a global command palette, but the reality is – you're not gonna update an old project to work with the latest version of your globally installed toolkit. So we go old-school here and stay flexible for the future: Clone this boilerplate – fire and forget. Instead of complex updating mechanisms, clone again and migrate manually if needed.
+
+```bash
+$ git clone https://github.com/madebywild/wild-next.git your-project # change the name and clone this repo
+$ cd your-project # jump into the project
+$ rm -Rf .git # delete the local git folder
+$ git init # start off your project clean
+$ npm i # or yarn if you fancy
+```
 
 ## Usage
 
-- `npm i` or `yarn` once to install dependencies.
 - `npm run dev` to start working locally.
 - `npm run build` to build for production.
 - `npm start` to run in production.
