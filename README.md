@@ -1,14 +1,10 @@
-# wild next boilerplate
+# wild next boilerplate <a href="https://twitter.com/madebywild"><img alt="@madebywild" src="https://img.shields.io/twitter/follow/madebywild.svg?style=social&label=Follow&style=plastic"></a>
 
 <p align="center">
-  <a href="https://twitter.com/madebywild">
-    <img alt="@madebywild" src="https://img.shields.io/twitter/follow/madebywild.svg?style=social&label=Follow&style=plastic">
-  </a>
+  <a href="https://twitter.com/madebywild"><img alt="@madebywild" src="https://img.shields.io/twitter/follow/madebywild.svg?style=social&label=Follow&style=plastic"></a>
 </p>
 
-## Introduction
-
-While we were building our own SSR stack suddenly `zeit/next.js` popped up and just did everything right. Moving from our rather custom solution to next we came accustomed to a certain workflow and syntax, so we decided to ditch the old stuff and create a sane base configuration to kickoff new projects.
+While we were building our own SSR stack suddenly `zeit/next.js` popped up and just did everything right. Moving from our rather custom solution to next we came accustomed to a certain workflow and syntax, so we decided to ditch the old stuff and create a sane base configuration of `next` to kickoff new projects.
 
 ## Usage
 
@@ -16,7 +12,6 @@ While we were building our own SSR stack suddenly `zeit/next.js` popped up and j
 - `npm run dev` to start working locally.
 - `npm run build` to build for production.
 - `npm start` to run in production.
-- TBD: static rendering into plain html (next export)
 
 ## Folder structure
 
@@ -26,6 +21,10 @@ While we were building our own SSR stack suddenly `zeit/next.js` popped up and j
   Holds all elements (repeating elements) that are used by `components` across the site. Classic candidates are buttons, form components etc.
 - `./pages`
   Holds all pages (containers), each file should represent one route. They are automatically routed by their filename, but can have a custom route name (see further down below).
+  - `./pages/_document.js`
+  The underlying html for every page render. Try to stick to the pages components if possible, but use it for elegant side-wide stuff and if you need to integrate something that otherwise can't be done. See [Custom Document](https://github.com/zeit/next.js#custom-document) for more info on customization.
+  - `./pages/_errors.js`
+  404 or 500 errors from both client- and server side are handled by this component. We again have a sane default here, which frankly can be customized as needed.
 - `./services`
   Every piece of JavaScript that does not export a Component should be housed here. Classic candidates are Singletons that encapsulate functionality like SDKs.
 - `./static`
@@ -43,7 +42,7 @@ export default () => (
 
 ## Images / Static Files
 
-Sometimes back to the roots is nice. Simply put your stuff into `/static` and reference it as usual. The only exception are SVGs that you'd like to inline. In that case import the svg and use it as JSX:
+Sometimes back to the roots is nice. Simply put your stuff into `/static` and reference it as usual, but prefix the URLs with `/static/<filename>`. The only exception are SVGs that you'd like to inline. In that case import the svg and use it as JSX:
 
 ```js
 import Cat from '../static/images/cat.svg';
@@ -54,7 +53,7 @@ import Cat from '../static/images/cat.svg';
 ## Javascript
 
 Next runs mostly on convention over configuration, we'll highlight a few important pieces here, but for all your questions, simply head to their [zeit/next repository](https://github.com/zeit/next.js) to get all your questions answered.
-Most importantly, your can safely write next-generation code and expect it to be transpiled (eg. `await/async`), to be exact we go as far as `stage-0`.
+Most importantly, you can safely write next-generation code and expect it to be transpiled (eg. `await/async`), to be exact we go as far as `stage-0`.
 
 ### Routing
 

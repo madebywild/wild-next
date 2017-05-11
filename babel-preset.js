@@ -7,4 +7,4 @@ nextBabelPreset.plugins = nextBabelPreset.plugins.map(plugin => {
   return plugin
 })
 
-module.exports = nextBabelPreset
+module.exports = nextBabelPreset;
