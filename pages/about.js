@@ -1,12 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
+import Global from './_global.js';
 import Navigation from '../components/navigation';
 
 export default class extends React.Component {
 
   render() {
     return (
-      <div>
+      <Global>
         <Head>
           <title>About</title>
         </Head>
@@ -16,11 +17,11 @@ export default class extends React.Component {
         </div>
         <style jsx>{`
           .about {
-            font-family: sans-serif;
+            font-family: Roboto, sans-serif;
             font-size: 60px;
           }
         `}</style>
-      </div>
+      </Global>
     );
   }
 

@@ -37,15 +37,9 @@ $ npm i # or yarn if you fancy
 - `./static`
   Holds all static files (fonts / images / videos etc.), can also be used to transfer things like `robots.txt` or `favicon.ico`.
 
-The `/pages` convention is pretty nifty and forces you to do bright decisions and poses a simple way for a new developer that works on the project to understand which comp is rendered from which route. Think the React way, for example if you want to use a layout across pages, simply create a component, call it for example `Layout` and use it as the top-level component inside your `pages`:
+The `/pages` convention is pretty nifty and forces you to do bright decisions and poses a simple way for a new developer that works on the project to understand which comp is rendered from which route
 
-```js
-export default () => (
-  <Layout>
-    <div>Hello World.</div>
-  </Layout>
-)
-```
+In general – think the React way, for your convenience we also placed a `_global.js` file in the `/pages` directory which you probably want to use as the top-level wrapper of your pages. This file allows you to have styles like **fonts** or a css reset available globally. You can use it as a Layout file to have general markup as well. Or you separate it into its own file – in the end up to you.
 
 ## Images / Static Files
 
@@ -56,6 +50,8 @@ import Cat from '../static/images/cat.svg';
 // further down in your render()
 <Cat />
 ```
+
+For **fonts** we recommend to simply put them in the `/static` folder and put font-face declarations into a Wrapper Component like `_global.js`.
 
 ## Javascript
 

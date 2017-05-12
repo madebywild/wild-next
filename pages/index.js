@@ -4,6 +4,7 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
+import Global from './_global.js';
 import Navigation from '../components/navigation';
 import Cat from '../static/images/cat.svg';
 
@@ -15,7 +16,7 @@ export default class extends React.Component {
 
   render () {
     return (
-      <div>
+      <Global>
         <Head>
           <title>Home</title>
         </Head>
@@ -27,13 +28,13 @@ export default class extends React.Component {
         <Cat />
         <style jsx>{`
           h1, p {
-            font-family: sans-serif;
+            font-family: Roboto, sans-serif;
             & em {
               color: #666;
             }
           }
         `}</style>
-      </div>
+      </Global>
     )
   }
 
