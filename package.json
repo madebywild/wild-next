@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server.js",
     "build": "next build",
+    "export": "next build && next export -o dist",
     "start": "NODE_ENV=production node server.js",
     "clean-babel-cache": "rm -Rf ./node_modules/.cache/babel-loader/*"
   },
@@ -14,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.2",
-    "next": "^2.2.0",
+    "next": "beta",
     "next-routes": "^1.0.24",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"

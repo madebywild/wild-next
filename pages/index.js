@@ -10,10 +10,6 @@ import Cat from '../static/images/cat.svg';
 
 export default class extends React.Component {
 
-  static async getInitialProps ({ req }) {
-    return req ? { userAgent: req.headers['user-agent'] } : { userAgent: navigator.userAgent };
-  }
-
   render () {
     return (
       <Global>
@@ -23,7 +19,6 @@ export default class extends React.Component {
         <Navigation />
         <h1>Welcome to wild-next!</h1>
         <pre>env.config.js</pre><p>says you defined <em>{PUBLIC_URL}</em> as the public url for this environment.</p>
-        <p>Your user agent is: {this.props.userAgent}</p>
         <p>Now enjoy this beautiful cat:</p>
         <Cat />
         <style jsx>{`

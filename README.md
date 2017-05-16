@@ -19,6 +19,7 @@ $ npm i # or yarn if you fancy
 - `npm run dev` to start working locally.
 - `npm run build` to build for production.
 - `npm start` to run in production.
+- `npm run export` to export the site to static html.
 
 ## Folder structure
 
@@ -361,6 +362,29 @@ If you used the nice color functions from Sass and are missing them now, you hav
 
 Or, if you want to stick to CSS syntax, use the functions that will be available in future CSS versions: Check out the [cssnext features page](http://cssnext.io/features) where there's a list of things you can use.
 </details>
+
+## Export
+
+The export feature can still be considered quite experimental with an API that will most likely change. Yet it is powerful and allows you to pre-render all routes into static html files, which makes the site eligible for static hosting on S3, which as you know is ugly-ass-cheap.
+
+Running `npm run export` runs the build process first and then exports the site into the `/dist` subdirectory. This directoy is what you put up on your static hosting services as you are used to.
+
+In the project root, there is a `next.config.js`, which has a `exportPathMap` export. It is a function that returns routes as key-value-pairs. At this moment, you have to manually mention all routes you want to be available. In future releases this process will be unified into one routing API, so you don't have three places to put routes into.
+
+```javascript
+exports.exportPathMap = () => ({
+  "/": { page: "/" },
+  "/about": { page: "/about" },
+  "/product/plant": { page: "/product", query: { slug: "plant" } },
+  "/product/tree": { page: "/product", query: { slug: "tree" } },
+});
+```
+
+Note the following caveats:
+
+With `npm run export`, we build an HTML version of your app. At that time, we will automatically execute the `getInitialProps` functions of your pages and store the results.
+This means you can only use `pathname`, `query` and `asPath` fields of the `context` object passed to `getInitialProps`. You cannot use `req` or `res` fields, because those require a server runtime.
+Basically, you will not be able to render content dynamic in the server as we prebuilt HTML files. If you need that, you need run your app with `npm start`.
 
 ## Dev-Ops Helpers
 
