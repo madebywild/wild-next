@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.2",
-    "next": "beta",
+    "next": "^3.0.3",
     "next-routes": "^1.0.24",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
