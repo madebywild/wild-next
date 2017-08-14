@@ -326,32 +326,27 @@ Sometimes you felt like repeating yourself and you used a Sass-Mixin to keep thi
 <details>
 <summary><strong>Media Queries</strong></summary>
 
-There's not much to say here, other than we have the two upcoming features of [Custom Media Queries](http://dev.w3.org/csswg/mediaqueries/#custom-mq) and [Media Query Ranges](https://drafts.csswg.org/mediaqueries/#mq-ranges) transpiled in our build.
+To use CSS media queries with flexibility, declare raw breakpoints and customize your media queries as you like using template strings:
 
-**Custom Media Queries**
-A nice way to have semantic media queries.
-
-```css
-@custom-media --small-viewport (max-width: 30em);
-/* check out media queries ranges for a better syntax !*/
-
-@media (--small-viewport) {
-  /* styles for small viewport */
-}
 ```
-
-**Media queries ranges**
-Allows to replace min-/max- with <= & >= (syntax easier to read).
-
-```css
-@media (width >= 500px) and (width <= 1200px) {
-  /* your styles */
-}
-/* or coupled with custom media queries */
-@custom-media --only-medium-screen (width >= 500px) and (width <= 1200px);
-@media (--only-medium-screen) {
-  /* your styles */
-}
+export const breakpoints = {
+  tablet: 1024,
+  mobile: 768,
+};
+export const mediaQuery = {
+  tablet: `(max-width: ${rawBreakpoints.tablet}px)`,
+  mobile: `(max-width: ${rawBreakpoints.mobile}px)`
+};
+```
+Import your mediaQuery variable in a Jsx file and use it as the following:
+```
+import { mediaQuery } from '../vars.js'
+<style jsx >{`
+  @media ${mediaQuery.tablet} {
+    body {
+      bar: foo;
+    }
+}`}</style>
 ```
 </details>
 

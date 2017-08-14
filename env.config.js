@@ -5,13 +5,13 @@
 // define all environments you expect here
 const environments = {
   default: {
-    'PUBLIC_URL': 'https://localhost'
+    'process.env.PUBLIC_URL': 'https://localhost'
   },
   staging: {
-    'PUBLIC_URL': 'https://staging.example.com'
+    'process.env.PUBLIC_URL': 'https://staging.example.com'
   },
   production: {
-    'PUBLIC_URL': 'https://example.com'
+    'process.env.PUBLIC_URL': 'https://example.com'
   }
 }
 

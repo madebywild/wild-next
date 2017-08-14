@@ -18,7 +18,7 @@ export default class extends React.Component {
         </Head>
         <Navigation />
         <h1>Welcome to wild-next!</h1>
-        <pre>env.config.js</pre><p>says you defined <em>{PUBLIC_URL}</em> as the public url for this environment.</p>
+        <pre>env.config.js</pre><p>says you defined <em>{process.env.PUBLIC_URL}</em> as the public url for this environment.</p>
         <p>Now enjoy this beautiful cat:</p>
         <Cat />
         <style jsx>{`
