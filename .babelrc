@@ -1,4 +1,14 @@
 {
-  "presets": [ "./babel-preset", "stage-0" ],
-  "plugins": [ "inline-react-svg", [ "transform-define", "./env.config.js" ] ]
+  "presets": [
+    [
+      "next/babel",
+      {
+        "styled-jsx": {
+          "plugins": [
+            "styled-jsx-plugin-sass"
+          ]
+        }
+      }
+    ]
+  ]
 }

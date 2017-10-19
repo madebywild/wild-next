@@ -16,16 +16,14 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.2",
-    "next": "^3.0.3",
-    "next-routes": "^1.0.24",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "next": "^4.1.0",
+    "next-routes": "^1.1.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "devDependencies": {
-    "babel-plugin-inline-react-svg": "^0.2.0",
-    "babel-plugin-transform-define": "^1.2.0",
     "babel-preset-stage-0": "^6.24.1",
-    "postcss-cssnext": "^2.10.0",
-    "styled-jsx-postcss": "^0.2.0"
+    "node-sass": "^4.5.3",
+    "styled-jsx-plugin-sass": "^0.2.0"
   }
 }

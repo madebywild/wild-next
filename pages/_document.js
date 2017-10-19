@@ -10,11 +10,14 @@ export default class MyDocument extends Document {
   }
 
   render () {
+    // make the environment available on the client
+    const envScript = `window.ENV = '${process.env.NODE_ENV || 'development'}';`;
     return (
       <html>
         <Head>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
+          <script dangerouslySetInnerHTML={{__html: envScript}}/>
         </Head>
         <body>
           <Main />

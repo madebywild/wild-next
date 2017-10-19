@@ -44,20 +44,16 @@ In general – think the React way, for your convenience we also placed a `_glob
 
 ## Images / Static Files
 
-Sometimes back to the roots is nice. Simply put your stuff into `/static` and reference it as usual, but prefix the URLs with `/static/<filename>`. The only exception are SVGs that you'd like to inline. In that case import the svg and use it as JSX:
-
-```js
-import Cat from '../static/images/cat.svg';
-// further down in your render()
-<Cat />
-```
-
-For **fonts** we recommend to simply put them in the `/static` folder and put font-face declarations into a Wrapper Component like `_global.js`.
+Sometimes back to the roots is nice. Simply put your stuff into `/static` and reference it as usual, but prefix the URLs with `/static/<filename>`. For **fonts** we recommend to simply put them in the `/static` folder and put font-face declarations into a Wrapper Component like `_global.js`.
 
 ## Javascript
 
 Next runs mostly on convention over configuration, we'll highlight a few important pieces here, but for all your questions, simply head to their [zeit/next repository](https://github.com/zeit/next.js) to get all your questions answered.
-Most importantly, you can safely write next-generation code and expect it to be transpiled (eg. `await/async`), to be exact we go as far as `stage-0`.
+Most importantly, you can safely write next-generation code and expect it to be transpiled (eg. `await/async`).
+
+### Component Guidelines
+
+As soon as your component has more than 300 lines, you should split it up into child components, unless you can express a valid reson why you'd rather not want to.
 
 ### Routing
 
@@ -219,9 +215,11 @@ export default class extends React.Component {
 
 ## Environments
 
-As you will probably work off a `local`, a `staging` and a `production` environment, you can make use of the `env.config.js` file which reads the currently set `NODE_ENV` and replaces constants during compilation with the respective values. The keys of the environment object are then usable as if there was a global variable with that name.
+As you will probably work off a `local`, a `staging` and a `production` environment, you can make use of the `env.config.js` file. It exports one object with the respective properties you define depending on your current environment. Simply import it in your scripts, we made sure the environment is properly read both on the server and the client.
 
-This way you can easily build against different environments and eg. insert a different _Google Analytics snippet_ to staging than production.
+**Do not put sensitive information like access data here, this file might be bundled to the client!** If you want to store access data for eg. database access, you will always only need it on the server, so you should either read it from environment variables or store it in a not-checked-into-git-file that you require in node and note its existence in your project readme.
+
+This way you can easily build against different environments and eg. insert a different _API Url_ or _Google Analytics snippet_ to staging than production.
 
 Make sure you fill out all fields you use for all environments you use, there is **no checking from the boilerplate if you do so** to keep things simple and flexible.
 
@@ -231,132 +229,7 @@ In our boilerplate `next` is per default integrated into a `express` server. Tha
 
 ## CSS Styles
 
-This one is something to get accustomed to, but we're ditching our beloved sass syntax for the syntax that is drafted for the official CSS spec. Although these specs are not yet respected by all browser vendors, we simply transpile them so they work today. Here's an overview of things that you are used to do, but now are done probably differently:
-
-<details>
-<summary><strong>Nesting</strong></summary>
-
-Nesting is done through the syntax of the [CSS Nesting Module Level 3](http://tabatkins.github.io/specs/css-nesting/)
-
-```css
-/* before */
-a, b {
-  color: red;
-  & c, & d {
-    color: white;
-  }
-  & & {
-    color: blue;
-  }
-  &:hover {
-    color: black;
-  }
-  @media (min-width: 30em) {
-    color: yellow;
-    @media (min-device-pixel-ratio: 1.5) {
-      color: green;
-    }
-  }
-}
-/* after */
-a, b {
-  color: red;
-}
-a c, a d, b c, b d {
-  color: white;
-}
-a a, b b {
-  color: blue;
-}
-a:hover, b:hover {
-  color: black;
-}
-@media (min-width: 30em) {
-  a, b {
-    color: yellow;
-  }
-}
-@media (min-width: 30em) and (min-device-pixel-ratio: 1.5) {
-  a, b {
-    color: green;
-  }
-}
-```
-</details>
-
-<details>
-<summary><strong>Imports</strong></summary>
-
-We don't have CSS importing. And that has a reason. Importing was necessary to organize SCSS code because in the end we compiled to one monolithic .css file. With the new approach of organizing styles along with their respective components this feature simply is not necessary anymore. If there is data you need to share across components (and their respective styles) it makes much more sense to store it in a .js or .json file and import this data into your component and then use it. This also solves the age old problem of Javascript-Stylesheet-Interoperability.
-</details>
-
-<details>
-<summary><strong>Variables</strong></summary>
-
-See the point `Imports` above. Classic scss $variables are simply not needed anymore, just use regular Javascript variables. Since you write the styles in a template literal in JSX, you can even go all the way to using expressions. To share variables across files, simply put them in a seperate file and important where you need them in classic Javascript fashion. That being said if you happen to find a usecase where that doesn't make sense, you can use [CSS Custom Properties for Cascading Variables Module Level 1](http://www.w3.org/TR/css-variables/) to define variables within css. **Be aware that the definitions are limited to :root selector!**
-
-```css
-:root {
-  --mainColor: red;
-}
-a {
-  color: var(--mainColor);
-}
-```
-</details>
-
-<details>
-<summary><strong>Mixins</strong></summary>
-
-Sometimes you felt like repeating yourself and you used a Sass-Mixin to keep things DRY. Before you overthink things – maybe you can simply use your good old friend JavaScript to do the heavy lifting for you? If that's not applicable you can use the [CSS @apply Rule](https://tabatkins.github.io/specs/css-apply-rule) to define variables within css. **Be aware that the definitions are limited to :root selector!**
-
-```css
-:root {
-  --danger-theme: {
-    color: white;
-    background-color: red;
-  };
-}
-.danger {
-  @apply --danger-theme;
-}
-```
-</details>
-
-<details>
-<summary><strong>Media Queries</strong></summary>
-
-To use CSS media queries with flexibility, declare raw breakpoints and customize your media queries as you like using template strings:
-
-```
-export const breakpoints = {
-  tablet: 1024,
-  mobile: 768,
-};
-export const mediaQuery = {
-  tablet: `(max-width: ${rawBreakpoints.tablet}px)`,
-  mobile: `(max-width: ${rawBreakpoints.mobile}px)`
-};
-```
-Import your mediaQuery variable in a Jsx file and use it as the following:
-```
-import { mediaQuery } from '../vars.js'
-<style jsx >{`
-  @media ${mediaQuery.tablet} {
-    body {
-      bar: foo;
-    }
-}`}</style>
-```
-</details>
-
-<details>
-<summary><strong>Colors</strong></summary>
-
-If you used the nice color functions from Sass and are missing them now, you have two options: Use [any Javascript function](https://github.com/Qix-/color) in your style-jsx since, well, in the end it's just JavaScript!
-
-Or, if you want to stick to CSS syntax, use the functions that will be available in future CSS versions: Check out the [cssnext features page](http://cssnext.io/features) where there's a list of things you can use.
-</details>
+Since [styled-jsx](https://github.com/zeit/styled-jsx/) v2 features a lot of improvements for dynamic styles, we recommend on using it. To make our lifes easier, we included a [plugin](https://github.com/giuseppeg/styled-jsx-plugin-sass) so you can write SASS code within styled-jsx literals.
 
 ## Export
 

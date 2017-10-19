@@ -6,7 +6,10 @@ import Link from 'next/link';
 
 import Global from './_global.js';
 import Navigation from '../components/navigation';
-import Cat from '../static/images/cat.svg';
+
+import env from '../env.config.js';
+
+console.log(env);
 
 export default class extends React.Component {
 
@@ -18,14 +21,14 @@ export default class extends React.Component {
         </Head>
         <Navigation />
         <h1>Welcome to wild-next!</h1>
-        <pre>env.config.js</pre><p>says you defined <em>{process.env.PUBLIC_URL}</em> as the public url for this environment.</p>
-        <p>Now enjoy this beautiful cat:</p>
-        <Cat />
+        <pre>env.config.js</pre><p>says you defined <em>{env.PUBLIC_URL}</em> as the public url for this environment.</p>
+        <p>Check this out: <em>Booyah.</em></p>
         <style jsx>{`
+          $color: #666;
           h1, p {
             font-family: Roboto, sans-serif;
             & em {
-              color: #666;
+              color: $color;
             }
           }
         `}</style>
