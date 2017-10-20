@@ -51,6 +51,12 @@ Sometimes back to the roots is nice. Simply put your stuff into `/static` and re
 Next runs mostly on convention over configuration, we'll highlight a few important pieces here, but for all your questions, simply head to their [zeit/next repository](https://github.com/zeit/next.js) to get all your questions answered.
 Most importantly, you can safely write next-generation code and expect it to be transpiled (eg. `await/async`).
 
+### Linting
+
+The project introduces a linting setup that automatically lints your staged files when you try to commit. Apart from that you can run `npm run lint` as well to lint the whole project (not just staged files), but without committing. Additionally, there is the `npm run lint:withfix` command that shows all errors and tries to fix minor warnings automatically (eg. it switches quotes, spaces etc.)
+
+You will probably run into lots of issues the longer you work on a commit, so it is recommended to setup linting in your code editor as well to mitigate issues right as they occur. This is not necessary, but helps. Since the `package.json` has the right rules in it, your local Eslint Editor Plugin will use the same rules. Here are a couple of handy links: [Atom Plugin](https://github.com/AtomLinter/linter-eslint), [Sublime Plugin](https://github.com/roadhump/SublimeLinter-eslint), [WebStorm](https://www.jetbrains.com/help/webstorm/eslint.html), [vim](https://medium.com/@hpux/vim-and-eslint-16fa08cc580f), [Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+
 ### Component Guidelines
 
 As soon as your component has more than 300 lines, you should split it up into child components, unless you can express a valid reson why you'd rather not want to.

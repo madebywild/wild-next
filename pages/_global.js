@@ -1,4 +1,5 @@
-import styles from '../config/styles.js';
+import React from "react";
+import styles from "../config/styles.js";
 
 export default props => (
   <div>

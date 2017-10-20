@@ -1,13 +1,9 @@
-/* global PUBLIC_URL */
 
-import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
-
-import Global from './_global.js';
-import Navigation from '../components/navigation';
-
-import env from '../env.config.js';
+import React from "react";
+import Head from "next/head";
+import Global from "./_global";
+import Navigation from "../components/navigation";
+import env from "../env.config";
 
 export default class extends React.Component {
 

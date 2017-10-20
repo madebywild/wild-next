@@ -1,13 +1,12 @@
-import {Link} from '../routes';
+import React from "react";
+import {Link} from "../routes";
 
-export default props => {
-
-  return (
-    <div>
-      <Link href={props.href} route={props.route} params={props.params}>
-        <a>{props.children}</a>
-      </Link>
-      <style jsx>{`
+export default props => (
+  <div>
+    <Link href={props.href} route={props.route} params={props.params}>
+      <a href="">{props.children}</a>
+    </Link>
+    <style jsx>{`
         a {
           padding: 10px 20px;
           color: #666;
@@ -19,7 +18,5 @@ export default props => {
           margin-right: 10px;
         }
       `}</style>
-    </div>
-  );
-
-};
+  </div>
+);
