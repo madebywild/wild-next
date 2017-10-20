@@ -1,18 +1,18 @@
-import React from 'react'
-import HTTPStatus from 'http-status'
-import Head from 'next/head'
+import React from 'react';
+import HTTPStatus from 'http-status';
+import Head from 'next/head';
 
 export default class Error extends React.Component {
   static getInitialProps ({ res, err }) {
-    const statusCode = res ? res.statusCode : (err ? err.statusCode : null)
-    return { statusCode }
+    const statusCode = res ? res.statusCode : (err ? err.statusCode : null);
+    return { statusCode };
   }
 
   render () {
-    const { statusCode } = this.props
+    const { statusCode } = this.props;
     const title = statusCode === 404
       ? 'This page could not be found'
-      : HTTPStatus[statusCode] || 'An unexpected error has occurred'
+      : HTTPStatus[statusCode] || 'An unexpected error has occurred';
 
     return <div style={styles.error}>
       <Head>
@@ -25,7 +25,7 @@ export default class Error extends React.Component {
           <h2 style={styles.h2}>{title}.</h2>
         </div>
       </div>
-    </div>
+    </div>;
   }
 }
 
@@ -67,4 +67,4 @@ const styles = {
     margin: 0,
     padding: 0
   }
-}
+};

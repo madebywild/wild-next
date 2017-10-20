@@ -10,8 +10,16 @@
     "export": "next build && next export -o dist",
     "start": "NODE_ENV=production node server.js",
     "start-beanstalk": "next build && NODE_ENV=production node server.js",
-    "clean-babel-cache": "rm -Rf ./node_modules/.cache/babel-loader/*"
+    "clean-babel-cache": "rm -Rf ./node_modules/.cache/babel-loader/*",
+    "lint": "npm run lint:js",
+    "lint:js": "npm run lint:eslint -- . ",
+    "lint:eslint": "eslint --fix --ignore-path .gitignore",
+    "lint:staged": "lint-staged"
   },
+  "lint-staged": {
+    "*.js": "lint:eslint"
+  },
+  "pre-commit": "lint:staged",
   "author": "Thomas Strobl <thomas@thomas-strobl.com> (http://thomas-strobl.com/)",
   "license": "ISC",
   "dependencies": {
@@ -22,7 +30,12 @@
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.1",
     "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.9.0",
+    "eslint-plugin-react": "^7.4.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.3.0",
     "node-sass": "^4.5.3",
     "styled-jsx-plugin-sass": "^0.2.0"
   }

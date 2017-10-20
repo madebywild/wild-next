@@ -9,8 +9,6 @@ import Navigation from '../components/navigation';
 
 import env from '../env.config.js';
 
-console.log(env);
-
 export default class extends React.Component {
 
   render () {
@@ -33,7 +31,7 @@ export default class extends React.Component {
           }
         `}</style>
       </Global>
-    )
+    );
   }
 
 }

@@ -1,4 +1,4 @@
-import css from 'styled-jsx/css'
+import css from 'styled-jsx/css';
 
 export default css`
   /* minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */
@@ -13,4 +13,4 @@ export default css`
     font-weight: normal;
     font-style: normal;
   }
-`
+`;

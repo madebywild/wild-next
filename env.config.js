@@ -15,7 +15,7 @@ const environments = {
   production: {
     'PUBLIC_URL': 'https://example.com'
   }
-}
+};
 
 // could be imported by the client or the server
 const env = (typeof window !== 'undefined' ? window.ENV : process.env.NODE_ENV) || 'development';
