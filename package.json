@@ -19,7 +19,8 @@
     "next": "^4.1.0",
     "next-routes": "^1.1.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "styled-jsx": "^2.1.2"
   },
   "devDependencies": {
     "babel-preset-stage-0": "^6.24.1",
