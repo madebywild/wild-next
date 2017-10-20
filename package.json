@@ -13,7 +13,7 @@
     "clean-babel-cache": "rm -Rf ./node_modules/.cache/babel-loader/*",
     "lint": "npm run lint:js",
     "lint:js": "npm run lint:eslint -- . ",
-    "lint:eslint": "eslint --fix --ignore-path .gitignore",
+    "lint:eslint": "eslint --ignore-path .gitignore",
     "lint:staged": "lint-staged"
   },
   "lint-staged": {
