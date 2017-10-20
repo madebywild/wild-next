@@ -17,7 +17,7 @@
     "lint:staged": "lint-staged"
   },
   "lint-staged": {
-    "*.js": "lint:eslint"
+    "**/*.js": "lint:eslint"
   },
   "pre-commit": "lint:staged",
   "author": "Thomas Strobl <thomas@thomas-strobl.com> (http://thomas-strobl.com/)",
