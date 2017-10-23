@@ -11,10 +11,16 @@ exports.webpack = (config, { buildId, dev }) => {
   // Perform customizations to webpack config
   config.module.rules.push({
     test: /\.scss/,
-    use: 'styled-jsx-scss-loader'
+    use: [
+      {
+        loader: 'emit-file-loader',
+        options: {
+          name: 'dist/[path][name].[ext]',
+        },
+      },
+      'babel-loader',
+      'styled-jsx-css-loader',
+    ]
   });
-  // push in our custom loader
-  config.resolveLoader.modules.push('internals');
-  // Important: return the modified config
   return config;
 }

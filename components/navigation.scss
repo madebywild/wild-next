@@ -1,6 +1,8 @@
+@import 'vars.scss';
+
 div {
   display: flex;
   padding: 10px;
-  background-color: #ccc;
+  background-color: $color;
   border-radius: 3px;
 }

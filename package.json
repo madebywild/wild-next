@@ -25,6 +25,7 @@
   "devDependencies": {
     "babel-preset-stage-0": "^6.24.1",
     "node-sass": "^4.5.3",
+    "styled-jsx-css-loader": "^0.2.0",
     "styled-jsx-plugin-sass": "^0.2.0"
   }
 }
