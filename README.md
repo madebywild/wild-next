@@ -46,6 +46,12 @@ In general – think the React way, for your convenience we also placed a `_glob
 
 Sometimes back to the roots is nice. Simply put your stuff into `/static` and reference it as usual, but prefix the URLs with `/static/<filename>`. For **fonts** we recommend to simply put them in the `/static` folder and put font-face declarations into a Wrapper Component like `_global.js`.
 
+## CSS Styles
+
+We changed nothing as often as our styling setup. To have the best out of both worlds, we settled for the following approach: We use `next`'s [styled-jsx](https://github.com/zeit/styled-jsx/) for scoping CSS to a component, refer to their documentation for more information. To make our lifes easier, we included a [plugin](https://github.com/giuseppeg/styled-jsx-plugin-sass) so you can write SASS code within styled-jsx literals.
+
+On top of that we have a special loader so can write your styles in an external `.scss`-file, import it into a variable which you then place inside a `<style jsx>{varname}</style>`-tag. That way you can separate our very large stylesheets, have code highlighting in every editor and still use all the features that styled-jsx has to offer. If you `@import` in your `.scss`-files, remember to always create your path from the root up and not from the location of the `.scss`-file.
+
 ## Javascript
 
 Next runs mostly on convention over configuration, we'll highlight a few important pieces here, but for all your questions, simply head to their [zeit/next repository](https://github.com/zeit/next.js) to get all your questions answered.
@@ -232,10 +238,6 @@ Make sure you fill out all fields you use for all environments you use, there is
 ## Server and Middleware
 
 In our boilerplate `next` is per default integrated into a `express` server. That means you can easily integrate middleware or a full database-fetching API into the server. Simply open up `server.js` in the root and edit to your likings. There is a sample line for an API route in there for your convenience.
-
-## CSS Styles
-
-Since [styled-jsx](https://github.com/zeit/styled-jsx/) v2 features a lot of improvements for dynamic styles, we recommend on using it. To make our lifes easier, we included a [plugin](https://github.com/giuseppeg/styled-jsx-plugin-sass) so you can write SASS code within styled-jsx literals.
 
 ## Export
 

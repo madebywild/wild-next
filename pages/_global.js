@@ -1,5 +1,6 @@
+
 import React from "react";
-import styles from "../config/styles.js";
+import styles from "../global.scss";
 
 export default props => (
   <div>

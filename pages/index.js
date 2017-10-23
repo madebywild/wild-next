@@ -1,9 +1,9 @@
 
 import React from "react";
 import Head from "next/head";
-import Global from "./_global";
+import Global from "./_global.js";
 import Navigation from "../components/navigation";
-import env from "../env.config";
+import env from "../env.config.js";
 
 export default class extends React.Component {
 

@@ -28,14 +28,16 @@
     "next": "^4.1.0",
     "next-routes": "^1.1.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "styled-jsx": "^2.1.2"
   },
   "devDependencies": {
-    "eslint-config-wild": "^0.2.2",
     "babel-preset-stage-0": "^6.24.1",
+    "eslint-config-wild": "^0.2.3",
     "husky": "^0.14.3",
     "lint-staged": "^4.3.0",
     "node-sass": "^4.5.3",
+    "styled-jsx-css-loader": "^0.2.0",
     "styled-jsx-plugin-sass": "^0.2.0"
   },
   "eslintConfig": {
