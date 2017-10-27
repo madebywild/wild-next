@@ -5,7 +5,7 @@ import Navigation from "../components/navigation";
 
 export default class extends React.Component {
 
-  render () {
+  render() {
     return (
       <Global>
         <Head>

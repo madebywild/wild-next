@@ -9,18 +9,35 @@ exports.exportPathMap = () => ({
 
 exports.webpack = config => {
   // Perform customizations to webpack config
-  config.module.rules.push({
-    test: /\.scss/,
-    use: [
-      {
-        loader: "emit-file-loader",
-        options: {
-          name: "dist/[path][name].[ext]",
+  config.module.rules.push(
+    // SCSS support
+    {
+      test: /\.scss/,
+      use: [
+        {
+          loader: "emit-file-loader",
+          options: {
+            name: "dist/[path][name].[ext]",
+          },
         },
-      },
-      "babel-loader",
-      "styled-jsx-css-loader",
-    ]
-  });
+        "babel-loader",
+        "styled-jsx-css-loader",
+      ]
+    },
+    // shader import support
+    {
+      test: /\.glsl$/,
+      use: [
+        {
+          loader: "emit-file-loader",
+          options: {
+            name: "dist/[path][name].[ext]",
+          },
+        },
+        "babel-loader",
+        "webpack-glsl-loader"
+      ]
+    }
+  );
   return config;
 };

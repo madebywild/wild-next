@@ -7,7 +7,7 @@ import env from "../env.config.js";
 
 export default class extends React.Component {
 
-  render () {
+  render() {
     return (
       <Global>
         <Head>

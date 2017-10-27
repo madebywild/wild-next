@@ -67,6 +67,25 @@ You will probably run into lots of issues the longer you work on a commit, so it
 
 As soon as your component has more than 300 lines, you should split it up into child components, unless you can express a valid reson why you'd rather not want to.
 
+### Shader import
+
+We use a custom webpack loader so you can import the strings of `.glsl`-files. You can then import other shader files as if it were SASS and you have the great glsl syntax highlighting that you love.
+
+```js
+// ./include.glsl
+foo
+// ./shader.glsl
+@import ./include
+goo
+// ./page.js
+import shader from './shader.glsl';
+/*
+// the "shader"-var is now this string:
+foo
+goo
+ */
+```
+
 ### Routing
 
 Out of the box `next` has the convention of automatically gathering routes by `.js`-files in the `/pages` directory. As soon as you want parameterized urls, this alone is not really that beneficial anymore. Instead we have a `routes.js` file in the root that routes URLs to pages within the `/pages` directory. This file is used both on the server and the client.

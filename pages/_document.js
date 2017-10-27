@@ -4,7 +4,7 @@ import flush from "styled-jsx/server";
 
 export default class MyDocument extends Document {
 
-  static getInitialProps ({ renderPage }) {
+  static getInitialProps({ renderPage }) {
     const {
       html, head, errorHtml, chunks
     } = renderPage();
@@ -14,7 +14,7 @@ export default class MyDocument extends Document {
     };
   }
 
-  render () {
+  render() {
     // make the environment available on the client
     const envScript = `window.ENV = '${process.env.NODE_ENV || "development"}';`;
     return (

@@ -3,12 +3,12 @@ import HTTPStatus from "http-status";
 import Head from "next/head";
 
 export default class Error extends React.Component {
-  static getInitialProps ({ res, err }) {
+  static getInitialProps({ res, err }) {
     const statusCode = res ? res.statusCode : (err ? err.statusCode : null); // eslint-disable-line no-nested-ternary
     return { statusCode };
   }
 
-  render () {
+  render() {
     const { statusCode } = this.props;
     const title = statusCode === 404
       ? "This page could not be found"

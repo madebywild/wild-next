@@ -38,7 +38,8 @@
     "lint-staged": "^4.3.0",
     "node-sass": "^4.5.3",
     "styled-jsx-css-loader": "^0.2.0",
-    "styled-jsx-plugin-sass": "^0.2.0"
+    "styled-jsx-plugin-sass": "^0.2.0",
+    "webpack-glsl-loader": "^1.0.1"
   },
   "eslintConfig": {
     "extends": "wild"
