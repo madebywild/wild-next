@@ -1,5 +1,7 @@
 // Uncomment the following and update with all your possible urls to enable the exporting feature
 
+const path = require("path")
+
 exports.exportPathMap = () => ({
   "/": { page: "/" },
   "/about": { page: "/about" },
@@ -17,10 +19,16 @@ exports.webpack = config => {
         {
           loader: "emit-file-loader",
           options: {
-            name: "dist/[path][name].[ext]",
+            name: "dist/[path][name].[ext].js",
           },
         },
-        "babel-loader",
+        {
+          loader: "babel-loader",
+          options: {
+            babelrc: false,
+            extends: path.resolve(__dirname, "./.babelrc"),
+          },
+        },
         "styled-jsx-css-loader",
       ]
     },
