@@ -1,13 +1,12 @@
+const path = require("path");
+
 // Uncomment the following and update with all your possible urls to enable the exporting feature
-
-const path = require("path")
-
-exports.exportPathMap = () => ({
-  "/": { page: "/" },
-  "/about": { page: "/about" },
-  "/product/plant": { page: "/product", query: { slug: "plant" } },
-  "/product/tree": { page: "/product", query: { slug: "tree" } },
-});
+// exports.exportPathMap = () => ({
+//   "/": { page: "/" },
+//   "/about": { page: "/about" },
+//   "/product/plant": { page: "/product", query: { slug: "plant" } },
+//   "/product/tree": { page: "/product", query: { slug: "tree" } },
+// });
 
 exports.webpack = config => {
   // Perform customizations to webpack config
