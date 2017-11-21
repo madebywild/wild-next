@@ -5,7 +5,6 @@ node_modules
 .publish
 Desktop.ini
 npm-debug.log
-dist
 *.swp
 *.repeaks
 
