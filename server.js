@@ -16,9 +16,10 @@ app.prepare().then(() => {
   // always make sure the handler is the last route entry
   server.use(handler);
 
-  server.listen(process.env.PORT || 3000, (err) => {
+  const port = process.env.PORT || 3000;
+  server.listen(port, (err) => {
     if (err) throw err;
-    console.log("> Ready on http://localhost:3000"); // eslint-disable-line no-console
+    console.log(`> Env ${process.env.NODE_ENV} Ready on http://localhost:${port}`); // eslint-disable-line no-console
   });
 
 });
