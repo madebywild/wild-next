@@ -1,0 +1,12 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _defaultExport = new String('div{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding:10px;background-color:crimson;border-radius:3px;}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvbmF2aWdhdGlvbi5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVrQixBQUVnQiwwRUFDQSxhQUNZLHlCQUNQLGtCQUFDIiwiZmlsZSI6ImNvbXBvbmVudHMvbmF2aWdhdGlvbi5zY3NzIiwic291cmNlUm9vdCI6Ii9Vc2Vycy90aG9tYXMvZGV2L3dpbGQtbmV4dCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBjc3MgZnJvbSAnc3R5bGVkLWpzeC9jc3MnO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgQGltcG9ydCAndmFycy5zY3NzJztcblxuZGl2IHtcbiAgZGlzcGxheTogZmxleDtcbiAgcGFkZGluZzogMTBweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yO1xuICBib3JkZXItcmFkaXVzOiAzcHg7XG59XG5gOyJdfQ== */\n/*@ sourceURL=components/navigation.scss */');
+
+_defaultExport.__hash = '4254327121';
+_defaultExport.__scoped = 'div.jsx-2415521104{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding:10px;background-color:crimson;border-radius:3px;}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvbmF2aWdhdGlvbi5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVrQixBQUVnQiwwRUFDQSxhQUNZLHlCQUNQLGtCQUFDIiwiZmlsZSI6ImNvbXBvbmVudHMvbmF2aWdhdGlvbi5zY3NzIiwic291cmNlUm9vdCI6Ii9Vc2Vycy90aG9tYXMvZGV2L3dpbGQtbmV4dCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBjc3MgZnJvbSAnc3R5bGVkLWpzeC9jc3MnO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgQGltcG9ydCAndmFycy5zY3NzJztcblxuZGl2IHtcbiAgZGlzcGxheTogZmxleDtcbiAgcGFkZGluZzogMTBweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogJGNvbG9yO1xuICBib3JkZXItcmFkaXVzOiAzcHg7XG59XG5gOyJdfQ== */\n/*@ sourceURL=components/navigation.scss */';
+_defaultExport.__scopedHash = '2415521104';
+exports.default = _defaultExport;

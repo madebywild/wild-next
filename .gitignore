@@ -1,6 +1,6 @@
 # Standards
 node_modules
-.next
+#.next
 .DS_STORE
 .publish
 Desktop.ini
