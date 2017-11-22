@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server.js",
     "build": "next build",
+    "build-for-deploy": "next build && git add . && git commit -m 'build for deploy' && git push",
     "export": "next build && next export -o dist",
     "start": "NODE_ENV=production node server.js",
     "start-beanstalk": "next build && NODE_ENV=production node server.js",
@@ -16,7 +17,9 @@
     "lint:js": "npm run lint:eslint -- . ",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern vendor/*",
     "lint:staged": "lint-staged",
-    "precommit": "npm run lint:staged"
+    "precommit": "npm run lint:staged",
+    "deploy-development": "export NODE_ENV=remotedev && npm run build-for-deploy && pm2 deploy remotedev",
+    "deploy-staging": "export NODE_ENV=staging && npm run build-for-deploy && pm2 deploy staging"
   },
   "lint-staged": {
     "**/*.js": "lint:eslint"

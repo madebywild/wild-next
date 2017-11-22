@@ -9,6 +9,9 @@ const environments = {
   development: {
     PUBLIC_URL: "https://localhost"
   },
+  remotedev: {
+    PUBLIC_URL: "https://dev.example.com"
+  },
   staging: {
     PUBLIC_URL: "https://staging.example.com"
   },

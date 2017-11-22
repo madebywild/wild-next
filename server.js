@@ -1,7 +1,7 @@
 const express = require("express");
 const next = require("next");
 const routes = require("./routes");
-const app = next({ dev: process.env.NODE_ENV !== "production" });
+const app = next({ dev: process.env.NODE_ENV !== "production" && process.env.NODE_ENV !== "staging" && process.env.NODE_ENV !== "remotedev" });
 const handler = routes.getRequestHandler(app);
 
 app.prepare().then(() => {
