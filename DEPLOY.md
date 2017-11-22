@@ -26,7 +26,7 @@ Our stack features a process that needs to be built for different environments a
 
 2) Make sure your reverse proxy (nginx/apache) have a vhost properly set up to proxy to the coming node instance. We suggest port 8080 for staging and 8081 for development.
 
-3) You should have a Github machine user with a passwordless `id_rsa` key set up in github that has access to the repository. Copy the `id_rsa` and ìd_rsa.pub` into the machines `~/.ssh/`-folder and test if it has access to the repository.
+3) You should have a Github machine user with a passwordless `id_rsa` key set up in github that has access to the repository. Copy the `id_rsa` and `ìd_rsa.pub` into the machines `~/.ssh/`-folder and test if it has access to the repository.
 
 4) When pm2 is invoked to restart the server, it does so in a non-interactive way. That means that the three lines that `nvm` appended to your `~/.bashrc` have to be moved up all to the top of the file as the very first line so pm2 can properly resolve node and itself in the path.
 
