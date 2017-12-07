@@ -44,3 +44,18 @@ $ pm2 deploy <environment> revert 1
 # Execute a command on the server
 $ pm2 deploy production exec "pm2 restart all"
 ```
+
+## Installing a publicly available mysql server
+
+```
+sudo apt-get update
+sudo apt-get install mysql-server
+mysql_secure_installation
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+# change "bind-address = 127.0.0.1" to "bind-address = 0.0.0.0"
+mysql -u root -p
+# inside the prompt fire the following three lines (but with a different password)
+CREATE USER 'admin'@'%' IDENTIFIED BY 'yourpassword';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+```
