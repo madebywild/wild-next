@@ -15,6 +15,7 @@
     "lint:js": "npm run lint:eslint -- . ",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern vendor/*",
     "lint:staged": "lint-staged",
+    "postinstall": "cp vendor/gsap/bonus-files-for-npm-users/* node_modules/gsap/",
     "precommit": "npm run lint:staged",
     "deploy-dev": "ssh -i \"~/.ssh/development.pem\" ubuntu@deployment.wild.plus -t \"cd /var/www/dev && git pull && npm i --production && NODE_ENV=staging npm run build && pm2 restart dev\"",
     "deploy-staging": "ssh -i \"~/.ssh/development.pem\" ubuntu@deployment.wild.plus -t \"cd /var/www/staging && git pull && npm i --production && NODE_ENV=staging npm run build && pm2 restart staging\""
@@ -27,10 +28,11 @@
   "dependencies": {
     "eslint": "^4.17.0",
     "express": "^4.15.2",
-    "next": "^4.1.4",
-    "next-routes": "^1.1.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "gsap": "^1.20.3",
+    "next": "^5.0.0",
+    "next-routes": "^1.2.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "styled-jsx": "^2.1.2"
   },
   "devDependencies": {
