@@ -7,6 +7,8 @@ Desktop.ini
 npm-debug.log
 *.swp
 *.repeaks
+.next
+dist
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
