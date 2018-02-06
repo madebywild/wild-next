@@ -1,7 +1,0 @@
-"use strict";
-
-var nextRoutes = require("next-routes");
-var routes = module.exports = nextRoutes();
-
-routes.add("product", "/product/:slug", "product");
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJvdXRlcy5qcyJdLCJuYW1lcyI6WyJuZXh0Um91dGVzIiwicmVxdWlyZSIsInJvdXRlcyIsIm1vZHVsZSIsImV4cG9ydHMiLCJhZGQiXSwibWFwcGluZ3MiOiI7O0FBQUEsSUFBTSxhQUFhLEFBQWIsQUFBTjtBQUNBLElBQU0sU0FBUyxPQUFPLEFBQVAsVUFBaUIsQUFBaEM7O0FBRUEsT0FBTyxBQUFQLElBQVcsQUFBWCxXQUFzQixBQUF0QixrQkFBd0MsQUFBeEMiLCJmaWxlIjoicm91dGVzLmpzIiwic291cmNlUm9vdCI6Ii9Vc2Vycy90aG9tYXMvZGV2L3dpbGQtbmV4dCJ9
