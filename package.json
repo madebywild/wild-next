@@ -16,14 +16,12 @@
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern vendor/*",
     "lint:staged": "lint-staged",
     "postinstall": "# cp vendor/gsap/bonus-files-for-npm-users/* node_modules/gsap/",
-    "precommit": "npm run lint:staged",
-    "deploy-dev": "ssh -i \"~/.ssh/development.pem\" ubuntu@deployment.wild.plus -t \"cd /var/www/dev && git pull && npm i --production && NODE_ENV=staging npm run build && pm2 restart dev\"",
-    "deploy-staging": "ssh -i \"~/.ssh/development.pem\" ubuntu@deployment.wild.plus -t \"cd /var/www/staging && git pull && npm i --production && NODE_ENV=staging npm run build && pm2 restart staging\""
+    "precommit": "npm run lint:staged"
   },
   "lint-staged": {
     "**/*.js": "lint:eslint"
   },
-  "author": "Thomas Strobl <thomas@thomas-strobl.com> (http://thomas-strobl.com/)",
+  "author": "WILD <weare@wild.as> (https://wild.as)",
   "license": "ISC",
   "dependencies": {
     "eslint": "^4.17.0",
