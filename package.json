@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server.js",
+    "dev": "NODE_ENV=development WILD_ENV=development node server.js",
     "build": "next build",
     "export": "next build && next export -o dist",
     "start": "NODE_ENV=production node server.js",
@@ -14,33 +14,32 @@
     "lint:withfix": "npm run lint:js -- --fix",
     "lint:js": "npm run lint:eslint -- . ",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern vendor/*",
-    "lint:staged": "lint-staged",
     "postinstall": "# cp vendor/gsap/bonus-files-for-npm-users/* node_modules/gsap/",
-    "precommit": "npm run lint:staged"
+    "precommit": "lint-staged"
   },
   "lint-staged": {
-    "**/*.js": "lint:eslint"
+    "**/*.js": "eslint --ignore-path .gitignore --ignore-pattern vendor/*"
   },
   "author": "WILD <weare@wild.as> (https://wild.as)",
   "license": "ISC",
   "dependencies": {
-    "eslint": "^4.17.0",
-    "express": "^4.15.2",
-    "gsap": "^1.20.3",
-    "next": "^5.0.0",
-    "next-routes": "^1.2.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "styled-jsx": "^2.1.2"
+    "eslint": "^4.19.1",
+    "express": "^4.16.3",
+    "gsap": "^1.20.4",
+    "next": "^5.1.0",
+    "next-routes": "^1.4.1",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "styled-jsx": "^2.2.6"
   },
   "devDependencies": {
     "babel-preset-stage-0": "^6.24.1",
-    "eslint-config-wild": "^0.2.3",
+    "eslint-config-wild": "^0.2.4",
     "husky": "^0.14.3",
-    "lint-staged": "^4.3.0",
-    "node-sass": "^4.5.3",
-    "styled-jsx-css-loader": "^0.2.0",
-    "styled-jsx-plugin-sass": "^0.2.0",
+    "lint-staged": "^7.0.4",
+    "node-sass": "^4.8.3",
+    "styled-jsx-css-loader": "^0.3.0",
+    "styled-jsx-plugin-sass": "^0.2.4",
     "webpack-glsl-loader": "^1.0.1"
   },
   "eslintConfig": {

@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
 
   render() {
     // make the environment available on the client
-    const envScript = `window.ENV = '${process.env.NODE_ENV || "development"}';`;
+    const envScript = `window.ENV = '${process.env.WILD_ENV || "development"}';`;
     return (
       <html lang="en">
         <Head>

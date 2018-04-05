@@ -1,7 +1,7 @@
 const express = require("express");
 const next = require("next");
 const routes = require("./routes");
-const app = next({ dev: process.env.NODE_ENV !== "production" && process.env.NODE_ENV !== "staging" && process.env.NODE_ENV !== "remotedev" });
+const app = next({ dev: process.env.NODE_ENV !== "production" });
 const handler = routes.getRequestHandler(app);
 
 app.prepare().then(() => {
@@ -19,7 +19,7 @@ app.prepare().then(() => {
   const port = process.env.PORT || 3000;
   server.listen(port, (err) => {
     if (err) throw err;
-    console.log(`> Env ${process.env.NODE_ENV} Ready on http://localhost:${port}`); // eslint-disable-line no-console
+    console.log(`> Env ${process.env.WILD_ENV} Ready on http://localhost:${port}`); // eslint-disable-line no-console
   });
 
 });

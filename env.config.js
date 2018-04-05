@@ -7,19 +7,16 @@
 // define all environments you expect here
 const environments = {
   development: {
-    PUBLIC_URL: "https://localhost"
-  },
-  remotedev: {
-    PUBLIC_URL: "https://dev.example.com"
+    PUBLIC_URL: "http://localhost:3000"
   },
   staging: {
-    PUBLIC_URL: "https://staging.example.com"
+    PUBLIC_URL: "http://staging.example.com"
   },
   production: {
-    PUBLIC_URL: "https://example.com"
+    PUBLIC_URL: "http://example.com"
   }
 };
 
 // could be imported by the client or the server
-const env = (typeof window !== "undefined" ? window.ENV : process.env.NODE_ENV) || "development";
+const env = (typeof window !== "undefined" ? window.ENV : process.env.WILD_ENV) || "development";
 module.exports = environments[env.toLowerCase()];
