@@ -13,7 +13,7 @@
     "lint": "npm run lint:js",
     "lint:withfix": "npm run lint:js -- --fix",
     "lint:js": "npm run lint:eslint -- . ",
-    "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern vendor/*",
+    "lint:eslint": "eslint --ignore-path .eslintignore",
     "postinstall": "# cp vendor/gsap/bonus-files-for-npm-users/* node_modules/gsap/",
     "precommit": "lint-staged"
   },
