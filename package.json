@@ -23,14 +23,14 @@
   "author": "WILD <weare@wild.as> (https://wild.as)",
   "license": "ISC",
   "dependencies": {
+    "@zeit/next-sass": "^0.2.0",
     "eslint": "^4.19.1",
     "express": "^4.16.3",
     "gsap": "^1.20.4",
-    "next": "^5.1.0",
-    "next-routes": "^1.4.1",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "styled-jsx": "^2.2.6"
+    "next": "^6.1.1",
+    "next-routes": "^1.4.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   },
   "devDependencies": {
     "babel-preset-stage-0": "^6.24.1",
@@ -38,11 +38,15 @@
     "husky": "^0.14.3",
     "lint-staged": "^7.0.4",
     "node-sass": "^4.8.3",
-    "styled-jsx-css-loader": "^0.3.0",
-    "styled-jsx-plugin-sass": "^0.2.4",
     "webpack-glsl-loader": "^1.0.1"
   },
   "eslintConfig": {
-    "extends": "wild"
+    "extends": "wild",
+    "rules": {
+      "react/no-array-index-key": 0,
+      "react/sort-comp": 0,
+      "no-mixed-operators": 0,
+      "function-paren-newline": 0
+    }
   }
 }

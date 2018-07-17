@@ -4,8 +4,6 @@ While we were building our own SSR stack suddenly `zeit/next.js` popped up and j
 
 ## Installation
 
-`wildplate` had a global command palette, but the reality is – you're not gonna update an old project to work with the latest version of your globally installed toolkit. So we go old-school here and stay flexible for the future: Clone this boilerplate – fire and forget. Instead of complex updating mechanisms, clone again and migrate manually if needed.
-
 ```bash
 $ git clone https://github.com/madebywild/wild-next.git your-project # change the name and clone this repo
 $ cd your-project # jump into the project
@@ -25,8 +23,6 @@ $ npm i # or yarn if you fancy
 
 - `./components`
   Holds all components (repeating sections / widgets) that are used by `pages` to composite pages.
-- `./elements`
-  Holds all elements (repeating elements) that are used by `components` across the site. Classic candidates are buttons, form components etc.
 - `./pages`
   Holds all pages (containers), each file should represent one route. They are automatically routed by their filename, but can have a custom route name (see further down below).
   - `./pages/_document.js`
@@ -46,11 +42,34 @@ In general – think the React way, for your convenience we also placed a `_glob
 
 Sometimes back to the roots is nice. Simply put your stuff into `/static` and reference it as usual, but prefix the URLs with `/static/<filename>`. For **fonts** we recommend to simply put them in the `/static` folder and put font-face declarations into a Wrapper Component like `_global.js`.
 
-## CSS Styles
+## CSS/SASS Styles
 
-We changed nothing as often as our styling setup. To have the best out of both worlds, we settled for the following approach: We use `next`'s [styled-jsx](https://github.com/zeit/styled-jsx/) for scoping CSS to a component, refer to their documentation for more information. To make our lifes easier, we included a [plugin](https://github.com/giuseppeg/styled-jsx-plugin-sass) so you can write SASS code within styled-jsx literals.
+We use SASS in combination with CSS modules. This means that every classname you use in your .scss files will be turned into a unique hash. You can reference these hashes as entries in the style object that you import. This has the advantage of guaranteed unique classnames so scoping is not an issue anymore. Here is an example:
 
-On top of that we have a special loader so can write your styles in an external `.scss`-file, import it into a variable which you then place inside a `<style jsx>{varname}</style>`-tag. That way you can separate our very large stylesheets, have code highlighting in every editor and still use all the features that styled-jsx has to offer. If you `@import` in your `.scss`-files, remember to always create your path from the root up and not from the location of the `.scss`-file.
+```js
+// next.config.js
+const withSass = require('@zeit/next-sass')
+module.exports = withSass({
+  cssModules: true
+})
+```
+
+Create a Sass file  `styles.scss`
+
+```scss
+$font-size: 50px;
+.example {
+  font-size: $font-size;
+}
+```
+
+Create a page file `pages/index.js`
+
+```js
+import css from "../styles.scss"
+
+export default () => <div className={css.example}>Hello World!</div>
+```
 
 ## Javascript
 
@@ -306,9 +325,26 @@ location / {
 
 
 <details>
+<summary><strong>Sample apache reverse proxy config</strong></summary>
+```
+<VirtualHost *:80>
+  ServerName domain.com
+  ProxyRequests Off
+  ProxyPreserveHost On
+  ProxyVia Full
+  <Proxy *>
+    Require all granted
+  </Proxy>
+  ProxyPass / http://localhost:8080/ connectiontimeout=5 timeout=30
+</VirtualHost>
+```
+</details>
+
+
+<details>
 <summary><strong>Sample pm2 line to start the server</strong></summary>
 
 ```bash
-pm2 start npm --name "next" -- start
+NODE_ENV=staging WILD_ENV=staging PORT=8080 pm2 start npm --name "staging" -- start
 ```
 </details>

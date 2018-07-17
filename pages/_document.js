@@ -1,6 +1,5 @@
 import React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
-import flush from "styled-jsx/server";
 
 export default class MyDocument extends Document {
 
@@ -15,6 +14,7 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <link rel="stylesheet" href="/_next/static/style.css" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
           <script dangerouslySetInnerHTML={{__html: envScript}} />
         </Head>

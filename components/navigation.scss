@@ -1,8 +1,7 @@
-@import 'vars.scss';
+@import "vars.scss";
 
-div {
+.navigation {
   display: flex;
   padding: 10px;
   background-color: $color;
-  border-radius: 3px;
 }

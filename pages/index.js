@@ -14,9 +14,10 @@ export default class extends React.Component {
           <title>Home</title>
         </Head>
         <Navigation />
-        <h1>Welcome to wild-next!</h1>
+        <h1 className={styles.headline}>
+          Welcome to wild-next!
+        </h1>
         <pre>env.config.js</pre><p>says you defined <em>{env.PUBLIC_URL}</em> as the public url for this environment.</p>
-        <style jsx>{styles}</style>
       </Global>
     );
   }
