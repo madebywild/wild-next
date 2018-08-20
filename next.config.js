@@ -26,6 +26,7 @@ module.exports = withSass({
         "webpack-glsl-loader"
       ]
     });
+    return config;
   },
   cssModules: true,
 });
