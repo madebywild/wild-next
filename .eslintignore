@@ -124,5 +124,5 @@ bower_components/
 *.log
 logs
 stats.json
-static
 vendor
+static
