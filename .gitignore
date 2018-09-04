@@ -1,5 +1,6 @@
 # Standards
 node_modules
+vendor/**
 #.next
 .DS_STORE
 .publish
