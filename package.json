@@ -18,7 +18,7 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "**/*.js": "eslint --ignore-path .gitignore --ignore-pattern vendor/*"
+    "**/*.js": "eslint --ignore-path .eslintignore"
   },
   "author": "WILD <weare@wild.as> (https://wild.as)",
   "license": "ISC",

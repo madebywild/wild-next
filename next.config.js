@@ -29,4 +29,7 @@ module.exports = withSass({
     return config;
   },
   cssModules: true,
+  cssLoaderOptions: {
+    localIdentName: "[local]___[hash:base64:5]",
+  },
 });
