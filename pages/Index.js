@@ -4,7 +4,7 @@ import Head from "next/head";
 import Global from "./_global.js";
 import Navigation from "../components/navigation";
 import env from "../env.config.js";
-import styles from "./index.scss";
+import styles from "./Index.scss";
 
 export default class extends React.Component {
   render() {

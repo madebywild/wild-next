@@ -123,5 +123,6 @@ crashlytics-build.properties
 *.sublime-project
 bower_components/
 *.log
+.vscode
 logs
 stats.json
