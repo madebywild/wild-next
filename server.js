@@ -3,6 +3,8 @@ const next = require("next");
 const routes = require("./routes");
 const app = next({ dev: process.env.NODE_ENV !== "production" });
 const handler = routes.getRequestHandler(app);
+const address = require("address");
+const qrcode = require("qrcode-terminal");
 
 app.prepare().then(() => {
 
@@ -20,6 +22,9 @@ app.prepare().then(() => {
   server.listen(port, (err) => {
     if (err) throw err;
     console.log(`> Env ${process.env.WILD_ENV} Ready on http://localhost:${port}`); // eslint-disable-line no-console
+
+    const url = `http://${address.ip()}:${port}`;
+    qrcode.generate(url, {small: true});
   });
 
 });
