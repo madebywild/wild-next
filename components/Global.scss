@@ -1,0 +1,12 @@
+@import "normalize.scss";
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-font-smoothing: antialiased;
+}
+*:focus, *:active {
+  outline: none;
+}
+/* font face declarations */
+

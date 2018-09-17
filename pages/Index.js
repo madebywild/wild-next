@@ -1,8 +1,8 @@
 import React from "react";
 import Head from "next/head";
 
-import Global from "./_global.js";
-import Navigation from "../components/navigation";
+import Global from "../components/Global.js";
+import Navigation from "../components/Navigation";
 import env from "../env.config.js";
 import styles from "./Index.scss";
 
