@@ -1,0 +1,5 @@
+{
+  "verbose": false,
+  "ignore": [".next", "components", "node_modules", "pages", "static"],
+  "ext": "js json"
+}

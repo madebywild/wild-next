@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development WILD_ENV=development node server.js",
+    "dev": "NODE_ENV=development WILD_ENV=development nodemon server.js",
     "build": "next build",
     "export": "next build && next export -o dist",
     "start": "NODE_ENV=production node server.js",
@@ -39,6 +39,7 @@
     "husky": "^0.14.3",
     "lint-staged": "^7.0.4",
     "node-sass": "^4.8.3",
+    "nodemon": "^1.18.4",
     "qrcode-terminal": "^0.12.0",
     "webpack-glsl-loader": "^1.0.1"
   },
