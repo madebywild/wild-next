@@ -63,7 +63,7 @@ $font-size: 50px;
 }
 ```
 
-Create a page file `pages/index.js`
+Create a page file `pages/Index.js`
 
 ```js
 import css from "../styles.scss"
