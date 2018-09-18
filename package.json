@@ -33,11 +33,13 @@
     "react-dom": "^16.4.1"
   },
   "devDependencies": {
+    "address": "^1.0.3",
     "babel-preset-stage-0": "^6.24.1",
     "eslint-config-wild": "^0.2.4",
     "husky": "^0.14.3",
     "lint-staged": "^7.0.4",
     "node-sass": "^4.8.3",
+    "qrcode-terminal": "^0.12.0",
     "webpack-glsl-loader": "^1.0.1"
   },
   "eslintConfig": {
