@@ -3,8 +3,7 @@ import styles from "./Navigation.scss";
 
 export default () => {
   return (
-    <div className="navigation">
-      <style jsx>{styles}</style>
+    <div className={styles.navigation}>
     </div>
   );
 };
