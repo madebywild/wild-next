@@ -14,6 +14,7 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <link rel="stylesheet" href="/_next/static/style.css" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
           <script dangerouslySetInnerHTML={{__html: envScript}} />
         </Head>
