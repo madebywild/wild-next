@@ -1,14 +1,6 @@
 const path = require("path");
 const withSass = require("@zeit/next-sass");
 
-// Uncomment the following and update with all your possible urls to enable the exporting feature
-// exports.exportPathMap = () => ({
-//   "/": { page: "/" },
-//   "/about": { page: "/about" },
-//   "/product/plant": { page: "/product", query: { slug: "plant" } },
-//   "/product/tree": { page: "/product", query: { slug: "tree" } },
-// });
-
 module.exports = withSass({
   webpack(config, options) {
     // Perform customizations to webpack config
@@ -32,4 +24,7 @@ module.exports = withSass({
   cssLoaderOptions: {
     localIdentName: "[local]___[hash:base64:5]",
   },
+  exportPathMap: () => ({
+    "/": { page: "/Index" },
+  }),
 });

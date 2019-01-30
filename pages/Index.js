@@ -6,7 +6,7 @@ import Navigation from "../components/Navigation";
 import env from "../env.config.js";
 import styles from "./Index.scss";
 
-export default class extends React.Component {
+export default class Index extends React.Component {
   render() {
     return (
       <Global>
