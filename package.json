@@ -23,13 +23,7 @@
   "author": "WILD <weare@wild.as> (https://wild.as)",
   "license": "ISC",
   "eslintConfig": {
-    "extends": "wild",
-    "rules": {
-      "react/no-array-index-key": 0,
-      "react/sort-comp": 0,
-      "no-mixed-operators": 0,
-      "function-paren-newline": 0
-    }
+    "extends": "wild"
   },
   "dependencies": {
     "@yolkai/next-routes": "^3.0.0",
@@ -44,7 +38,7 @@
   "devDependencies": {
     "address": "^1.0.3",
     "babel-preset-stage-0": "^6.24.1",
-    "eslint-config-wild": "^0.2.4",
+    "eslint-config-wild": "^0.2.5",
     "husky": "^1.3.1",
     "lint-staged": "^8.1.1",
     "node-sass": "^4.11.0",
