@@ -1,12 +1,14 @@
+/* @styled-jsx=global */
+
 @import "normalize.scss";
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -ms-font-smoothing: antialiased;
+  background: #0f0;
 }
+
 *:focus, *:active {
   outline: none;
 }
-/* font face declarations */
-

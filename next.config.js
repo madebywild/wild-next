@@ -1,8 +1,8 @@
 const path = require("path");
-const withSass = require("@zeit/next-sass");
 const withTM = require("next-plugin-transpile-modules");
+const styledJsxLoader = require("styled-jsx/webpack");
 
-module.exports = withSass({
+module.exports = withTM({
   webpack(config, options) {
     // Perform customizations to webpack config
     config.module.rules.push({
@@ -16,8 +16,20 @@ module.exports = withSass({
           },
         },
         "babel-loader",
-        "webpack-glsl-loader"
-      ]
+        "webpack-glsl-loader",
+      ],
+    });
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: [
+        options.defaultLoaders.babel,
+        {
+          loader: styledJsxLoader.loader,
+          options: {
+            type: "scoped",
+          },
+        },
+      ],
     });
     return config;
   },
