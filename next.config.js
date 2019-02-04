@@ -1,5 +1,6 @@
 const path = require("path");
 const withSass = require("@zeit/next-sass");
+const withTM = require("next-plugin-transpile-modules");
 
 module.exports = withSass({
   webpack(config, options) {
@@ -20,6 +21,7 @@ module.exports = withSass({
     });
     return config;
   },
+  transpileModules: ["gsap"],
   cssModules: true,
   cssLoaderOptions: {
     localIdentName: "[local]___[hash:base64:5]",
