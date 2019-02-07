@@ -34,8 +34,8 @@
     "express": "^4.16.4",
     "gsap": "^2.0.2",
     "next": "^7.0.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "styled-jsx": "^3.2.0"
   },
   "devDependencies": {
