@@ -1,4 +1,6 @@
-# wild next boilerplate <a href="https://wild.as"><img alt="wild" src="https://img.shields.io/badge/made%20by-WILD-000000.svg"></a> <a href="https://twitter.com/madebywild"><img alt="@madebywild" src="https://img.shields.io/twitter/follow/madebywild.svg?style=social&label=Follow&style=plastic"></a> <a href="https://github.com/airbnb/javascript"><img src="https://badgen.net/badge/style/Airbnb/ff5a5f?icon=airbnb" alt="AirBnB Style"></a>
+wild next boilerplate 
+===========
+<a href="https://wild.as"><img alt="wild" src="https://img.shields.io/badge/made%20by-WILD-000000.svg"></a> <a href="https://twitter.com/madebywild"><img alt="@madebywild" src="https://img.shields.io/twitter/follow/madebywild.svg?style=social&label=Follow&style=plastic"></a> <a href="https://github.com/airbnb/javascript"><img src="https://badgen.net/badge/style/Airbnb/ff5a5f?icon=airbnb" alt="AirBnB Style"></a>
 
 While we were building our own SSR stack suddenly `zeit/next.js` popped up and
 just did everything right. Moving from our rather custom solution to next we
