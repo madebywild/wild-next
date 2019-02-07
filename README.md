@@ -1,6 +1,10 @@
 # wild next boilerplate <a href="https://wild.as"><img alt="wild" src="https://img.shields.io/badge/made%20by-WILD-000000.svg"></a> <a href="https://twitter.com/madebywild"><img alt="@madebywild" src="https://img.shields.io/twitter/follow/madebywild.svg?style=social&label=Follow&style=plastic"></a> <a href="https://github.com/airbnb/javascript"><img src="https://badgen.net/badge/style/Airbnb/ff5a5f?icon=airbnb" alt="AirBnB Style"></a>
 
-While we were building our own SSR stack suddenly `zeit/next.js` popped up and just did everything right. Moving from our rather custom solution to next we came accustomed to a certain workflow and syntax, so we decided to ditch the old stuff and create a sane base configuration of `next` to kickoff new projects.
+While we were building our own SSR stack suddenly `zeit/next.js` popped up and
+just did everything right. Moving from our rather custom solution to next we
+came accustomed to a certain workflow and syntax, so we decided to ditch the
+old stuff and create a sane base configuration of `next` to kick off new
+projects.
 
 ## Installation
 
@@ -34,42 +38,51 @@ $ npm i # or yarn if you fancy
 - `./static`
   Holds all static files (fonts / images / videos etc.), can also be used to transfer things like `robots.txt` or `favicon.ico`.
 
-The `/pages` convention is pretty nifty and forces you to do bright decisions and poses a simple way for a new developer that works on the project to understand which comp is rendered from which route
+The `/pages` convention is pretty nifty and forces you to do bright decisions
+and poses a simple way for a new developer that works on the project to
+understand which comp is rendered from which route
 
-In general – think the React way, for your convenience we also placed a `_global.js` file in the `/pages` directory which you probably want to use as the top-level wrapper of your pages. This file allows you to have styles like **fonts** or a css reset available globally. You can use it as a Layout file to have general markup as well. Or you separate it into its own file – in the end up to you.
+In general – think the React way, for your convenience we also placed a
+`Global.js` file in the `/components` directory which you probably want to use as
+the top-level wrapper of your pages. This file allows you to have styles like
+**fonts** or a css reset available globally. You can use it as a Layout file to
+have general markup as well. Or you separate it into its own file – in the end
+up to you.
 
 ## Images / Static Files
 
-Sometimes back to the roots is nice. Simply put your stuff into `/static` and reference it as usual, but prefix the URLs with `/static/<filename>`. For **fonts** we recommend to simply put them in the `/static` folder and put font-face declarations into a Wrapper Component like `_global.js`.
+Sometimes back to the roots is nice. Simply put your stuff into `/static` and
+reference it as usual, but prefix the URLs with `/static/<filename>`. For
+**fonts** we recommend to simply put them in the `/static` folder and put
+font-face declarations into a Wrapper Component like `Global.js`.
 
 ## CSS/SASS Styles
 
-We use SASS in combination with CSS modules. This means that every classname you use in your .scss files will be turned into a unique hash. You can reference these hashes as entries in the style object that you import. This has the advantage of guaranteed unique classnames so scoping is not an issue anymore. Here is an example:
+We use [styled jsx](https://github.com/zeit/styled-jsx) for styling. The
+convention is to put styles in separate scss files, import those with
 
-```js
-// next.config.js
-const withSass = require('@zeit/next-sass')
-module.exports = withSass({
-  cssModules: true
-})
+```
+import styles from "./Example.scss";
 ```
 
-Create a Sass file  `styles.scss`
+and use them in the component with
 
-```scss
-$font-size: 50px;
-.example {
-  font-size: $font-size;
-}
+```
+<style jsx>{styles}</style>
 ```
 
-Create a page file `pages/index.js`
+Sass is automatically parsed. If you want to use global styles, preferably use
+the `components/Global.scss` file. If you need them somewhere else, make sure
+to add the global prop to the style tag: `<style jsx global>{styles}</style>`.
+It's also required to put this line at the top of a global scss file:
 
-```js
-import css from "../styles.scss"
-
-export default () => <div className={css.example}>Hello World!</div>
 ```
+/* @styled-jsx=global */
+```
+
+If you `@import` in your `.scss`-files, remember to always create your path
+from the root up and not from the location of the `.scss`-file.
+
 
 ## Javascript
 
@@ -214,7 +227,8 @@ const routes = module.exports = nextRoutes({Link, Router})
 
 ### Head
 
-For changing things that happen in the `<head>` part of the page, make use of the `next/head` helper, see this example as it is pretty self-explanatory:
+For changing things that happen in the `<head>` part of the page, make use of
+the `next/head` helper, see this example as it is pretty self-explanatory:
 
 ```js
 import Head from 'next/head'
@@ -229,11 +243,17 @@ export default () => (
 )
 ```
 
-_Note: The contents of <head> get cleared upon unmounting the component, so make sure each page completely defines what it needs in <head>, without making assumptions about what other pages added_
+_Note: The contents of <head> get cleared upon unmounting the component, so
+make sure each page completely defines what it needs in <head>, without making
+assumptions about what other pages added_
 
 ### Fetching Data
 
-Our stack uses a headless CMS, so chance are very high that you want to fetch data before rendering a component (server-side-rendering) or navigating to a new page on the client. `next` uses a static async function called `getInitialProps()` that should be used exactly for that. Do yourself a favor and use the `async/await` syntax for added beauty.
+Our stack uses a headless CMS, so chance are very high that you want to fetch
+data before rendering a component (server-side-rendering) or navigating to a
+new page on the client. `next` uses a static async function called
+`getInitialProps()` that should be used exactly for that. Do yourself a favor
+and use the `async/await` syntax for added beauty.
 
 ```js
 import React from 'react';
@@ -265,25 +285,48 @@ export default class extends React.Component {
 
 ## Environments
 
-As you will probably work off a `local`, a `staging` and a `production` environment, you can make use of the `env.config.js` file. It exports one object with the respective properties you define depending on your current environment. Simply import it in your scripts, we made sure the environment is properly read both on the server and the client.
+As you will probably work off a `local`, a `staging` and a `production`
+environment, you can make use of the `env.config.js` file. It exports one
+object with the respective properties you define depending on your current
+environment. Simply import it in your scripts, we made sure the environment is
+properly read both on the server and the client.
 
-**Do not put sensitive information like access data here, this file might be bundled to the client!** If you want to store access data for eg. database access, you will always only need it on the server, so you should either read it from environment variables or store it in a not-checked-into-git-file that you require in node and note its existence in your project readme.
+**Do not put sensitive information like access data here, this file might be
+bundled to the client!** If you want to store access data for eg. database
+access, you will always only need it on the server, so you should either read
+it from environment variables or store it in a not-checked-into-git-file that
+you require in node and note its existence in your project readme.
 
-This way you can easily build against different environments and eg. insert a different _API Url_ or _Google Analytics snippet_ to staging than production.
+This way you can easily build against different environments and eg. insert a
+different _API Url_ or _Google Analytics snippet_ to staging than production.
 
-Make sure you fill out all fields you use for all environments you use, there is **no checking from the boilerplate if you do so** to keep things simple and flexible.
+Make sure you fill out all fields you use for all environments you use, there
+is **no checking from the boilerplate if you do so** to keep things simple and
+flexible.
 
 ## Server and Middleware
 
-In our boilerplate `next` is per default integrated into a `express` server. That means you can easily integrate middleware or a full database-fetching API into the server. Simply open up `server.js` in the root and edit to your likings. There is a sample line for an API route in there for your convenience.
+In our boilerplate `next` is per default integrated into a `express` server.
+That means you can easily integrate middleware or a full database-fetching API
+into the server. Simply open up `server.js` in the root and edit to your
+likings. There is a sample line for an API route in there for your convenience.
 
 ## Export
 
-The export feature can still be considered quite experimental with an API that will most likely change. Yet it is powerful and allows you to pre-render all routes into static html files, which makes the site eligible for static hosting on S3, which as you know is ugly-ass-cheap.
+The export feature can still be considered quite experimental with an API that
+will most likely change. Yet it is powerful and allows you to pre-render all
+routes into static html files, which makes the site eligible for static hosting
+on S3, which as you know is ugly-ass-cheap.
 
-Running `npm run export` runs the build process first and then exports the site into the `/dist` subdirectory. This directoy is what you put up on your static hosting services as you are used to.
+Running `npm run export` runs the build process first and then exports the site
+into the `/dist` subdirectory. This directoy is what you put up on your static
+hosting services as you are used to.
 
-In the project root, there is a `next.config.js`, which has a `exportPathMap` export. It is a function that returns routes as key-value-pairs. At this moment, you have to manually mention all routes you want to be available. In future releases this process will be unified into one routing API, so you don't have three places to put routes into.
+In the project root, there is a `next.config.js`, which has a `exportPathMap`
+export. It is a function that returns routes as key-value-pairs. At this
+moment, you have to manually mention all routes you want to be available. In
+future releases this process will be unified into one routing API, so you don't
+have three places to put routes into.
 
 ```javascript
 exports.exportPathMap = () => ({
@@ -296,9 +339,13 @@ exports.exportPathMap = () => ({
 
 Note the following caveats:
 
-With `npm run export`, we build an HTML version of your app. At that time, we will automatically execute the `getInitialProps` functions of your pages and store the results.
-This means you can only use `pathname`, `query` and `asPath` fields of the `context` object passed to `getInitialProps`. You cannot use `req` or `res` fields, because those require a server runtime.
-Basically, you will not be able to render content dynamic in the server as we prebuilt HTML files. If you need that, you need run your app with `npm start`.
+With `npm run export`, we build an HTML version of your app. At that time, we
+will automatically execute the `getInitialProps` functions of your pages and
+store the results.  This means you can only use `pathname`, `query` and
+`asPath` fields of the `context` object passed to `getInitialProps`. You cannot
+use `req` or `res` fields, because those require a server runtime.  Basically,
+you will not be able to render content dynamic in the server as we prebuilt
+HTML files. If you need that, you need run your app with `npm start`.
 
 ## Dev-Ops Helpers
 
