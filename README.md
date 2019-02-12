@@ -210,6 +210,8 @@ API:
 
 `Router.replaceRoute(name, params, options)`
 
+`Router.back()`
+
 - `name` - Name of a route
 - `params` - Optional parameters for the route URL
 - `options` - Optional options
