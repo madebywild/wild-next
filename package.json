@@ -32,7 +32,7 @@
     "@yolkai/next-routes": "^3.0.0",
     "eslint": "^5.12.1",
     "express": "^4.16.4",
-    "gsap": "^2.0.2",
+    "gsap": "^2.1.1",
     "next": "^7.0.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
