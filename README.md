@@ -30,25 +30,27 @@ $ npm i # or yarn if you fancy
   Holds all components (repeating sections / widgets) that are used by `pages` to composite pages.
 - `./pages`
   Holds all pages (containers), each file should represent one route. They are automatically routed by their filename, but can have a custom route name (see further down below).
+  - `./pages/_app.js`
+  Next.js component that is wrapped around every page and doesn't re-render when a route changes. Practical for holding global state that should not be reset on page change, or things like background sounds.
   - `./pages/_document.js`
   The underlying html for every page render. Try to stick to the pages components if possible, but use it for elegant side-wide stuff and if you need to integrate something that otherwise can't be done. See [Custom Document](https://github.com/zeit/next.js#custom-document) for more info on customization.
   - `./pages/_errors.js`
   404 or 500 errors from both client- and server side are handled by this component. We again have a sane default here, which frankly can be customized as needed.
 - `./services`
   Every piece of JavaScript that does not export a Component should be housed here. Classic candidates are Singletons that encapsulate functionality like SDKs.
+- `./middleware`
+  express middlewares that extend backend functionality. For example custom APIs or endpoints for form processing
 - `./static`
   Holds all static files (fonts / images / videos etc.), can also be used to transfer things like `robots.txt` or `favicon.ico`.
 
 The `/pages` convention is pretty nifty and forces you to do bright decisions
 and poses a simple way for a new developer that works on the project to
-understand which comp is rendered from which route
+understand which comp is rendered from which route.
 
 In general – think the React way, for your convenience we also placed a
 `Global.js` file in the `/components` directory which you probably want to use as
 the top-level wrapper of your pages. This file allows you to have styles like
-**fonts** or a css reset available globally. You can use it as a Layout file to
-have general markup as well. Or you separate it into its own file – in the end
-up to you.
+**fonts** or a css reset available globally.
 
 ## Images / Static Files
 
