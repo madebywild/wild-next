@@ -33,7 +33,7 @@ $ npm i # or yarn if you fancy
   - `./pages/_app.js`
   Next.js component that is wrapped around every page and doesn't re-render when a route changes. Practical for holding global state that should not be reset on page change, or things like background sounds.
   - `./pages/_document.js`
-  The underlying html for every page render. Try to stick to the pages components if possible, but use it for elegant side-wide stuff and if you need to integrate something that otherwise can't be done. See [Custom Document](https://github.com/zeit/next.js#custom-document) for more info on customization.
+  The underlying html for every page render. Try to stick to the pages components if possible, but use it for elegant site-wide stuff and if you need to integrate something that otherwise can't be done. See [Custom Document](https://github.com/zeit/next.js#custom-document) for more info on customization.
   - `./pages/_errors.js`
   404 or 500 errors from both client- and server side are handled by this component. We again have a sane default here, which frankly can be customized as needed.
 - `./services`
