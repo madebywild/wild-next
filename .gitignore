@@ -9,6 +9,7 @@ npm-debug.log
 *.repeaks
 .next
 ./dist
+.env
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
