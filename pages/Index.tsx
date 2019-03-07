@@ -2,8 +2,6 @@ import React from "react";
 import Head from "next/head";
 
 import Global from "../components/Global";
-import Navigation from "../components/Navigation";
-import env from "../env.config.js";
 import styles from "./Index.scss";
 
 export default class Index extends React.Component<any, any> {
