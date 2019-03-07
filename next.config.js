@@ -1,8 +1,9 @@
 const path = require("path");
+const withTypescript = require("@zeit/next-typescript");
 const withTM = require("next-plugin-transpile-modules");
 const styledJsxLoader = require("styled-jsx/webpack");
 
-module.exports = withTM({
+module.exports = withTypescript(withTM({
   webpack(config, options) {
     // Perform customizations to webpack config
     config.module.rules.push({
@@ -34,11 +35,7 @@ module.exports = withTM({
     return config;
   },
   transpileModules: ["gsap"],
-  cssModules: true,
-  cssLoaderOptions: {
-    localIdentName: "[local]___[hash:base64:5]",
-  },
   exportPathMap: () => ({
     "/": { page: "/Index" },
   }),
-});
+}));
