@@ -4,7 +4,7 @@ import Head from "next/head";
 import Global from "../components/Global";
 import styles from "./Index.scss";
 
-export default class Index extends React.Component<any, any> {
+export default class Index extends React.Component {
   render() {
     return (
       <Global>
