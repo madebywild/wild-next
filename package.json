@@ -1,6 +1,6 @@
 {
   "name": "wild-next",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Our next.js boilerplate with sane base configuration.",
   "main": "server.js",
   "engines": {
