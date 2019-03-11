@@ -1,4 +1,3 @@
-const path = require("path");
 const withTypescript = require("@zeit/next-typescript");
 const withTM = require("next-plugin-transpile-modules");
 const styledJsxLoader = require("styled-jsx/webpack");
