@@ -6,9 +6,9 @@
 }
 
 .headline {
-  font-size: 50px;
-  margin-bottom: 30px;
   margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 50px;
   text-align: center;
 }
 
@@ -22,9 +22,9 @@ li {
 }
 
 pre {
+  display: inline;
+  padding: 6px;
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
-  padding: 6px;
-  display: inline;
 }

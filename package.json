@@ -21,7 +21,8 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "**/*.js": "eslint --ignore-path .eslintignore"
+    "**/*.js": "eslint --ignore-path .eslintignore",
+    "**/*.scss": "stylelint */**.scss --fix"
   },
   "author": "WILD <weare@wild.as> (https://wild.as)",
   "license": "ISC",
@@ -55,7 +56,7 @@
     "qrcode-terminal": "^0.12.0",
     "styled-jsx-plugin-sass": "^1.0.0",
     "stylelint": "^9.10.1",
-    "stylelint-config-wild": "^1.0.6",
+    "stylelint-config-wild": "^1.1.1",
     "webpack-glsl-loader": "^1.0.1"
   }
 }

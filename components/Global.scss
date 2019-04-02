@@ -10,6 +10,7 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
-*:focus, *:active {
+:focus,
+:active {
   outline: none;
 }
