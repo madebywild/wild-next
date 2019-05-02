@@ -98,10 +98,6 @@ The project introduces a linting setup that automatically lints your staged file
 
 You will probably run into lots of issues the longer you work on a commit, so it is recommended to setup linting in your code editor as well to mitigate issues right as they occur. This is not necessary, but helps. Since the `package.json` has the right rules in it, your local Eslint Editor Plugin will use the same rules. Here are a couple of handy links: [Atom Plugin](https://github.com/AtomLinter/linter-eslint), [Sublime Plugin](https://github.com/roadhump/SublimeLinter-eslint), [WebStorm](https://www.jetbrains.com/help/webstorm/eslint.html), [vim](https://medium.com/@hpux/vim-and-eslint-16fa08cc580f), [Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
-### Component Guidelines
-
-As soon as your component has more than 300 lines, you should split it up into child components, unless you can express a valid reson why you'd rather not want to.
-
 ### Shader import
 
 We use a custom webpack loader so you can import the strings of `.glsl`-files. You can then import other shader files as if it were SASS and you have the great glsl syntax highlighting that you love.
