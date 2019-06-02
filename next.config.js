@@ -20,13 +20,30 @@ module.exports = withTypescript(withTM({
       ],
     });
     config.module.rules.push({
-      test: /\.scss$/,
+      test: /\.s([ac])ss$/,
       use: [
         options.defaultLoaders.babel,
         {
           loader: styledJsxLoader.loader,
           options: {
             type: "scoped",
+          },
+        },
+        {
+          loader: "sass-loader",
+          options: {
+            includePaths: [
+              "./",
+            ],
+          },
+        },
+        {
+          loader: "sass-resources-loader",
+          options: {
+            sourceMap: true,
+            resources: [
+              "./vars.scss",
+            ],
           },
         },
       ],
