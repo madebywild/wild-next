@@ -339,3 +339,14 @@ template {
 [hidden] {
   display: none;
 }
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+img,
+video,
+canvas {
+  display: block;
+}
