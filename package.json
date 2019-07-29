@@ -46,6 +46,12 @@
     "styled-jsx": "^3.2.1"
   },
   "devDependencies": {
+    "@types/next": "^8.0.6",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.5",
+    "@types/styled-jsx": "^2.2.8",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
     "address": "^1.0.3",
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^5.15.1",
@@ -58,6 +64,7 @@
     "styled-jsx-plugin-sass": "^1.0.0",
     "stylelint": "^9.10.1",
     "stylelint-config-wild": "^1.1.2",
+    "typescript": "^3.5.3",
     "webpack-glsl-loader": "^1.0.1"
   }
 }
