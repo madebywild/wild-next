@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "./Global.scss";
 
-export default props => (
-  <div>
-    {props.children}
-    <style jsx global>{styles}</style>
-  </div>
-);
+export default function Navigation(props) {
+  return (
+    <div>
+      {props.children}
+      <style jsx global>{styles}</style>
+    </div>
+  );
+}

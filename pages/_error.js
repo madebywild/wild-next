@@ -2,19 +2,14 @@ import React from "react";
 import HTTPStatus from "http-status";
 import Head from "next/head";
 
-export default class Error extends React.Component {
-  static getInitialProps({ res, err }) {
-    const statusCode = res ? res.statusCode : (err ? err.statusCode : null); // eslint-disable-line no-nested-ternary
-    return { statusCode };
-  }
+function Error() {
+  const { statusCode } = this.props;
+  const title = statusCode === 404
+    ? "This page could not be found"
+    : HTTPStatus[statusCode] || "An unexpected error has occurred";
 
-  render() {
-    const { statusCode } = this.props;
-    const title = statusCode === 404
-      ? "This page could not be found"
-      : HTTPStatus[statusCode] || "An unexpected error has occurred";
-
-    return (<div style={styles.error}>
+  return (
+    <div style={styles.error}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
@@ -25,9 +20,14 @@ export default class Error extends React.Component {
           <h2 style={styles.h2}>{title}.</h2>
         </div>
       </div>
-    </div>);
-  }
+    </div>
+  );
 }
+
+Error.getInitialProps = ({res, err}) => {
+  const statusCode = res ? res.statusCode : (err ? err.statusCode : null); // eslint-disable-line no-nested-ternary
+  return { statusCode };
+};
 
 const styles = {
   error: {
@@ -39,7 +39,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
 
   desc: {
@@ -47,7 +47,7 @@ const styles = {
     textAlign: "left",
     lineHeight: "49px",
     height: "49px",
-    verticalAlign: "middle"
+    verticalAlign: "middle",
   },
 
   h1: {
@@ -58,13 +58,13 @@ const styles = {
     padding: "10px 23px 10px 0",
     fontSize: "24px",
     fontWeight: 500,
-    verticalAlign: "top"
+    verticalAlign: "top",
   },
 
   h2: {
     fontSize: "14px",
     fontWeight: "normal",
     margin: 0,
-    padding: 0
-  }
+    padding: 0,
+  },
 };
