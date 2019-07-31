@@ -38,8 +38,8 @@ $ npm i # or yarn if you fancy
   404 or 500 errors from both client- and server side are handled by this component. We again have a sane default here, which frankly can be customized as needed.
 - `./services`
   Every piece of JavaScript that does not export a Component should be housed here. Classic candidates are Singletons that encapsulate functionality like SDKs.
-- `./middleware`
-  express middlewares that extend backend functionality. For example custom APIs or endpoints for form processing
+- `./api`
+  express-like middlewares that extend backend functionality. For example custom APIs or endpoints for form processing. See [API Routes](https://nextjs.org/blog/next-9#api-routes) for next documentation.
 - `./static`
   Holds all static files (fonts / images / videos etc.), can also be used to transfer things like `robots.txt` or `favicon.ico`.
 
@@ -119,112 +119,7 @@ goo
 
 ### Routing
 
-Out of the box `next` has the convention of automatically gathering routes by `.js`-files in the `/pages` directory. As soon as you want parameterized urls, this alone is not really that beneficial anymore. Instead we have a `routes.js` file in the root that routes URLs to pages within the `/pages` directory. This file is used both on the server and the client.
-
-**Note:** If you have no dynamic urls, simply don't add any routes in the `routes.js` file. The regular routes from the `/pages` filenames continue to work.
-
-```js
-// routes.js
-const nextRoutes = require('next-routes')
-const routes = module.exports = nextRoutes()
-
-routes.add('blog', '/blog/:slug')
-routes.add('about', '/about-us/:foo(bar|baz)', 'index')
-```
-
-API: `routes.add(name, pattern, page = name)`
-
-- `name` - The route name
-- `pattern` - Express-style route pattern (uses [path-to-regexp](https://github.com/pillarjs/path-to-regexp))
-- `page` - Page inside ./pages to be rendered (defaults to name)
-
-The page component receives the matched URL parameters merged into `query`
-
-```js
-export default class Blog extends React.Component {
-  static async getInitialProps ({query}) {
-    // query.slug
-  }
-  render () {
-    // this.props.url.query.slug
-  }
-}
-```
-
-Since this is custom, we can't use the default `Link` and `Router` interfaces from `next`. Thin wrappers around `Link` and `Router` add support for generated URLs based on route name and parameters. Just import them from your `routes` file:
-
-#### `Link` example
-
-```jsx
-// pages/index.js
-import {Link} from '../routes'
-
-export default () => (
-  <div>
-    <div>Welcome to next.js!</div>
-    <Link route='blog' params={{slug: 'hello-world'}}>
-      <a>Hello world</a>
-    </Link>
-  </div>
-)
-
-```
-
-API: `<Link route="name" params={params}>...</Link>`
-
-- `route` - Name of a route
-- `params` - Optional parameters for the route URL
-
-It generates the URL and passes `href` and `as` props to `next/link`. Other props like `prefetch` will work as well.
-
----
-
-#### `Router` example
-
-```jsx
-// pages/blog.js
-import React from 'react'
-import {Router} from '../routes'
-
-export default class extends React.Component {
-  handleClick () {
-    Router.pushRoute('about', {foo: 'bar'})
-  }
-  render () {
-    return (
-      <div>
-        <div>{this.props.url.query.slug}</div>
-        <button onClick={this.handleClick}>
-          Home
-        </button>
-      </div>
-    )
-  }
-}
-```
-API:
-
-`Router.pushRoute(name, params, options)`
-
-`Router.replaceRoute(name, params, options)`
-
-`Router.back()`
-
-- `name` - Name of a route
-- `params` - Optional parameters for the route URL
-- `options` - Optional options
-
-It generates the URL and passes `href` and `as` parameters to `next/router`.
-
-You can optionally provide custom `Link` and `Router` objects, for example:
-
-```javascript
-// routes.js
-const nextRoutes = require('next-routes')
-const Link = require('./my/link')
-const Router = require('./my/router')
-const routes = module.exports = nextRoutes({Link, Router})
-```
+See the [Dynamic Routes](https://nextjs.org/docs#dynamic-routes) section in the next docs
 
 ### Head
 
@@ -305,19 +200,7 @@ Make sure you fill out all fields you use for all environments you use, there
 is **no checking from the boilerplate if you do so** to keep things simple and
 flexible.
 
-## Server and Middleware
-
-In our boilerplate `next` is per default integrated into a `express` server.
-That means you can easily integrate middleware or a full database-fetching API
-into the server. Simply open up `server.js` in the root and edit to your
-likings. There is a sample line for an API route in there for your convenience.
-
 ## Export
-
-The export feature can still be considered quite experimental with an API that
-will most likely change. Yet it is powerful and allows you to pre-render all
-routes into static html files, which makes the site eligible for static hosting
-on S3, which as you know is ugly-ass-cheap.
 
 Running `npm run export` runs the build process first and then exports the site
 into the `/dist` subdirectory. This directoy is what you put up on your static

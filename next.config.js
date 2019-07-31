@@ -1,8 +1,7 @@
-const withTypescript = require("@zeit/next-typescript");
 const withTM = require("next-transpile-modules");
 const styledJsxLoader = require("styled-jsx/webpack");
 
-module.exports = withTypescript(withTM({
+module.exports = withTM({
   webpack(config, options) {
     // Perform customizations to webpack config
     config.module.rules.push({
@@ -37,4 +36,4 @@ module.exports = withTypescript(withTM({
   exportPathMap: () => ({
     "/": { page: "/Index" },
   }),
-}));
+});

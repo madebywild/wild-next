@@ -25,8 +25,8 @@ export default class Index extends React.Component {
               </ul>
             </li>
             <li><pre>./services</pre> Every piece of JavaScript that does not export a Component should be housed here. Classic candidates are Singletons that encapsulate functionality like SDKs.</li>
-            <li><pre>./middleware</pre> Express middlewares that extend backend functionality. For example custom APIs or endpoints for form processing</li>
-            <li><pre>./static</pre> Holds all static files (fonts / images / videos etc.), can also be used to transfer things like robots.txt or favicon.ico</li>
+            <li><pre>./api</pre> Express-like middlewares that extend backend functionality. For example custom APIs or endpoints for form processing. See <a href="https://nextjs.org/blog/next-9#api-routes">API routes</a> for next docs.</li>
+            <li><pre>./static</pre> Holds all static files (fonts / images / videos etc.)</li>
           </ul>
         </div>
         <style jsx>{styles}</style>

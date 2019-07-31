@@ -19,7 +19,6 @@
           ]
         }
       }
-    ],
-    "@zeit/next-typescript/babel"
+    ]
   ]
 }

@@ -1,0 +1,30 @@
+@import "vars.scss";
+
+.index-wrapper {
+  max-width: 800px;
+  margin: auto;
+}
+
+.headline {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 50px;
+  text-align: center;
+}
+
+ul {
+  line-height: 1.7;
+  list-style-type: none;
+}
+
+li {
+  margin-top: 25px;
+}
+
+pre {
+  display: inline;
+  padding: 6px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
