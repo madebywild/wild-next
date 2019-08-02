@@ -36,10 +36,10 @@ $ npm i # or yarn if you fancy
   The underlying html for every page render. This is only rendered once on the server and serves as the container for the react app from then on. See [Custom Document](https://github.com/zeit/next.js#custom-document) for more info on customization.
   - `./pages/_errors.js`
   404 or 500 errors from both client- and server side are handled by this component. We again have a sane default here, which frankly can be customized as needed.
+  - `./pages/api`
+    express-like middlewares that extend backend functionality. For example custom APIs or endpoints for form processing. See [API Routes](https://nextjs.org/blog/next-9#api-routes) for next documentation.
 - `./services`
   Every piece of JavaScript that does not export a Component should be housed here. Classic candidates are Singletons that encapsulate functionality like SDKs.
-- `./api`
-  express-like middlewares that extend backend functionality. For example custom APIs or endpoints for form processing. See [API Routes](https://nextjs.org/blog/next-9#api-routes) for next documentation.
 - `./static`
   Holds all static files (fonts / images / videos etc.), can also be used to transfer things like `robots.txt` or `favicon.ico`.
 
