@@ -68,3 +68,5 @@ const styles = {
     padding: 0,
   },
 };
+
+export default Error;
