@@ -3,7 +3,7 @@ import HTTPStatus from "http-status";
 import Head from "next/head";
 
 function Error() {
-  const { statusCode } = this.props;
+  const { statusCode } = props;
   const title = statusCode === 404
     ? "This page could not be found"
     : HTTPStatus[statusCode] || "An unexpected error has occurred";
