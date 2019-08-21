@@ -2,7 +2,7 @@ import React from "react";
 import HTTPStatus from "http-status";
 import Head from "next/head";
 
-function Error() {
+function Error(props) {
   const { statusCode } = props;
   const title = statusCode === 404
     ? "This page could not be found"
