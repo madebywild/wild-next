@@ -119,7 +119,7 @@ goo
 
 ### Routing
 
-See the [Dynamic Routes](https://nextjs.org/docs#dynamic-routes) section in the next docs
+See the [Dynamic Routes](https://nextjs.org/docs#dynamic-routing) section in the next docs
 
 ### Head
 
