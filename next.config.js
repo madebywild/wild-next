@@ -51,6 +51,6 @@ module.exports = withTM({
   },
   transpileModules: ["gsap"],
   exportPathMap: () => ({
-    "/": { page: "/Index" },
+    "/": { page: "/index" },
   }),
 });
