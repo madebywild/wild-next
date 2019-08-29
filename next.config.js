@@ -25,7 +25,7 @@ module.exports = withTM({
         {
           loader: styledJsxLoader.loader,
           options: {
-            type: "scoped",
+            type: fileName => fileName.toLowerCase().indexOf("global") === -1 ? "scoped" : "global",
           },
         },
         {

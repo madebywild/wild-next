@@ -126,3 +126,4 @@ bower_components/
 .vscode
 logs
 stats.json
+dist
