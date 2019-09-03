@@ -11,7 +11,7 @@
     "dev": "NODE_ENV=development WILD_ENV=development next dev",
     "build": "next build",
     "export": "next build && next export -o dist",
-    "start": "WILD_ENV=production NODE_ENV=production next start",
+    "start": "next start",
     "clean-babel-cache": "rm -Rf ./node_modules/.cache/babel-loader/*",
     "lint": "npm run lint:js",
     "lint:withfix": "npm run lint:js -- --fix",
