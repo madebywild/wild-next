@@ -127,3 +127,4 @@ bower_components/
 logs
 stats.json
 dist
+.history
