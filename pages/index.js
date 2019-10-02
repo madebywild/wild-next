@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 
 import Global from "../components/Global";
-import styles from "./Index.scss";
+import styles from "./index.scss";
 
 export default function Index() {
   return (
