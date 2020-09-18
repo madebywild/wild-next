@@ -1,6 +1,6 @@
 {
-  "name": "with-tailwindcss",
-  "version": "1.0.0",
+  "name": "wild-next",
+  "version": "0.0.1",
   "scripts": {
     "dev": "next",
     "build": "next build",
