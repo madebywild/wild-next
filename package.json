@@ -1,20 +1,21 @@
 {
   "name": "wild-next",
   "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
+    "clear": "rimraf build && rimraf dist && rimraf node_modules/.cache",
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "generate": "npm run build && next export -o dist"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "next": "9.5.3",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
   "devDependencies": {
-    "postcss-flexbugs-fixes": "4.2.1",
-    "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^1.7.4"
-  },
-  "license": "MIT"
+    "rimraf": "3.0.2",
+    "tailwindcss": "1.8.11"
+  }
 }
