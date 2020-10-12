@@ -1,8 +1,7 @@
 import React from "react";
-import tw from "twin.macro";
-import { GlobalStyles as TailwindBaseStyles } from "twin.macro";
-import { createGlobalStyle } from "styled-components";
 import { AppProps } from "next/app";
+import { createGlobalStyle } from "styled-components";
+import tw, { GlobalStyles as TailwindBaseStyles } from "twin.macro";
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -20,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   #__next {
-    ${tw`min-h-full flex flex-col`}
+    ${tw`h-full flex flex-col`}
   }
 `;
 

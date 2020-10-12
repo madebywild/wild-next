@@ -1,14 +1,17 @@
-import React from "react";
-import { TwFn, TemplateFn } from "twin.macro";
-import styledComponent, { css as cssProperty } from "styled-components";
+import "twin.macro";
+import styledImport, { CSSProp, css as cssImport } from "styled-components";
 
 declare module "twin.macro" {
-  type TwComponentWrapper = <T extends React.ComponentType<any>>(component: T) => TemplateFn<T>;
+  const styled: typeof styledImport;
+  const css: typeof cssImport;
+}
 
-  const tw: TwFn & TwComponentMap & TwComponentWrapper;
-  const css: typeof cssProperty;
-  const styled: typeof styledComponent;
+declare module "react" {
+  interface HTMLAttributes<T> extends DOMAttributes<T> {
+    css?: CSSProp;
+  }
 
-  export { css, styled };
-  export = tw;
+  interface SVGProps<T> extends SVGProps<SVGSVGElement> {
+    css?: CSSProp;
+  }
 }
