@@ -19,6 +19,7 @@ declare module "*.jpeg" {
 }
 
 declare module "*.svg" {
-  const payload: string;
+  import React from "react";
+  const payload: React.FC;
   export default payload;
 }
