@@ -39,8 +39,8 @@
   "dependencies": {
     "lodash": "4.17.20",
     "next": "9.5.5",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "styled-components": "5.2.0",
     "twin.macro": "1.10.0"
   },
@@ -57,7 +57,7 @@
     "lint-staged": "10.4.0",
     "prettier": "2.1.2",
     "rimraf": "3.0.2",
-    "tailwindcss": "1.8.13",
+    "tailwindcss": "1.9.2",
     "typescript": "4.0.3"
   }
 }
