@@ -19,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   #__next {
-    ${tw`h-full flex flex-col`}
+    ${tw`min-h-full flex flex-col`}
   }
 `;
 

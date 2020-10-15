@@ -7,9 +7,14 @@ class MyDocument extends Document {
     const originalRenderPage = ctx.renderPage;
 
     try {
-      ctx.renderPage = () => {
-        return originalRenderPage({ enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />) });
+      const enhancedRenderer = () => {
+        return originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
+        });
       };
+
+      ctx.renderPage = enhancedRenderer;
 
       const initialProps = await Document.getInitialProps(ctx);
 
