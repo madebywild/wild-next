@@ -1,10 +1,10 @@
 import { NextPage } from "next";
-import LogoSvg from "@src/assets/logo.svg";
+import Header from "@src/components/Header";
 
 const Index: NextPage = () => {
   return (
     <div>
-      <LogoSvg />
+      <Header />
       <h1>index</h1>
     </div>
   );
