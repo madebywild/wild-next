@@ -1,3 +1,3 @@
 module.exports = {
-  extends: "@madebywild",
+  ...require("@madebywild/prettier-config")
 };
