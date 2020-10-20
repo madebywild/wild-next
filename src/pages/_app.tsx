@@ -19,11 +19,11 @@ const GlobalStyles = createGlobalStyle`
   }
 
   #__next {
-    ${tw`min-h-full flex flex-col`}
+    ${tw`h-full flex flex-col`}
   }
 `;
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <TailwindBaseStyles />
@@ -33,4 +33,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-export default MyApp;
+export default App;
