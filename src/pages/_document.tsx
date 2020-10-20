@@ -9,8 +9,7 @@ class Document extends NextDocument {
     try {
       const enhancedRenderer = () => {
         return originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
         });
       };
 
