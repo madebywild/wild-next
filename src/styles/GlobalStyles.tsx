@@ -1,6 +1,6 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
-import tw, { GlobalStyles as TailwindBaseStyles } from "twin.macro";
+import tw, { GlobalStyles as BaseStyles } from "twin.macro";
 
 const CustomStyles = createGlobalStyle`
   html {
@@ -24,7 +24,7 @@ const CustomStyles = createGlobalStyle`
 
 const GlobalStyles: React.FC = () => (
   <>
-    <TailwindBaseStyles />
+    <BaseStyles />
     <CustomStyles />
   </>
 );
