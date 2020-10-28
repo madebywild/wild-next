@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { NextSeo } from "next-seo";
-import Header from "@components/Header";
+import { Header } from "@components/Header";
 
 const Index: NextPage = () => {
   return (

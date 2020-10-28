@@ -22,9 +22,11 @@ const CustomStyles = createGlobalStyle`
   }
 `;
 
-export const GlobalStyles: React.FC = () => (
+const GlobalStyles: React.FC = () => (
   <>
     <TailwindBaseStyles />
     <CustomStyles />
   </>
 );
+
+export { GlobalStyles };
