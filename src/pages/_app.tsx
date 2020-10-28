@@ -1,33 +1,12 @@
 import NextHead from "next/head";
 import { AppProps } from "next/app";
-import { createGlobalStyle } from "styled-components";
 import { DefaultSeo, DefaultSeoProps } from "next-seo";
-import tw, { GlobalStyles as TailwindBaseStyles } from "twin.macro";
+import { GlobalStyles } from "@styles/GlobalStyles";
 
 const defaultSeo: DefaultSeoProps = {
   title: "wild-next",
   description: "wild-next boilerplate",
 };
-
-const GlobalStyles = createGlobalStyle`
-  html {
-    ${tw`cursor-default overflow-y-scroll overscroll-none`}
-
-    overflow-wrap: anywhere;
-    scroll-behavior: smooth;
-    height: 100vh;
-    height: -webkit-fill-available;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  body {
-    ${tw`h-full text-base text-black antialiased`}
-  }
-
-  #__next {
-    ${tw`h-full flex flex-col`}
-  }
-`;
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -42,7 +21,6 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
       </NextHead>
-      <TailwindBaseStyles />
       <GlobalStyles />
       <Component {...pageProps} />
     </>
