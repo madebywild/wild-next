@@ -11,18 +11,6 @@
     "lint": "tsc --noEmit && eslint --color 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "npm run lint -- --fix"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not ie <= 11",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version"
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
