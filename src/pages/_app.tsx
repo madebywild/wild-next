@@ -1,4 +1,3 @@
-import React from "react";
 import NextHead from "next/head";
 import { AppProps } from "next/app";
 import { createGlobalStyle } from "styled-components";

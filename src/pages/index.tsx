@@ -1,12 +1,16 @@
 import { NextPage } from "next";
+import { NextSeo } from "next-seo";
 import Header from "@src/components/Header";
 
 const Index: NextPage = () => {
   return (
-    <div>
-      <Header />
-      <h1>index</h1>
-    </div>
+    <>
+      <NextSeo title="Index" />
+      <div>
+        <Header />
+        <h1>Index</h1>
+      </div>
+    </>
   );
 };
 
