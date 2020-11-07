@@ -17,10 +17,9 @@
     "baseUrl": ".",
     "paths": {
       "@root/*": ["./*"],
-      "@src/*": ["./src/*"],
-      "@types/*": ["./types/*"],
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
       "@context/*": ["./src/context/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@pages/*": ["./src/pages/*"],
