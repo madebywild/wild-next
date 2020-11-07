@@ -5,7 +5,7 @@ import { SiteFooter } from "@components/SiteFooter";
 
 interface Props {}
 
-const DefaultLayout: React.FC<Props> = ({ children }) => {
+const DefaultPage: React.FC<Props> = ({ children }) => {
   return (
     <>
       <SiteHeader />
@@ -15,4 +15,4 @@ const DefaultLayout: React.FC<Props> = ({ children }) => {
   );
 };
 
-export { DefaultLayout };
+export { DefaultPage };

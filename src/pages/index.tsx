@@ -1,14 +1,14 @@
 import { NextPage } from "next";
 import { NextSeo } from "next-seo";
-import { DefaultLayout } from "@layouts/Default";
+import { DefaultPage } from "@layouts/DefaultPage";
 
 const Index: NextPage = () => {
   return (
     <>
       <NextSeo title="Index" />
-      <DefaultLayout>
+      <DefaultPage>
         <h1>Index</h1>
-      </DefaultLayout>
+      </DefaultPage>
     </>
   );
 };
