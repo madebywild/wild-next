@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "generate": "npm run build && next export -o dist",
+    "format": "prettier --write 'src/**/*.{json,md,css,scss,less}'",
     "lint": "tsc --noEmit && eslint --color 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "npm run lint -- --fix"
   },
@@ -20,8 +21,8 @@
     "src/**/*.{js,jsx,ts,tsx}": [
       "npm run lint:fix"
     ],
-    "src/**/*.json": [
-      "prettier --write"
+    "src/**/*.{json,md,css,scss,less}": [
+      "npm run format"
     ]
   },
   "dependencies": {
