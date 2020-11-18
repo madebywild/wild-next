@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "clear": "rimraf build && rimraf dist && rimraf node_modules/.cache",
+    "clear": "rimraf .next && rimraf build && rimraf dist && rimraf node_modules/.cache",
     "dev": "next",
     "build": "next build",
     "analyze": "ANALYZE=true npm run build",
