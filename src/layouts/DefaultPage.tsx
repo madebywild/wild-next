@@ -1,16 +1,16 @@
 import "twin.macro";
 import React from "react";
-import { SiteHeader } from "@components/SiteHeader";
-import { SiteFooter } from "@components/SiteFooter";
+import { AppHeader } from "@components/AppHeader/AppHeader";
+import { AppFooter } from "@components/AppFooter/AppFooter";
 
 interface Props {}
 
 const DefaultPage: React.FC<Props> = ({ children }) => {
   return (
     <>
-      <SiteHeader />
+      <AppHeader />
       <main tw="flex-1">{children}</main>
-      <SiteFooter />
+      <AppFooter />
     </>
   );
 };

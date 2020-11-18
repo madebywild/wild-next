@@ -2,12 +2,12 @@ import React from "react";
 
 interface Props {}
 
-const SiteFooter: React.FC<Props> = () => {
+const AppFooter: React.FC<Props> = () => {
   return (
     <footer>
-      <p>SiteFooter</p>
+      <p>AppFooter</p>
     </footer>
   );
 };
 
-export { SiteFooter };
+export { AppFooter };
