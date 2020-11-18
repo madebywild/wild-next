@@ -1,11 +1,12 @@
 const path = require("path");
 const withReactSvg = require("next-react-svg");
+const withBundleAnalyzer = require("@next/bundle-analyzer");
 
-let config = {};
+module.exports = (phase, defaultConfig) => {
+  let config = defaultConfig;
 
-// Set root directory for `next-react-svg`.
-config = withReactSvg({
-  include: path.resolve(__dirname, "src/assets"),
-});
+  config = withBundleAnalyzer({ enabled: process.env.ANALYZE === "true" })(config);
+  config = withReactSvg({ ...config, include: path.resolve(__dirname, "src/assets") });
 
-module.exports = config;
+  return config;
+};
