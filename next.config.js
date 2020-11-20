@@ -6,13 +6,8 @@ module.exports = (phase, defaultConfig) => {
   // https://reactjs.org/docs/strict-mode.html
   nextConfig.reactStrictMode = true;
 
-  // Enable bundle analyzer for `npm run analyze`
-  nextConfig = withBundleAnalyzer({
-    enabled: process.env.ANALYZE === "true",
-  })(nextConfig);
-
+  // Convert svg files to React components.
   nextConfig.webpack = (wp) => {
-    // Convert svg files to React components
     wp.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"],
@@ -20,6 +15,11 @@ module.exports = (phase, defaultConfig) => {
 
     return wp;
   };
+
+  // Enable bundle analyzer for `npm run analyze`.
+  nextConfig = withBundleAnalyzer({
+    enabled: process.env.ANALYZE === "true",
+  })(nextConfig);
 
   return nextConfig;
 };
