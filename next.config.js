@@ -1,15 +1,25 @@
-const path = require("path");
-const withReactSvg = require("next-react-svg");
 const withBundleAnalyzer = require("@next/bundle-analyzer");
 
 module.exports = (phase, defaultConfig) => {
-  let config = defaultConfig;
+  let nextConfig = defaultConfig;
 
-  config = withBundleAnalyzer({ enabled: process.env.ANALYZE === "true" })(config);
-  config = withReactSvg({ ...config, include: path.resolve(__dirname, "src/assets") });
+  // https://reactjs.org/docs/strict-mode.html
+  nextConfig.reactStrictMode = true;
 
-  return {
-    reactStrictMode: true,
-    ...config,
+  // Enable bundle analyzer for `npm run analyze`
+  nextConfig = withBundleAnalyzer({
+    enabled: process.env.ANALYZE === "true",
+  })(nextConfig);
+
+  nextConfig.webpack = (wp) => {
+    // Convert svg files to React components
+    wp.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
+
+    return wp;
   };
+
+  return nextConfig;
 };
