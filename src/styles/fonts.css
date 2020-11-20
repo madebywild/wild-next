@@ -3,5 +3,5 @@
   src: url("/fonts/Inter-Regular.otf");
   font-style: normal;
   font-weight: 400;
-  font-display: auto;
+  font-display: swap;
 }

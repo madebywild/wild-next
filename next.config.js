@@ -8,5 +8,8 @@ module.exports = (phase, defaultConfig) => {
   config = withBundleAnalyzer({ enabled: process.env.ANALYZE === "true" })(config);
   config = withReactSvg({ ...config, include: path.resolve(__dirname, "src/assets") });
 
-  return config;
+  return {
+    reactStrictMode: true,
+    ...config,
+  };
 };

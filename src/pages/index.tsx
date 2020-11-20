@@ -2,7 +2,9 @@ import { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import { DefaultPage } from "@layouts/DefaultPage";
 
-const Index: NextPage = () => {
+interface Props {}
+
+const Index: NextPage<Props> = () => {
   return (
     <>
       <NextSeo title="Index" />

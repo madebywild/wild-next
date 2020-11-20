@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "clear": "rimraf .next && rimraf build && rimraf dist && rimraf node_modules/.cache",
+    "clear": "rimraf .next && rimraf build && rimraf out && rimraf node_modules/.cache",
     "dev": "next",
     "build": "next build",
     "analyze": "ANALYZE=true npm run build",
     "start": "next start",
-    "generate": "npm run build && next export -o dist",
+    "export": "npm run build && next export",
     "format": "prettier --write 'src/**/*.{json,md,css,scss,less}'",
     "lint": "tsc --noEmit && eslint --color 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "npm run lint -- --fix"
