@@ -19,6 +19,6 @@ declare module "*.jpeg" {
 }
 
 declare module "*.svg" {
-  const payload: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+  const payload: React.FC<React.SVGAttributes<SVGElement>>;
   export default payload;
 }
