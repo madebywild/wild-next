@@ -8,13 +8,13 @@ import { GlobalStyles } from "~/styles/GlobalStyles";
 // @see https://styled-components.com/docs/faqs#how-do-i-fix-flickering-text-after-server-side-rendering
 import "~/styles/fonts.css";
 
-// FIXME: Opengraph tags do not update, when intial value is undefined.
-// @see https://github.com/garmeeh/next-seo/issues/544
 const defaultSeo: DefaultSeoProps = {
   title: "wild-next",
   titleTemplate: "%s | wild-next",
   description: "This is the wild-next boilerplate.",
-  openGraph: {},
+  openGraph: {
+    images: [{ url: "/social-embed.png" }],
+  },
 };
 
 const App = ({ Component, pageProps }: AppProps) => {
