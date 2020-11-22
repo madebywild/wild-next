@@ -6,7 +6,7 @@
     "clear": "rimraf .next && rimraf build && rimraf out && rimraf node_modules/.cache",
     "dev": "next",
     "build": "next build",
-    "analyze": "ANALYZE=true npm run build",
+    "analyze": "npm run clear && ANALYZE=true npm run build",
     "start": "next start",
     "export": "npm run build && next export",
     "format": "prettier --write 'src/**/*.{json,md,css,scss,less}'",
