@@ -4,7 +4,7 @@ import tw, { GlobalStyles as BaseStyles } from "twin.macro";
 
 const CustomStyles = createGlobalStyle`
   html {
-    ${tw`font-sans cursor-default overflow-y-scroll overscroll-none`}
+    ${tw`font-sans text-root leading-none cursor-default overflow-y-scroll overscroll-none`}
 
     scroll-behavior: smooth;
     height: 100vh;
