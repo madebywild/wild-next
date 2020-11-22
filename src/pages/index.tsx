@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { NextSeo } from "next-seo";
-import { DefaultPage } from "@layouts/DefaultPage";
+import { DefaultPage } from "~/layouts/DefaultPage";
 
 interface Props {}
 

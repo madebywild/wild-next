@@ -1,12 +1,12 @@
 import NextHead from "next/head";
 import { AppProps } from "next/app";
 import { DefaultSeo, DefaultSeoProps } from "next-seo";
-import { GlobalStyles } from "@styles/GlobalStyles";
+import { GlobalStyles } from "~/styles/GlobalStyles";
 
 // FIXME: Declaring custom fonts in a styled-component context, can
 // cause undesired flickering effects during SSR rehydration.
 // @see https://styled-components.com/docs/faqs#how-do-i-fix-flickering-text-after-server-side-rendering
-import "@styles/fonts.css";
+import "~/styles/fonts.css";
 
 // FIXME: Opengraph tags do not update, when intial value is undefined.
 // @see https://github.com/garmeeh/next-seo/issues/544

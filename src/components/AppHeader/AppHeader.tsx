@@ -1,5 +1,5 @@
 import React from "react";
-import LogoSvg from "@assets/logo.svg";
+import LogoSvg from "~/assets/logo.svg";
 
 interface Props {}
 
