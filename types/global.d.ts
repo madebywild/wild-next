@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 declare module "*.css" {
   const payload: string;
   export default payload;

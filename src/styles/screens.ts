@@ -28,9 +28,9 @@ export const between = (bpMin: Screen, bpMax: Screen) => {
 };
 
 export const only = (bp: Screen) => {
-  const screenKeys = Object.keys(screens);
+  const screenKeys = Object.keys(screens) as Screen[];
   const currentKeyIndex = screenKeys.indexOf(bp);
   const nextBp = screenKeys[currentKeyIndex + 1];
 
-  return nextBp ? between(bp, nextBp as Screen) : up(bp);
+  return nextBp ? between(bp, nextBp) : up(bp);
 };
