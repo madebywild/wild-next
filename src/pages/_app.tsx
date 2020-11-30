@@ -38,4 +38,5 @@ const App = ({ Component, pageProps }: AppProps) => {
   );
 };
 
+// eslint-disable-next-line import/no-default-export
 export default App;
