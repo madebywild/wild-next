@@ -1,4 +1,10 @@
-import { theme, Screen } from "twin.macro";
+import { theme } from "twin.macro";
+
+/**
+ * NOTE: Keep this in sync with the Tailwind theme `screens` config.
+ * @see https://tailwindcss.com/docs/breakpoints
+ */
+export type Screen = "sm" | "md" | "lg" | "xl";
 
 // The maximum value is calculated as the minimum of the next one less 0.02px.
 // @see https://www.w3.org/TR/mediaqueries-4/#mq-min-max
