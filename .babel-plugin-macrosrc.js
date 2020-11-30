@@ -4,7 +4,7 @@ module.exports = {
     preset: "styled-components",
     autoCssProp: true,
     hasSuggestions: true,
-    debugProp: false,
+    dataTwProp: false,
     debugPlugins: false,
     debug: false,
   },
