@@ -21,11 +21,9 @@ const CustomStyles = createGlobalStyle`
   }
 `;
 
-const GlobalStyles: React.FC = () => (
+export const GlobalStyles: React.FC = () => (
   <>
     <BaseStyles />
     <CustomStyles />
   </>
 );
-
-export { GlobalStyles };

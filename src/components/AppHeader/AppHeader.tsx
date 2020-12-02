@@ -3,12 +3,10 @@ import LogoSvg from "~/assets/logo.svg";
 
 interface Props {}
 
-const AppHeader: React.FC<Props> = () => {
+export const AppHeader: React.FC<Props> = () => {
   return (
     <header>
       <LogoSvg />
     </header>
   );
 };
-
-export { AppHeader };
