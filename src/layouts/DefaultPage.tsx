@@ -5,7 +5,7 @@ import { AppFooter } from "~/components/AppFooter/AppFooter";
 
 interface Props {}
 
-const DefaultPage: React.FC<Props> = ({ children }) => {
+export const DefaultPage: React.FC<Props> = ({ children }) => {
   return (
     <>
       <AppHeader />
@@ -14,5 +14,3 @@ const DefaultPage: React.FC<Props> = ({ children }) => {
     </>
   );
 };
-
-export { DefaultPage };
