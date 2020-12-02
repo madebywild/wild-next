@@ -9,7 +9,7 @@ const parseQueryString = (query: string) => {
   return query.replaceAll("@media only screen and", "").trim();
 };
 
-export const useMediaQuery = (query: string, defaultState: boolean | null = null) => {
+export const useMediaQuery = (query: string, defaultState = false) => {
   const parseAndMatch = (s: string) => getMatch(parseQueryString(s));
   const [state, setState] = useState(isClient ? () => parseAndMatch(query).matches : defaultState);
 
