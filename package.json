@@ -36,7 +36,7 @@
     "twin.macro": "2.0.4"
   },
   "devDependencies": {
-    "@madebywild/eslint-config": "0.2.0",
+    "@madebywild/eslint-config": "0.2.1",
     "@madebywild/prettier-config": "0.1.0",
     "@next/bundle-analyzer": "10.0.3",
     "@svgr/webpack": "5.5.0",
