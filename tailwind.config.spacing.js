@@ -26,7 +26,8 @@ const createSpacing = (baseFontSizePx = 10) => {
     pxToRem: pxUnitToRem,
     rootFontSize: unitToPx(baseFontSizePx),
     spacing: {
-      ...createScale({ max: 64, steps: 2, valFM: pxUnitToRem }),
+      ...createScale({ max: 32, steps: 1, valFM: pxUnitToRem }),
+      ...createScale({ min: 32, max: 64, steps: 2, valFM: pxUnitToRem }),
       ...createScale({ min: 68, max: 128, steps: 4, valFM: pxUnitToRem }),
       ...createScale({ min: 136, max: 256, steps: 8, valFM: pxUnitToRem }),
       ...createScale({ min: 272, max: 512, steps: 16, valFM: pxUnitToRem }),
