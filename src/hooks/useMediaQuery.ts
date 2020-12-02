@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import { isClient } from "~/utils/common";
 
-interface Props {
-  query: string;
-  defaultState?: boolean | null;
-}
-
 const getMatch = (query: string) => {
   return window.matchMedia(query);
 };
@@ -14,7 +9,7 @@ const parseQueryString = (query: string) => {
   return query.replaceAll("@media only screen and", "").trim();
 };
 
-export const useMediaQuery = ({ query, defaultState = null }: Props) => {
+export const useMediaQuery = (query: string, defaultState: boolean | null = null) => {
   const parseAndMatch = (s: string) => getMatch(parseQueryString(s));
   const [state, setState] = useState(isClient ? () => parseAndMatch(query).matches : defaultState);
 
