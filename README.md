@@ -24,9 +24,3 @@
 - Styled Components: https://styled-components.com/docs
 - Tailwind: https://tailwindcss.com/
 - Twin.macro: https://github.com/ben-rogerson/twin.macro/#features
-
-### Lodash
-
-#### Docs
-
-- Lodash: https://lodash.com/docs/
