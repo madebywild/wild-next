@@ -3,9 +3,6 @@ import { AppProps } from "next/app";
 import { DefaultSeo, DefaultSeoProps } from "next-seo";
 import { GlobalStyles } from "~/styles/GlobalStyles";
 
-// FIXME: Declaring custom fonts in a styled-component context, can
-// cause undesired flickering effects during SSR rehydration.
-// @see https://styled-components.com/docs/faqs#how-do-i-fix-flickering-text-after-server-side-rendering
 import "~/styles/fonts.css";
 
 const defaultSeo: DefaultSeoProps = {
