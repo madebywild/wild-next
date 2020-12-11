@@ -13,7 +13,7 @@ const CustomStyles = createGlobalStyle`
   }
 
   body {
-    ${tw`h-full text-base text-black antialiased`}
+    ${tw`h-full bg-white text-base text-black antialiased`}
   }
 
   #__next {
