@@ -1,3 +1,10 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.exclude": {
+    "node_modules/": true,
+    "out/": true,
+    ".next/": true,
+    "*.lock": true,
+    "*-lock.*": true
+  }
 }
