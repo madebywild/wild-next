@@ -252,9 +252,7 @@ return () => (
 
 ### Media queries
 
-While you should use Tailwind's screen class utilities most of the time, sometimes you need to use a media query the traditional way.
-
-This is when you can use the utilities in `~/styles/screens`: `up`, `down`, `only` and `between`. These functions take one (or two) Tailwind screen keys as argument and return a media-query string.
+While you should use Tailwind's screen class utilities most of the time, sometimes you need to use a media query the traditional way. This is when you can use the utilities in `~/styles/screens`. These functions take one (or two) Tailwind screen keys as argument and return a media-query string.
 
 ```tsx
 import tw, { styled } from "twin.macro";
@@ -286,6 +284,21 @@ const Wrapper = styled.div`
 `;
 
 return () => <Wrapper />;
+```
+
+If you need to programmatically check the active media query, you can use the hook in `~/hooks/useMediaQuery`.
+
+```tsx
+import { up, between } from "~/styles/screens";
+import { useMediaQuery } from "~/hooks/useMediaQuery";
+
+// I work with all "screen" variants!
+const isUpLg = useMediaQuery(up("lg"));
+const isBetweenLgAndXl = useMediaQuery(between("lg", "xl"));
+
+// By default the hook will fall back to `false` if `window` is `undefined` (iE during SSR).
+// You can overwrite this behavior by passing a second parameter with the desired fallback value.
+const isUpLg = useMediaQuery(up("lg"), true);
 ```
 
 ### Theme
