@@ -9,9 +9,13 @@
   </a>
 </p>
 
-## Styles
+## Getting started
 
-<hr />
+- Clone this repository: `git clone git@github.com:madebywild/wild-next.git`
+- Delete the `.git` folder: `rm -rf wild-next/.git`
+- Update npm dependencies: It is recommended that you update all dependencies to their latest version. [This tool](https://www.npmjs.com/package/npm-upgrade) can help you with it.
+
+## Styles
 
 This project uses [TailwindCSS](https://tailwindcss.com/) and [styled-components](https://styled-components.com/docs) using the [twin.macro](https://github.com/ben-rogerson/twin.macro/#features) plugin.
 
@@ -24,7 +28,7 @@ Use the `tw` prop when there are no conditional styles, and you don't need custo
  * We still need to import the macro, because it provides the custom JSX transform
  * that enables the `tw` prop. If no import is present, the compiler will default to
  * react-jsx, which does not know how to handle the `tw` prop.
- * 
+ *
  * This behavior might change in the future.
  * @see https://github.com/ben-rogerson/twin.macro/issues/247
  */
@@ -149,7 +153,7 @@ const Wrapper = styled.div<WrapperProps>((props) => [
   props.isHighlighted && tw`text-red-500`,
   // Custom styles last
   // Don't forget to add a semicolon! Normal CSS rules apply.
-  `background-color: ${props.backgroundColor || "red"};`, 
+  `background-color: ${props.backgroundColor || "red"};`,
   `-webkit-tap-highlight-color: transparent;`,
 ]);
 
@@ -217,15 +221,25 @@ Sometimes simply overriding a rule doesn't cut it. That's when you can use style
 ```tsx
 import tw, { styled } from "twin.macro";
 
-const Wrapper = styled.div`${tw`bg-black text-white`}`;
+const Wrapper = styled.div`
+  ${tw`bg-black text-white`}
+`;
 
 // Extending the base wrapper one time is fine.
-const BlueWrapper = styled(Wrapper)`${tw`bg-blue`}`;
-const RedWrapper = styled(Wrapper)`${tw`bg-red text-black`}`;
+const BlueWrapper = styled(Wrapper)`
+  ${tw`bg-blue`}
+`;
+const RedWrapper = styled(Wrapper)`
+  ${tw`bg-red text-black`}
+`;
 
 // But extending it again and again is not recommended.
-const RedWrapperBold = styled(RedWrapper)`${tw`font-bold`}`;
-const RedWrapperBoldItalic = styled(RedWrapperBold)`${tw`font-italic`}`;
+const RedWrapperBold = styled(RedWrapper)`
+  ${tw`font-bold`}
+`;
+const RedWrapperBoldItalic = styled(RedWrapperBold)`
+  ${tw`font-italic`}
+`;
 
 return () => (
   <>
