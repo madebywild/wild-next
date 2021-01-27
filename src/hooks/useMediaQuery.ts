@@ -22,12 +22,22 @@ export const useMediaQuery = (query: string, defaultState = false) => {
       setState(!!mql.matches);
     };
 
-    mql.addEventListener("change", onChange);
+    if (mql.addEventListener) {
+      mql.addEventListener("change", onChange);
+    } else {
+      mql.addListener(onChange); // iOS 13 and below
+    }
+
     setState(mql.matches);
 
     return () => {
       mounted = false;
-      mql.removeEventListener("change", onChange);
+
+      if (mql.removeEventListener) {
+        mql.removeEventListener("change", onChange);
+      } else {
+        mql.removeListener(onChange); // iOS 13 and below
+      }
     };
   }, [query]);
 
