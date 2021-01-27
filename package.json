@@ -32,19 +32,19 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "styled-components": "5.2.1",
-    "twin.macro": "2.0.8"
+    "twin.macro": "2.1.1"
   },
   "devDependencies": {
     "@madebywild/eslint-config": "0.2.1",
     "@madebywild/prettier-config": "0.1.0",
     "@next/bundle-analyzer": "10.0.5",
     "@svgr/webpack": "5.5.0",
-    "@types/node": "14.14.20",
+    "@types/node": "14.14.22",
     "@types/react": "17.0.0",
     "@types/styled-components": "5.1.7",
     "@types/webpack-env": "1.16.0",
-    "eslint": "7.17.0",
-    "husky": "4.3.7",
+    "eslint": "7.18.0",
+    "husky": "4.3.8",
     "lint-staged": "10.5.3",
     "prettier": "2.2.1",
     "rimraf": "3.0.2",
