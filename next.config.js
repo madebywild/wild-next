@@ -6,11 +6,24 @@ module.exports = (phase, defaultConfig) => {
   // https://reactjs.org/docs/strict-mode.html
   nextConfig.reactStrictMode = true;
 
-  // Convert svg files to React components.
   nextConfig.webpack = (wp) => {
+    // Convert svg files to React components.
     wp.module.rules.push({
       test: /\.svg$/,
-      use: ["@svgr/webpack"],
+      use: [
+        {
+          loader: "@svgr/webpack",
+          options: {
+            svgoConfig: {
+              plugins: [
+                {
+                  removeViewBox: false,
+                },
+              ],
+            },
+          },
+        },
+      ],
     });
 
     return wp;
