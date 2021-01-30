@@ -1,25 +1,20 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
-const createSpacingPlugin = require("./tailwind.plugin.spacing.js");
-const { plugin: spacingPlugin, pxToRem } = createSpacingPlugin();
+const wildConfig = require("./tailwind.config.wild.js");
 
 module.exports = {
+  presets: [wildConfig.preset],
   theme: {
-    extend: {
-      zIndex: {
-        behind: -1,
-      },
-      screens: {
-        max: "1920px",
-      },
+    colors: {
+      white: "#ffffff",
+      black: "#000000",
     },
     fontFamily: {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
-      xs: [pxToRem(12), 1.5],
-      base: [pxToRem(16), 1.5],
-      lg: [pxToRem(24), 1.25],
+      xs: [wildConfig.utils.pxRem(12), 1.5],
+      base: [wildConfig.utils.pxRem(16), 1.5],
+      lg: [wildConfig.utils.pxRem(24), 1.25],
     },
   },
-  plugins: [spacingPlugin],
 };
