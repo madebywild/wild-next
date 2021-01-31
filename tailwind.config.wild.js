@@ -1,4 +1,5 @@
-const plugin = require("tailwindcss/plugin");
+const addPlugin = require("tailwindcss/plugin");
+const aspectRatioPlugin = require("@tailwindcss/aspect-ratio");
 
 const BASE_FONT_SIZE_PX = 10;
 
@@ -45,7 +46,8 @@ module.exports = {
       },
     },
     plugins: [
-      plugin(function ({ addBase, theme }) {
+      aspectRatioPlugin,
+      addPlugin(function ({ addBase, theme }) {
         addBase({
           ":root": {
             fontSize: unitToPx(BASE_FONT_SIZE_PX),
