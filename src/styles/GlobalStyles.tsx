@@ -4,20 +4,17 @@ import tw, { GlobalStyles as BaseStyles } from "twin.macro";
 
 const CustomStyles = createGlobalStyle`
   html {
-    ${tw`font-sans leading-none cursor-default overflow-y-scroll overscroll-none`}
-
-    scroll-behavior: smooth;
-    height: 100vh;
-    height: -webkit-fill-available;
-    -webkit-tap-highlight-color: transparent;
+    ${tw`bg-white text-black cursor-default leading-none overflow-y-scroll min-h-full`}
   }
 
   body {
-    ${tw`h-full bg-white text-base text-black antialiased`}
+    ${tw`font-sans text-base antialiased`}
   }
 
+  html,
+  body,
   #__next {
-    ${tw`h-full flex flex-col`}
+    ${tw`flex flex-col flex-1`}
   }
 `;
 
