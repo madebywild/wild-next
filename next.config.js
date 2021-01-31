@@ -1,38 +1,25 @@
-const withBundleAnalyzer = require("@next/bundle-analyzer");
+const withPlugins = require("next-compose-plugins");
+const bundleAnalyzer = require("@next/bundle-analyzer");
+const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === "true" });
 
-module.exports = (phase, defaultConfig) => {
-  let nextConfig = defaultConfig;
-
+const nextConfig = {
   // https://reactjs.org/docs/strict-mode.html
-  nextConfig.reactStrictMode = true;
+  reactStrictMode: true,
 
-  nextConfig.webpack = (wp) => {
-    // Convert svg files to React components.
-    wp.module.rules.push({
+  webpack: (config, options) => {
+    // https://react-svgr.com/
+    config.module.rules.push({
       test: /\.svg$/,
       use: [
         {
           loader: "@svgr/webpack",
-          options: {
-            svgoConfig: {
-              plugins: [
-                {
-                  removeViewBox: false,
-                },
-              ],
-            },
-          },
+          options: { svgoConfig: { plugins: [{ removeViewBox: false }] } },
         },
       ],
     });
 
-    return wp;
-  };
-
-  // Enable bundle analyzer for `npm run analyze`.
-  nextConfig = withBundleAnalyzer({
-    enabled: process.env.ANALYZE === "true",
-  })(nextConfig);
-
-  return nextConfig;
+    return config;
+  },
 };
+
+module.exports = withPlugins([withBundleAnalyzer], nextConfig);
