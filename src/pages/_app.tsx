@@ -9,7 +9,11 @@ const defaultSeo: DefaultSeoProps = {
   title: "wild-next",
   titleTemplate: "%s | wild-next",
   description: "This is the wild-next boilerplate.",
+  twitter: {
+    cardType: "summary_large_image",
+  },
   openGraph: {
+    type: "website",
     images: [{ url: "/social-embed.png" }],
   },
 };
@@ -27,7 +31,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
-        <link rel="preload" href="/fonts/Inter-Regular.otf" as="font" type="font/otf" />
+        <link rel="preload" href="/fonts/Inter-Regular.otf" as="font" type="font/otf" crossOrigin="anonymous" />
       </NextHead>
       <GlobalStyles />
       <Component {...pageProps} />
