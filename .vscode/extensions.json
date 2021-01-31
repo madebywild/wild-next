@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "lightyen.tailwindcss-intellisense-twin",
+    "jpoissonnier.vscode-styled-components"
+  ]
+}
