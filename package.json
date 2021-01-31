@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "clear": "rimraf .next && rimraf build && rimraf out && rimraf node_modules/.cache",
-    "dev": "next",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "analyze": "npm run clear && ANALYZE=true npm run build",
     "start": "next start",
