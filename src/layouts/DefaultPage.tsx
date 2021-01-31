@@ -1,16 +1,18 @@
 import "twin.macro";
 import React from "react";
-import { AppHeader } from "~/components/AppHeader/AppHeader";
-import { AppFooter } from "~/components/AppFooter/AppFooter";
 
 interface Props {}
 
 export const DefaultPage: React.FC<Props> = ({ children }) => {
   return (
     <>
-      <AppHeader />
+      <header>
+        <h1>header</h1>
+      </header>
       <main tw="flex-1">{children}</main>
-      <AppFooter />
+      <footer>
+        <p>footer</p>
+      </footer>
     </>
   );
 };

@@ -252,11 +252,11 @@ return () => (
 
 ### Media queries
 
-While you should use Tailwind's screen class utilities most of the time, sometimes you need to use a media query the traditional way. This is when you can use the utilities in `~/styles/screens`. These functions take one (or two) Tailwind screen keys as argument and return a media-query string.
+While you should use Tailwind's screen class utilities most of the time, sometimes you need to use a media query the traditional way. This is when you can use the utilities in `~/utils/screens`. These functions take one (or two) Tailwind screen keys as argument and return a media-query string.
 
 ```tsx
 import tw, { styled } from "twin.macro";
-import { up, down, only, between } from "~/styles/screens";
+import { up, down, only, between } from "~/utils/screens";
 
 const Wrapper = styled.div`
   /* This is what you usually want */
@@ -289,7 +289,7 @@ return () => <Wrapper />;
 If you need to programmatically check the active media query, you can use the hook in `~/hooks/useMediaQuery`.
 
 ```tsx
-import { up, between } from "~/styles/screens";
+import { up, between } from "~/utils/screens";
 import { useMediaQuery } from "~/hooks/useMediaQuery";
 
 // I work with all "screen" variants!
