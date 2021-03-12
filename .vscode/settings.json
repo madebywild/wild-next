@@ -1,16 +1,3 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "eslint.validate": ["javascript", "typescript"],
-  "search.exclude": {
-    ".vscode/": true,
-    ".next/": true,
-    "**/node_modules/": true,
-    "**/out/": true
-  },
-  "files.watcherExclude": {
-    ".next/": true,
-    "**/node_modules/": true,
-    "**/out/": true
-  }
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
