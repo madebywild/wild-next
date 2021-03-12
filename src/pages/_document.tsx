@@ -7,13 +7,11 @@ class Document extends NextDocument {
     const originalRenderPage = ctx.renderPage;
 
     try {
-      const enhancedRenderer = () => {
+      ctx.renderPage = () => {
         return originalRenderPage({
           enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
         });
       };
-
-      ctx.renderPage = enhancedRenderer;
 
       const initialProps = await NextDocument.getInitialProps(ctx);
 

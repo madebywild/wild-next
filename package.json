@@ -6,9 +6,9 @@
     "clear": "rimraf .next && rimraf build && rimraf out && rimraf node_modules/.cache",
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
-    "analyze": "npm run clear && ANALYZE=true npm run build",
     "start": "next start",
     "export": "npm run build && next export",
+    "analyze": "npm run clear && ANALYZE=true npm run build",
     "format": "prettier --write 'src/**/*.{json,md,css,scss,less}'",
     "lint": "tsc --noEmit && eslint --color 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "npm run lint -- --fix"
