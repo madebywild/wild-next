@@ -7,13 +7,6 @@ This project uses [TailwindCSS](https://tailwindcss.com/) and [styled-components
 Use the `tw` prop when there are no conditional styles, and you don't need custom CSS.<br />**This should always be preferred!**
 
 ```tsx
-/**
- * We still need to import the macro, because it provides the custom JSX transform
- * that enables the `tw` prop. If no import is present, the compiler will default to
- * react-jsx, which does not know how to handle the `tw` prop.
- */
-import "twin.macro";
-
 return () => (
   <div tw="flex w-full">
     <div tw="w-1/2" />
