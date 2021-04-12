@@ -12,7 +12,8 @@
     "format": "prettier --write 'src/**/*.{json,md,css,js,jsx,ts,tsx}'",
     "typecheck": "tsc --noEmit",
     "lint": "npm run typecheck && eslint --color 'src/**/*.{js,jsx,ts,tsx}'",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "postinstall": "husky install"
   },
   "husky": {
     "hooks": {
