@@ -13,18 +13,14 @@
     "typecheck": "tsc --noEmit",
     "lint": "npm run typecheck && eslint --color 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "npm run lint -- --fix",
-    "postinstall": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "prepare": "husky install"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "npm run lint:fix"
+      "npm run lint:fix",
+      "npm run format"
     ],
-    "src/**/*.{json,md,css,js,jsx,ts,tsx}": [
+    "src/**/*.{json,md,css}": [
       "npm run format"
     ]
   },
