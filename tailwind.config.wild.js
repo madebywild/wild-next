@@ -40,9 +40,6 @@ module.exports = {
         zIndex: {
           behind: -1,
         },
-        screens: {
-          max: "1920px",
-        },
       },
     },
     plugins: [

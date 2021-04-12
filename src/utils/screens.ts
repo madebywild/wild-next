@@ -4,7 +4,7 @@ import { theme } from "twin.macro";
  * NOTE: Keep this in sync with the (custom) Tailwind theme `screens` config.
  * @see https://tailwindcss.com/docs/breakpoints
  */
-export type Screen = "sm" | "md" | "lg" | "xl" | "2xl" | "max";
+export type Screen = "sm" | "md" | "lg" | "xl" | "2xl";
 export const screens = theme<Record<Screen, string>>("screens");
 
 // The maximum value is calculated as the minimum of the next one less 0.02px.
