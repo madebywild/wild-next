@@ -1,4 +1,3 @@
-import "twin.macro";
 import React from "react";
 
 interface Props {}
