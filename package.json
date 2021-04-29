@@ -11,7 +11,7 @@
     "analyze": "npm run clear && ANALYZE=true npm run build",
     "format": "prettier --write 'src/**/*.{json,md,css,js,jsx,ts,tsx}'",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint --color 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint --cache --cache-location 'node_modules/.cache/.eslintcache' --color src --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "prepare": "husky install"
   },
