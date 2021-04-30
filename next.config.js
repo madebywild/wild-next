@@ -2,6 +2,7 @@ const withPlugins = require("next-compose-plugins");
 const bundleAnalyzer = require("@next/bundle-analyzer");
 const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === "true" });
 
+/** @type {import('next/dist/next-server/server/config').NextConfig} */
 const nextConfig = {
   // https://reactjs.org/docs/strict-mode.html
   reactStrictMode: true,
@@ -14,7 +15,13 @@ const nextConfig = {
         {
           loader: "@svgr/webpack",
           options: {
-            svgoConfig: { plugins: [{ removeViewBox: false }] },
+            svgoConfig: {
+              plugins: [
+                {
+                  removeViewBox: false,
+                },
+              ],
+            },
           },
         },
       ],
