@@ -4,10 +4,11 @@
   "license": "MIT",
   "scripts": {
     "clear": "rimraf .next && rimraf build && rimraf out && rimraf node_modules/.cache",
-    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "export": "npm run build && next export",
+    "inspect": "NODE_OPTIONS='--inspect' next dev",
     "analyze": "npm run clear && ANALYZE=true npm run build",
     "format": "prettier --write 'src/**/*.{json,md,css,js,jsx,ts,tsx}'",
     "typecheck": "tsc --noEmit",
