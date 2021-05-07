@@ -36,6 +36,7 @@
     "@types/styled-components": "5.1.9",
     "@types/webpack-env": "1.16.0",
     "eslint": "7.25.0",
+    "babel-plugin-twin": "1.0.2",
     "husky": "6.0.0",
     "lint-staged": "10.5.4",
     "prettier": "2.2.1",
