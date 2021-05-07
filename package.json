@@ -38,7 +38,6 @@
     "eslint": "7.25.0",
     "husky": "6.0.0",
     "lint-staged": "10.5.4",
-    "next-compose-plugins": "2.2.1",
     "prettier": "2.2.1",
     "rimraf": "3.0.2",
     "tailwindcss": "2.1.2",
