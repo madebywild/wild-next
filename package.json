@@ -7,13 +7,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "yarn build && next export",
+    "export": "npm run build && next export",
     "inspect": "NODE_OPTIONS='--inspect' next dev",
-    "analyze": "yarn clear && ANALYZE=true yarn build",
+    "analyze": "npm run clear && ANALYZE=true npm run build",
     "format": "prettier --write 'src/**/*.{json,md,css,js,jsx,ts,tsx}'",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --color --cache --cache-location 'node_modules/.cache/.eslintcache' src --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "yarn lint --fix",
+    "lint:fix": "npm run lint -- --fix",
     "prepare": "husky install"
   },
   "dependencies": {
