@@ -7,11 +7,6 @@ const nextConfig = {
   // https://reactjs.org/docs/strict-mode.html
   reactStrictMode: true,
 
-  // https://nextjs.org/docs/messages/webpack5
-  future: {
-    webpack5: true,
-  },
-
   webpack: (config, options) => {
     // https://react-svgr.com/
     config.module.rules.push({
