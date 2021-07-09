@@ -17,4 +17,4 @@
 
 ## Documentation
 
-- [Styling](docs/styling.md)
+- [Styling](https://docs.wild.plus/styling)
