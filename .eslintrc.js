@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["@madebywild/eslint-config", "plugin:@next/next/recommended"],
+  extends: "@madebywild/eslint-config",
   overrides: [
     {
       files: ["**/*.d.ts", "./src/pages/**/*.ts?(x)"],
@@ -8,7 +8,4 @@ module.exports = {
       },
     },
   ],
-  rules: {
-    "@next/next/no-img-element": "off",
-  },
 };

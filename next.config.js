@@ -7,11 +7,6 @@ const nextConfig = {
   // https://reactjs.org/docs/strict-mode.html
   reactStrictMode: true,
 
-  // The pre-commit hook takes care of linting.
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-
   webpack: (config, options) => {
     // https://react-svgr.com/
     config.module.rules.push({
