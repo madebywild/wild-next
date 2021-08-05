@@ -7,9 +7,9 @@ const nextConfig = {
   // https://reactjs.org/docs/strict-mode.html
   reactStrictMode: true,
 
-  // https://nextjs.org/docs/messages/webpack5
-  future: {
-    webpack5: true,
+  // The pre-commit hook takes care of linting.
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 
   webpack: (config, options) => {
