@@ -9,12 +9,4 @@
   </a>
 </p>
 
-## Getting started
-
-- Clone this repository: `git clone git@github.com:madebywild/wild-next.git`
-- Delete the `.git` folder: `rm -rf wild-next/.git`
-- Update npm dependencies: It is recommended that you update all dependencies to their latest version.<br />Tipp: [npm-upgrade](https://www.npmjs.com/package/npm-upgrade) can help you with this task.
-
-## Documentation
-
-- [Styling](https://docs.wild.plus/styling)
+- https://docs.wild.plus/next-js
