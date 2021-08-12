@@ -4,6 +4,9 @@ menu: Guides
 route: /next-js
 ---
 
+import { scripts } from "../package.json";
+import { Code } from "gatsby-theme-docz/src/components/Code";
+
 # Next.JS
 
 The boilerplate and parts of this guide assume that the Next.JS instance will be running on a [Laravel Forge Server](/server-setup). Make sure you have setup a server and all necessary AWS buckets and accounts!
@@ -26,7 +29,9 @@ This guide assumes you have a working dev machine with common tools and a consol
 - Run `npm i` to install dependencies.
 - Run `npm run dev` to start the dev server.
 
-A list of all available commands can be found in the `package.json` file.
+### Available commands
+
+<Code language="json">{JSON.stringify(scripts, null, 4)}</Code>
 
 ## Laravel Forge
 
