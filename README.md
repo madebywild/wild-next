@@ -11,4 +11,4 @@
 
 ## Documentation
 
-https://docs.wild.plus/next-js
+https://docs.wild.plus/boilerplates/next-js
