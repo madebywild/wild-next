@@ -12,7 +12,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
-  webpack: (config, options) => {
+  webpack: (config) => {
     // https://react-svgr.com/
     config.module.rules.push({
       test: /\.svg$/,
