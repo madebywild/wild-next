@@ -2,7 +2,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
-/** @type {import('next/dist/next-server/server/config').NextConfig} */
+/** @type {import('next/dist/server/config').NextConfig} */
 const nextConfig = {
   // https://reactjs.org/docs/strict-mode.html
   reactStrictMode: true,
@@ -12,7 +12,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
-  webpack: (config, options) => {
+  webpack: (config) => {
     // https://react-svgr.com/
     config.module.rules.push({
       test: /\.svg$/,
