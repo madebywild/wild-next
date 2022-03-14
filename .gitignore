@@ -31,3 +31,9 @@ yarn-error.log*
 **/.cache
 .vercel
 .idea
+
+# ts build cache
+*.tsbuildinfo
+
+# eslint cache
+.eslintcache
