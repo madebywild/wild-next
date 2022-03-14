@@ -15,7 +15,8 @@ const nextConfig = {
   webpack: (config) => {
     // https://react-svgr.com/
     config.module.rules.push({
-      test: /\.svg$/,
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
       use: [
         {
           loader: "@svgr/webpack",
