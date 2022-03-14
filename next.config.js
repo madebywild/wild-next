@@ -7,7 +7,7 @@ const nextConfig = {
   // https://reactjs.org/docs/strict-mode.html
   reactStrictMode: true,
 
-  // The pre-commit hook takes care of linting.
+  // The pre-commit hook takes care of linting
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -23,7 +23,10 @@ const nextConfig = {
             svgoConfig: {
               plugins: [
                 {
-                  removeViewBox: false,
+                  name: "preset-default",
+                  params: {
+                    overrides: { removeViewBox: false },
+                  },
                 },
               ],
             },
