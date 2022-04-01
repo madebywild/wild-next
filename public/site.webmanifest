@@ -1,5 +1,5 @@
 {
-  "name": "wild-next",
+  "name": "Wild Next",
   "short_name": "wild-next",
   "icons": [
     {
@@ -14,6 +14,6 @@
     }
   ],
   "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "background_color": "#000000",
   "display": "standalone"
 }
