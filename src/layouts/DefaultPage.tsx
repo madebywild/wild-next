@@ -1,8 +1,10 @@
 import React from "react";
 
-interface Props {}
+interface Props {
+  children: React.ReactNode;
+}
 
-export const DefaultPage: React.FC<Props> = ({ children }) => {
+export const DefaultPage = ({ children }: Props) => {
   return (
     <>
       <header>
