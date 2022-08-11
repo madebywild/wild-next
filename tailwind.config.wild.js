@@ -2,9 +2,10 @@ const addPlugin = require("tailwindcss/plugin");
 const aspectRatioPlugin = require("@tailwindcss/aspect-ratio");
 
 const BASE_FONT_SIZE_PX = 10;
+const BROWSER_DEFAULT_FONT_SIZE_PX = 16;
 
 const noop = (val) => val;
-const unitToPx = (val) => `${val}px`;
+const unitToPercent = (val) => `${val}%`;
 const unitToRem = (val) => `${val}rem`;
 const pxToRem = (val) => val / BASE_FONT_SIZE_PX;
 const pxUnitToRem = (val) => unitToRem(pxToRem(val));
@@ -47,7 +48,7 @@ module.exports = {
       addPlugin(function ({ addBase, theme }) {
         addBase({
           ":root": {
-            fontSize: unitToPx(BASE_FONT_SIZE_PX),
+            fontSize: unitToPercent((BASE_FONT_SIZE_PX / BROWSER_DEFAULT_FONT_SIZE_PX) * 100),
           },
         });
       }),
