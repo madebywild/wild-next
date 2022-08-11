@@ -1,4 +1,5 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "tailwindcss.jsxPropImportChecking": false
+  "tailwindcss.jsxPropImportChecking": false,
+  "tailwindcss.rootFontSize": 10
 }
