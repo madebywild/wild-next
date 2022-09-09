@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { isClient } from "~/utils/common";
 
 const getMatch = (query: string) => {
   return window.matchMedia(query);
@@ -11,7 +10,7 @@ const parseQueryString = (query: string) => {
 
 export const useMediaQuery = (query: string, defaultState = false) => {
   const parseAndMatch = (s: string) => getMatch(parseQueryString(s));
-  const [state, setState] = useState(isClient ? () => parseAndMatch(query).matches : defaultState);
+  const [state, setState] = useState(defaultState);
 
   useEffect(() => {
     let mounted = true;
