@@ -16,7 +16,7 @@ const createScale = ({ min = 0, max = 100, steps = 1, formatVal = noop, formatKe
 
   return scale.reduce((prev, curr) => {
     const key = String(formatKey(curr));
-    const val = curr === 0 ? curr : formatVal(curr);
+    const val = curr === 0 ? String(curr) : formatVal(curr);
     return { ...prev, [key]: val };
   }, {});
 };
