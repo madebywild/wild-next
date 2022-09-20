@@ -1,6 +1,6 @@
 import { NextSeo } from "next-seo";
 import { type NextPageWithLayout } from "~/pages/_app";
-import { DefaultPage } from "~/layouts/DefaultPage";
+import { DefaultPage } from "~/layouts/default-page";
 import LogoSvg from "~/assets/logo.svg";
 
 interface Props {}
