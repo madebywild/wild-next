@@ -10,5 +10,11 @@ module.exports = {
   ],
   rules: {
     "@next/next/no-img-element": "off",
+    "react/no-unknown-property": [
+      "warn",
+      {
+        ignore: ["css", "tw"],
+      },
+    ],
   },
 };
