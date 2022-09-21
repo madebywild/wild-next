@@ -9,6 +9,7 @@ module.exports = {
     },
   ],
   rules: {
+    "jsx-a11y/anchor-is-valid": "off",
     "@next/next/no-img-element": "off",
     "react/no-unknown-property": [
       "warn",
