@@ -2,6 +2,10 @@
   "name": "wild-next",
   "version": "0.0.1",
   "license": "MIT",
+  "engines": {
+    "node": ">=16.17.0",
+    "npm": ">=8.0.0"
+  },
   "scripts": {
     "clear": "rimraf .next && rimraf build && rimraf out && rimraf node_modules/.cache",
     "dev": "next dev",
