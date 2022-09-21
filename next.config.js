@@ -4,6 +4,8 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 /** @type {import('next/dist/server/config').NextConfig} */
 const nextConfig = {
+  poweredByHeader: false,
+
   // https://reactjs.org/docs/strict-mode.html
   reactStrictMode: true,
 
@@ -26,7 +28,10 @@ const nextConfig = {
                 {
                   name: "preset-default",
                   params: {
-                    overrides: { removeViewBox: false, cleanupIDs: false },
+                    overrides: {
+                      cleanupIDs: false,
+                      removeViewBox: false,
+                    },
                   },
                 },
               ],
