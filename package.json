@@ -9,7 +9,7 @@
     "start": "next start",
     "export": "npm run build && next export",
     "inspect": "NODE_OPTIONS='--inspect' next dev",
-    "analyze": "npm run clean && ANALYZE=true npm run build",
+    "analyze": "ANALYZE=true npm run build",
     "format": "prettier --write 'src/**/*.{json,md,css,js,jsx,ts,tsx}'",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --color --cache --cache-location 'node_modules/.cache/.eslintcache' src --ext .js,.jsx,.ts,.tsx",
