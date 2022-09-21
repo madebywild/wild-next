@@ -1,5 +1,5 @@
 import "twin.macro";
-import styledImport, { CSSProp, css as cssImport } from "styled-components";
+import type styledImport, { type CSSProp, css as cssImport } from "styled-components";
 
 declare module "twin.macro" {
   const styled: typeof styledImport;
@@ -11,7 +11,11 @@ declare module "react" {
     css?: CSSProp;
   }
 
-  interface SVGProps<T> extends SVGProps<SVGSVGElement> {
+  interface SVGProps extends SVGProps<SVGSVGElement> {
+    css?: CSSProp;
+  }
+
+  interface SVGAttributes extends SVGAttributes<SVGSVGElement> {
     css?: CSSProp;
   }
 }

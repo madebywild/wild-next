@@ -1,11 +1,12 @@
 {
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "lib": ["dom", "dom.iterable", "esnext"],
-    "typeRoots": ["node_modules/@types", "./types"],
     "incremental": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,
@@ -20,7 +21,5 @@
     "paths": {
       "~/*": ["./src/*"]
     }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  }
 }
