@@ -1,10 +1,10 @@
+import "~/styles/fonts.css";
+
 import NextHead from "next/head";
 import { useRouter } from "next/router";
 import { AppProps } from "next/app";
 import { DefaultSeo, DefaultSeoProps } from "next-seo";
 import { GlobalStyles } from "~/styles/GlobalStyles";
-
-import "~/styles/fonts.css";
 
 const defaultSeo: DefaultSeoProps = {
   title: "wild-next",
