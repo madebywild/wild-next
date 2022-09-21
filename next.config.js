@@ -6,10 +6,14 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 const nextConfig = {
   poweredByHeader: false,
 
+  // Public resources are loaded with the `router.basePath` to
+  // support deployments to sub-paths of a domain.
+  basePath: "",
+
   // https://reactjs.org/docs/strict-mode.html
   reactStrictMode: true,
 
-  // The pre-commit hook takes care of linting
+  // The pre-commit hook takes care of linting.
   eslint: {
     ignoreDuringBuilds: true,
   },
