@@ -1,9 +1,18 @@
+import "~/styles/fonts.css";
+
 import NextHead from "next/head";
-import { AppProps } from "next/app";
-import { DefaultSeo, DefaultSeoProps } from "next-seo";
+import { type AppProps } from "next/app";
+import { type NextPage } from "next";
+import { DefaultSeo, type DefaultSeoProps } from "next-seo";
 import { GlobalStyles } from "~/styles/GlobalStyles";
 
-import "~/styles/fonts.css";
+export type NextPageWithLayout<PageProps = {}> = NextPage<PageProps> & {
+  getLayout?: (page: React.ReactElement<PageProps>) => React.ReactNode;
+};
+
+type Props = AppProps & {
+  Component: NextPageWithLayout;
+};
 
 const defaultSeo: DefaultSeoProps = {
   title: "wild-next",
@@ -18,7 +27,9 @@ const defaultSeo: DefaultSeoProps = {
   },
 };
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps }: Props) => {
+  const withLayout = Component.getLayout ?? ((page) => page);
+
   return (
     <>
       <DefaultSeo {...defaultSeo} />
@@ -34,7 +45,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <link rel="preload" href="/fonts/Inter-Regular.otf" as="font" type="font/otf" crossOrigin="anonymous" />
       </NextHead>
       <GlobalStyles />
-      <Component {...pageProps} />
+      {withLayout(<Component {...pageProps} />)}
     </>
   );
 };
