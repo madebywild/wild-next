@@ -6,6 +6,20 @@
     "node": ">=16.17.0",
     "npm": ">=8.0.0"
   },
+  "browserslist": {
+    "production": [
+      ">1%",
+      "not ie <= 11",
+      "not edge <= 18",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "scripts": {
     "clean": "rimraf .next out node_modules/.cache",
     "dev": "next dev",
