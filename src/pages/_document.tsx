@@ -1,5 +1,5 @@
 import { ServerStyleSheet } from "styled-components";
-import NextDocument, { DocumentContext } from "next/document";
+import NextDocument, { type DocumentContext } from "next/document";
 
 class Document extends NextDocument {
   static async getInitialProps(ctx: DocumentContext) {
