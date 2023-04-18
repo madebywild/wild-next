@@ -1,6 +1,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const wildConfig = require("./tailwind.config.wild.js");
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [wildConfig.preset],
   theme: {
