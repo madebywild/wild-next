@@ -29,7 +29,7 @@ const nextConfig = {
                   name: "preset-default",
                   params: {
                     overrides: {
-                      cleanupIDs: false,
+                      cleanupIds: false,
                       removeViewBox: false,
                     },
                   },
