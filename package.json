@@ -28,10 +28,9 @@
     "export": "npm run build && next export",
     "inspect": "NODE_OPTIONS='--inspect' next dev",
     "analyze": "ANALYZE=true npm run build",
-    "format": "prettier --write 'src/**/*.{json,md,css,js,jsx,ts,tsx}'",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --color --cache --cache-location 'node_modules/.cache/.eslintcache' src --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier --write 'src/**/*.{json,md,css,js,jsx,ts,tsx}' && npm run lint -- --fix",
     "prepare": "husky install"
   },
   "dependencies": {
