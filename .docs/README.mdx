@@ -288,11 +288,11 @@ const Wrapper = styled.div`
 return () => <Wrapper />;
 ```
 
-If you need to programmatically check the active media query, you can use the hook in `~/hooks/useMediaQuery`.
+If you need to programmatically check the active media query, you can use the hook in `~/hooks/use-media-query`.
 
 ```tsx
 import { up, between } from "~/utils/screens";
-import { useMediaQuery } from "~/hooks/useMediaQuery";
+import { useMediaQuery } from "~/hooks/use-media-query";
 
 // I work with all "screen" variants!
 const isUpLg = useMediaQuery(up("lg"));
