@@ -1,7 +1,7 @@
-import type React from "react";
+import { type ReactNode } from "react";
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const DefaultPage = ({ children }: Props) => {
