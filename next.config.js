@@ -6,6 +6,9 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 const nextConfig = {
   poweredByHeader: false,
 
+  // Add support for custom build dirs
+  distDir: process.env.DIST_DIR || ".next",
+
   // https://reactjs.org/docs/strict-mode.html
   reactStrictMode: true,
 
