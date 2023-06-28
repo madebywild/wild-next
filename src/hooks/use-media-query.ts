@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useIsomorphicLayoutEffect } from "~/hooks/use-isomorphic-layout-effect";
 
 const getMatch = (query: string) => {
   return window.matchMedia(query);
@@ -12,7 +13,7 @@ export const useMediaQuery = (query: string, defaultState = false) => {
   const parseAndMatch = (s: string) => getMatch(parseQueryString(s));
   const [state, setState] = useState(defaultState);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     let mounted = true;
     const mql = parseAndMatch(query);
 
