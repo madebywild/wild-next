@@ -1,6 +1,6 @@
 {
   "include": ["*.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "out", ".next"],
+  "exclude": ["node_modules", "out", "public", ".next"],
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
@@ -19,8 +19,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"],
-      "/*": ["./*"]
+      "~/*": ["./*"]
     }
   }
 }

@@ -3,7 +3,7 @@ import tw, { GlobalStyles as BaseStyles } from "twin.macro";
 
 const CustomStyles = createGlobalStyle`
   html {
-    ${tw`bg-white text-black cursor-default leading-none min-h-full`}
+    ${tw`bg-white text-black cursor-default leading-none`}
   }
 
   body {
@@ -13,7 +13,7 @@ const CustomStyles = createGlobalStyle`
   html,
   body,
   #__next {
-    ${tw`flex flex-col flex-1`}
+    ${tw`h-full`}
   }
 `;
 

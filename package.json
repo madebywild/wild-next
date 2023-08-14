@@ -29,8 +29,8 @@
     "inspect": "NODE_OPTIONS='--inspect' next dev",
     "analyze": "ANALYZE=true npm run build",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint --color --cache --cache-location 'node_modules/.cache/.eslintcache' src --ext .js,.jsx,.ts,.tsx",
-    "format": "prettier --write 'src/**/*.{json,md,css,js,jsx,ts,tsx}' && npm run lint -- --fix",
+    "lint": "eslint --color --cache --cache-location 'node_modules/.cache/.eslintcache' . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write '**/*.{json,md,css,js,jsx,ts,tsx}' && npm run lint -- --fix",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -48,7 +48,6 @@
     "@svgr/webpack": "8.0.1",
     "@types/node": "20.5.0",
     "@types/react": "18.2.20",
-    "@types/webpack-env": "1.18.1",
     "babel-plugin-twin": "1.1.0",
     "eslint": "8.47.0",
     "husky": "8.0.3",
