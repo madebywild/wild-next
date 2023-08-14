@@ -8,10 +8,9 @@
   },
   "browserslist": {
     "production": [
-      ">1%",
-      "not ie <= 11",
-      "not edge <= 18",
-      "not dead",
+      "defaults",
+      "not safari < 14.1",
+      "not iOS < 14.5",
       "not op_mini all"
     ],
     "development": [
