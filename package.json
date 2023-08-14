@@ -34,31 +34,30 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "next": "12.3.1",
-    "next-seo": "6.0.0",
+    "next": "13.4.13",
+    "next-seo": "6.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "styled-components": "5.3.10"
+    "styled-components": "6.0.7"
   },
   "devDependencies": {
-    "@madebywild/eslint-config": "0.5.13",
+    "@madebywild/eslint-config": "0.5.14",
     "@madebywild/prettier-config": "0.1.0",
-    "@next/bundle-analyzer": "12.3.1",
-    "@next/eslint-plugin-next": "12.3.1",
+    "@next/bundle-analyzer": "13.4.13",
+    "@next/eslint-plugin-next": "13.4.13",
     "@svgr/webpack": "8.0.1",
-    "@types/node": "20.1.5",
-    "@types/react": "18.2.6",
-    "@types/styled-components": "5.1.26",
-    "@types/webpack-env": "1.18.0",
+    "@types/node": "20.5.0",
+    "@types/react": "18.2.20",
+    "@types/webpack-env": "1.18.1",
     "babel-plugin-twin": "1.1.0",
-    "eslint": "8.40.0",
+    "eslint": "8.47.0",
     "husky": "8.0.3",
-    "lint-staged": "13.2.2",
-    "prettier": "2.8.8",
+    "lint-staged": "14.0.0",
+    "prettier": "3.0.1",
     "react-is": "18.2.0",
-    "rimraf": "5.0.0",
-    "tailwindcss": "3.3.2",
-    "twin.macro": "3.3.1",
-    "typescript": "5.0.4"
+    "rimraf": "5.0.1",
+    "tailwindcss": "3.3.3",
+    "twin.macro": "3.4.0",
+    "typescript": "5.1.6"
   }
 }
