@@ -35,10 +35,9 @@ const App = ({ Component, pageProps }: Props) => {
       <DefaultSeo {...defaultSeo} />
       <NextHead>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" key="viewport" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" key="apple" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" key="icon32" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" key="icon16" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" key="mask" />
+        <link key="icon-32" rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link key="icon-svg" rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link key="icon-180" rel="apple-touch-icon" href="/icon-180x180.png" />
         <meta name="msapplication-TileColor" content="#000000" key="tile" />
         <meta name="theme-color" content="#ffffff" key="theme" />
         <link rel="manifest" href="/site.webmanifest" crossOrigin="use-credentials" />
