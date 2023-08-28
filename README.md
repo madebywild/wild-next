@@ -8,7 +8,3 @@
     <img alt="Follow @madebywild on Twitter" src="https://img.shields.io/twitter/follow/madebywild?color=%231da1f2&logo=twitter" />
   </a>
 </p>
-
-## Documentation
-
-https://docs.wild.plus/boilerplates/next-js

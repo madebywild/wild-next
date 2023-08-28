@@ -13,9 +13,9 @@ module.exports = {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
-      xs: [wildConfig.utils.pxRem(12), 1.5],
-      base: [wildConfig.utils.pxRem(16), 1.5],
-      lg: [wildConfig.utils.pxRem(24), 1.25],
+      100: [wildConfig.utils.pxRem(12), 1.5],
+      200: [wildConfig.utils.pxRem(16), 1.5],
+      300: [wildConfig.utils.pxRem(24), 1.25],
     },
   },
 };

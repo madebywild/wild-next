@@ -1,18 +1,14 @@
-import "~/styles/fonts.css";
+import "~/features/app/fonts.css";
 
 import NextHead from "next/head";
 import { type AppProps } from "next/app";
-import { type NextPage } from "next";
 import { DefaultSeo } from "next-seo";
 import { defaultSeo } from "~/next-seo.config";
-import { GlobalStyles } from "~/styles/global-styles";
-
-export type NextPageWithLayout<PageProps = {}> = NextPage<PageProps> & {
-  getLayout?: (page: React.ReactElement<PageProps>) => React.ReactNode;
-};
+import { AppStyles } from "~/features/app/styles";
+import { type PageWithLayout } from "~/features/app/layout";
 
 type Props = AppProps & {
-  Component: NextPageWithLayout;
+  Component: PageWithLayout;
 };
 
 const App = ({ Component, pageProps }: Props) => {
@@ -31,7 +27,7 @@ const App = ({ Component, pageProps }: Props) => {
         <link rel="manifest" href="/site.webmanifest" crossOrigin="use-credentials" />
         <link rel="preload" href="/fonts/Inter-Regular.otf" as="font" type="font/otf" crossOrigin="anonymous" />
       </NextHead>
-      <GlobalStyles />
+      <AppStyles />
       {withLayout(<Component {...pageProps} />)}
     </>
   );

@@ -1,10 +1,9 @@
 import { NextSeo } from "next-seo";
-import { type NextPageWithLayout } from "~/pages/_app";
-import { AppLayout } from "~/features/app/layout";
+import { AppLayout, type PageWithLayout } from "~/features/app/layout";
 
-interface Props {}
+type Props = {};
 
-const Index: NextPageWithLayout<Props> = () => {
+const Index: PageWithLayout<Props> = () => {
   return (
     <>
       <NextSeo title="Index" />
