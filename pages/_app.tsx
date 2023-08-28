@@ -3,7 +3,8 @@ import "~/styles/fonts.css";
 import NextHead from "next/head";
 import { type AppProps } from "next/app";
 import { type NextPage } from "next";
-import { DefaultSeo, type DefaultSeoProps } from "next-seo";
+import { DefaultSeo } from "next-seo";
+import { defaultSeo } from "~/next-seo.config";
 import { GlobalStyles } from "~/styles/global-styles";
 
 export type NextPageWithLayout<PageProps = {}> = NextPage<PageProps> & {
@@ -12,19 +13,6 @@ export type NextPageWithLayout<PageProps = {}> = NextPage<PageProps> & {
 
 type Props = AppProps & {
   Component: NextPageWithLayout;
-};
-
-const defaultSeo: DefaultSeoProps = {
-  title: "wild-next",
-  titleTemplate: "%s | wild-next",
-  description: "This is the wild-next boilerplate.",
-  twitter: {
-    cardType: "summary_large_image",
-  },
-  openGraph: {
-    type: "website",
-    images: [{ url: "/social-embed.png" }],
-  },
 };
 
 const App = ({ Component, pageProps }: Props) => {
