@@ -1,10 +1,10 @@
-import "~/features/styles/fonts.css";
+import "~/styles/fonts.css";
 
 import NextHead from "next/head";
 import { type AppProps } from "next/app";
 import { type NextPage } from "next";
 import { DefaultSeo, type DefaultSeoProps } from "next-seo";
-import { GlobalStyles } from "~/features/styles/global-styles";
+import { GlobalStyles } from "~/styles/global-styles";
 
 export type NextPageWithLayout<PageProps = {}> = NextPage<PageProps> & {
   getLayout?: (page: React.ReactElement<PageProps>) => React.ReactNode;
