@@ -2,8 +2,7 @@ import "~/features/app/fonts.css";
 
 import NextHead from "next/head";
 import { type AppProps } from "next/app";
-import { DefaultSeo } from "next-seo";
-import { defaultSeo } from "~/next-seo.config";
+import { AppSeo } from "~/features/app/seo";
 import { AppStyles } from "~/features/app/styles";
 import { type PageWithLayout } from "~/features/app/layout";
 
@@ -16,7 +15,6 @@ const App = ({ Component, pageProps }: Props) => {
 
   return (
     <>
-      <DefaultSeo {...defaultSeo} />
       <NextHead>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" key="viewport" />
         <link key="icon-32" rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -27,6 +25,7 @@ const App = ({ Component, pageProps }: Props) => {
         <link rel="manifest" href="/site.webmanifest" crossOrigin="use-credentials" />
         <link rel="preload" href="/fonts/Inter-Regular.otf" as="font" type="font/otf" crossOrigin="anonymous" />
       </NextHead>
+      <AppSeo />
       <AppStyles />
       {withLayout(<Component {...pageProps} />)}
     </>
