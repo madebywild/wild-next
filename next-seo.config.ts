@@ -1,6 +1,6 @@
-import { DefaultSeo, type DefaultSeoProps } from "next-seo";
+import { type DefaultSeoProps } from "next-seo";
 
-const defaultSeo: DefaultSeoProps = {
+export const defaultSeo: DefaultSeoProps = {
   title: "wild-next",
   titleTemplate: "%s | wild-next",
   description: "This is the wild-next boilerplate.",
@@ -11,8 +11,4 @@ const defaultSeo: DefaultSeoProps = {
     type: "website",
     images: [{ url: "/social-embed.png" }],
   },
-};
-
-export const AppSeo = () => {
-  return <DefaultSeo {...defaultSeo} />;
 };
