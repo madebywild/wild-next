@@ -1,44 +1,38 @@
 const addPlugin = require("tailwindcss/plugin");
 
-const BASE_FONT_SIZE_PX = 10;
-const BROWSER_DEFAULT_FONT_SIZE_PX = 16;
+const baseFontSize = 10;
+const pxRem = (val) => `${val / baseFontSize}rem`;
 
-const noop = (val) => val;
-const unitToPercent = (val) => `${val}%`;
-const unitToRem = (val) => `${val}rem`;
-const pxToRem = (val) => val / BASE_FONT_SIZE_PX;
-const pxUnitToRem = (val) => unitToRem(pxToRem(val));
-
-const createScale = ({ min = 0, max = 100, steps = 1, formatVal = noop, formatKey = noop }) => {
-  const limit = Math.round((max - min) / steps);
-  const scale = [...new Array(limit + 1)].map((_, i) => min + i * steps);
-
-  return scale.reduce((prev, curr) => {
-    const key = String(formatKey(curr));
-    const val = curr === 0 ? String(curr) : formatVal(curr);
-    return { ...prev, [key]: val };
-  }, {});
+const createScale = (min, max, steps, formatVal) => {
+  const scale = {};
+  for (let i = min; i <= max; i += steps) {
+    scale[String(i)] = i === 0 ? String(i) : formatVal(i);
+  }
+  return scale;
 };
 
 const spacing = {
-  ...createScale({ max: 32, steps: 1, formatVal: pxUnitToRem }),
-  ...createScale({ min: 32, max: 64, steps: 2, formatVal: pxUnitToRem }),
-  ...createScale({ min: 68, max: 128, steps: 4, formatVal: pxUnitToRem }),
-  ...createScale({ min: 136, max: 256, steps: 8, formatVal: pxUnitToRem }),
-  ...createScale({ min: 272, max: 512, steps: 16, formatVal: pxUnitToRem }),
-  ...createScale({ min: 544, max: 1024, steps: 32, formatVal: pxUnitToRem }),
+  ...createScale(0, 32, 1, pxRem),
+  ...createScale(32, 64, 2, pxRem),
+  ...createScale(68, 128, 4, pxRem),
+  ...createScale(136, 256, 8, pxRem),
+  ...createScale(272, 512, 16, pxRem),
+  ...createScale(544, 1024, 32, pxRem),
 };
 
 module.exports = {
   utils: {
-    pxRem: pxUnitToRem,
+    pxRem,
   },
   preset: {
     theme: {
       extend: {
         spacing,
+        screens: {
+          "2xl": "1600px",
+        },
         zIndex: {
-          behind: -1,
+          behind: "-1",
         },
       },
     },
@@ -46,7 +40,7 @@ module.exports = {
       addPlugin(function ({ addBase, theme }) {
         addBase({
           ":root": {
-            fontSize: unitToPercent((BASE_FONT_SIZE_PX / BROWSER_DEFAULT_FONT_SIZE_PX) * 100),
+            fontSize: `${(baseFontSize / 16) * 100}%`,
           },
         });
       }),
