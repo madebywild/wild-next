@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -16,7 +14,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# env
+# secrets
 .env
 
 # testing
@@ -28,12 +26,10 @@ yarn-error.log*
 *.pem
 *.pid
 .Trash-*
-**/.cache
 .vercel
 .idea
 
-# ts build cache
+# caches
 *.tsbuildinfo
-
-# eslint cache
 .eslintcache
+**/.cache
