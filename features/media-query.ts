@@ -1,8 +1,6 @@
 import React from "react";
 import { useIsoLayoutEffect } from "~/features/utils";
-import { screens } from "~/tailwind.config.wild";
-
-export type Screen = keyof typeof screens;
+import { screens, type Screen } from "~/tailwind.config";
 
 // The maximum value is calculated as the minimum of the next one less 0.02px.
 // @see https://www.w3.org/TR/mediaqueries-4/#mq-min-max

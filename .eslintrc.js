@@ -3,7 +3,7 @@ module.exports = {
   extends: ["plugin:@next/next/recommended", "@madebywild/eslint-config"],
   overrides: [
     {
-      files: ["**/*.d.ts", "./pages/**/*.ts?(x)"],
+      files: ["**/*.d.ts", "./pages/**/*.ts?(x)", "./*.ts?(x)"],
       rules: {
         "import/no-default-export": "off",
       },
