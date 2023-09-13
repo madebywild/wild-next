@@ -20,30 +20,41 @@ const spacing = {
   ...createScale(544, 1024, 32, pxRem),
 };
 
-module.exports = {
-  utils: {
-    pxRem,
-  },
-  preset: {
-    theme: {
-      extend: {
-        spacing,
-        screens: {
-          "2xl": "1600px",
-        },
-        zIndex: {
-          behind: "-1",
-        },
+const screens = {
+  sm: "640px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1280px",
+  "2xl": "1600px",
+};
+
+const preset = {
+  theme: {
+    screens,
+    extend: {
+      spacing,
+      minWidth: spacing,
+      minHeight: spacing,
+      maxWidth: spacing,
+      maxHeight: spacing,
+      zIndex: {
+        behind: "-1",
       },
     },
-    plugins: [
-      addPlugin(function ({ addBase, theme }) {
-        addBase({
-          ":root": {
-            fontSize: `${(baseFontSize / 16) * 100}%`,
-          },
-        });
-      }),
-    ],
   },
+  plugins: [
+    addPlugin(function ({ addBase, theme }) {
+      addBase({
+        ":root": {
+          fontSize: `${(baseFontSize / 16) * 100}%`,
+        },
+      });
+    }),
+  ],
+};
+
+module.exports = {
+  screens,
+  preset,
+  pxRem,
 };

@@ -1,13 +1,8 @@
 import React from "react";
-import { theme } from "twin.macro";
 import { useIsoLayoutEffect } from "~/features/utils";
+import { screens } from "~/tailwind.config.wild";
 
-/**
- * Keep this in sync with the (custom) Tailwind theme `screens` config.
- * @see https://tailwindcss.com/docs/breakpoints
- */
-export type Screen = "sm" | "md" | "lg" | "xl" | "2xl";
-export const screens = theme<Record<Screen, string>>("screens");
+export type Screen = keyof typeof screens;
 
 // The maximum value is calculated as the minimum of the next one less 0.02px.
 // @see https://www.w3.org/TR/mediaqueries-4/#mq-min-max

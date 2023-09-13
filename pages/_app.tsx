@@ -1,10 +1,9 @@
-import "~/features/app/fonts.css";
+import "~/features/app/styles.css";
 
 import NextHead from "next/head";
 import { DefaultSeo } from "next-seo";
 import { type AppProps } from "next/app";
 import { defaultSeo } from "~/next-seo.config";
-import { AppStyles } from "~/features/app/styles";
 import { type PageWithLayout } from "~/features/app/layout";
 
 type Props = AppProps & {
@@ -27,7 +26,6 @@ const App = ({ Component, pageProps }: Props) => {
         <link rel="preload" href="/fonts/Inter-Regular.otf" as="font" type="font/otf" crossOrigin="anonymous" />
       </NextHead>
       <DefaultSeo {...defaultSeo} />
-      <AppStyles />
       {withLayout(<Component {...pageProps} />)}
     </>
   );
