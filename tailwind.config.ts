@@ -2,7 +2,7 @@ import { type Config } from "tailwindcss";
 import addPlugin from "tailwindcss/plugin";
 import defaultTheme from "tailwindcss/defaultTheme";
 
-export const BASE_FONT_SIZE = 10;
+const BASE_FONT_SIZE = 10;
 
 const pxRem = (val: number) => {
   return `${val / BASE_FONT_SIZE}rem`;
@@ -23,7 +23,7 @@ const spacing = {
   ...createScale(136, 256, 8),
   ...createScale(272, 512, 16),
   ...createScale(544, 1024, 32),
-} as const;
+};
 
 export const screens = {
   sm: "640px",
@@ -31,9 +31,7 @@ export const screens = {
   lg: "1024px",
   xl: "1280px",
   "2xl": "1600px",
-} as const;
-
-export type Screen = keyof typeof screens;
+};
 
 export default {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./features/**/*.{js,ts,jsx,tsx}"],
@@ -65,7 +63,7 @@ export default {
     },
   },
   plugins: [
-    addPlugin(function ({ addBase }) {
+    addPlugin(({ addBase }) => {
       addBase({
         ":root": {
           fontSize: `${(BASE_FONT_SIZE / 16) * 100}%`,
