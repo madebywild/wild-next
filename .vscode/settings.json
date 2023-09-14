@@ -2,7 +2,10 @@
   "tailwindCSS.rootFontSize": 10,
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.preferences.importModuleSpecifier": "non-relative",
-  "tailwindCSS.experimental.classRegex": ["(cva|cx)\\(([\\s\\S]+?)\\}[\\s]*?\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
   "prettier.ignorePath": ".gitignore",
   "eslint.options": {
     "ignorePath": ".gitignore"

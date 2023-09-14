@@ -38,6 +38,7 @@ export default {
   theme: {
     screens,
     colors: {
+      inherit: "inherit",
       current: "currentColor",
       transparent: "transparent",
       white: "#ffffff",

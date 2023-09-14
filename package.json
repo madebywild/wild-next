@@ -82,11 +82,13 @@
     "format": "prettier --cache --cache-location 'node_modules/.cache/prettier/.prettier-cache' --ignore-path .gitignore --write '**/*.{json,md,css,js,jsx,ts,tsx}' && npm run lint -- --fix"
   },
   "dependencies": {
-    "cva": "npm:class-variance-authority@0.7.0",
+    "@radix-ui/react-slot": "1.0.2",
+    "cva": "beta",
     "next": "13.4.19",
     "next-seo": "6.1.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "tailwind-merge": "1.14.0"
   },
   "devDependencies": {
     "@madebywild/eslint-config": "0.5.14",
