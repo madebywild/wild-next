@@ -24,8 +24,17 @@
     "root": true,
     "extends": [
       "plugin:@next/next/recommended",
+      "plugin:tailwindcss/recommended",
       "@madebywild/eslint-config"
     ],
+    "settings": {
+      "tailwindcss": {
+        "callees": [
+          "cva",
+          "cx"
+        ]
+      }
+    },
     "overrides": [
       {
         "files": [
@@ -51,7 +60,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "tsc --noEmit"
+      "sh -c 'tsc --project . --noEmit'"
     ],
     "*.{json,md,css,js,jsx,ts,tsx}": [
       "prettier --write"
@@ -73,6 +82,7 @@
     "format": "prettier --cache --cache-location 'node_modules/.cache/prettier/.prettier-cache' --ignore-path .gitignore --write '**/*.{json,md,css,js,jsx,ts,tsx}' && npm run lint -- --fix"
   },
   "dependencies": {
+    "cva": "npm:class-variance-authority@0.7.0",
     "next": "13.4.19",
     "next-seo": "6.1.0",
     "react": "18.2.0",
@@ -88,6 +98,7 @@
     "@types/react": "18.2.21",
     "autoprefixer": "10.4.15",
     "eslint": "8.49.0",
+    "eslint-plugin-tailwindcss": "3.13.0",
     "husky": "8.0.3",
     "lint-staged": "14.0.1",
     "postcss": "8.4.29",

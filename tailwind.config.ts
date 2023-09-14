@@ -1,6 +1,6 @@
 import { type Config } from "tailwindcss";
-import defaultTheme from "tailwindcss/defaultTheme";
 import addPlugin from "tailwindcss/plugin";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 export const BASE_FONT_SIZE = 10;
 
@@ -40,6 +40,8 @@ export default {
   theme: {
     screens,
     colors: {
+      current: "currentColor",
+      transparent: "transparent",
       white: "#ffffff",
       black: "#000000",
     },
@@ -47,9 +49,9 @@ export default {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
-      100: [pxRem(12), "1.5"],
-      200: [pxRem(16), " 1.5"],
-      300: [pxRem(24), "1.25"],
+      sm: [pxRem(12), "1.5"],
+      base: [pxRem(16), " 1.5"],
+      lg: [pxRem(24), "1.25"],
     },
     extend: {
       spacing,

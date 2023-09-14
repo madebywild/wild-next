@@ -9,25 +9,20 @@ const getNextBpValue = (bp: string) => {
 };
 
 const up = (bp: Screen) => {
-  const screen = screens[bp];
-  return `@media only screen and (min-width: ${screen})`;
+  return `@media only screen and (min-width: ${screens[bp]})`;
 };
 
 const down = (bp: Screen) => {
-  const screen = getNextBpValue(screens[bp]);
-  return `@media only screen and (max-width: ${screen})`;
+  return `@media only screen and (max-width: ${getNextBpValue(screens[bp])})`;
 };
 
 const between = (bpMin: Screen, bpMax: Screen) => {
-  const screenMin = screens[bpMin];
-  const screenMax = getNextBpValue(screens[bpMax]);
-  return `@media only screen and (min-width: ${screenMin}) and (max-width: ${screenMax})`;
+  return `@media only screen and (min-width: ${screens[bpMin]}) and (max-width: ${getNextBpValue(screens[bpMax])})`;
 };
 
 const only = (bp: Screen) => {
-  const screenKeys = Object.keys(screens) as Screen[];
-  const currentKeyIndex = screenKeys.indexOf(bp);
-  const nextBp = screenKeys[currentKeyIndex + 1];
+  const keys = Object.keys(screens) as Screen[];
+  const nextBp = keys[keys.indexOf(bp) + 1];
   return nextBp ? between(bp, nextBp) : up(bp);
 };
 
