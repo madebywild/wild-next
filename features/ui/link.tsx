@@ -50,11 +50,12 @@ export const Link = React.forwardRef<HTMLAnchorElement, MaybeAsChild<Props, "a">
   } = props;
 
   const role = _role ?? !_href ? "button" : undefined;
+  const tabIndex = _tabIndex ?? role === "button" ? 0 : undefined;
+
   const target = _target ?? newWindow ? "_blank" : undefined;
   const rel = target === "_blank" ? createNoOpener(_rel) : _rel;
-  const tabIndex = _tabIndex ?? role === "button" ? 0 : undefined;
-  const href = _href ? maybeExtractInternalLink(_href) : undefined;
 
+  const href = _href ? maybeExtractInternalLink(_href) : undefined;
   const Comp = asChild ? Slot : href && isInternalLink(href) ? NextLink : "a";
 
   return (
