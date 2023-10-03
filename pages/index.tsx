@@ -5,15 +5,19 @@ type Props = {};
 
 const Index: PageWithLayout<Props> = () => {
   return (
-    <>
-      <NextSeo title="Index" />
+    <div>
       <h1>Index</h1>
-    </>
+    </div>
   );
 };
 
 Index.getLayout = (page) => {
-  return <AppLayout>{page}</AppLayout>;
+  return (
+    <AppLayout>
+      <NextSeo title="Index" />
+      {page}
+    </AppLayout>
+  );
 };
 
 export default Index;

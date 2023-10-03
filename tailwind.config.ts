@@ -4,33 +4,38 @@ import defaultTheme from "tailwindcss/defaultTheme";
 
 const BASE_FONT_SIZE = 10;
 
-const pxRem = (val: number) => {
-  return `${val / BASE_FONT_SIZE}rem`;
+export const screens = {
+  min: "320px",
+  sm: "640px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1280px",
+  max: "1600px",
+};
+
+const createFluidSize = (min: number, max: number) => {
+  const minScreen = parseInt(screens.min);
+  const maxScreen = parseInt(screens.max);
+  const size = `calc(${min} * 1px + (${max - min}) * (100vw - ${minScreen} * 1px) / (${maxScreen - minScreen}))`;
+  return `clamp(${min}px, ${size}, ${max}px)`;
 };
 
 const createScale = (min: number, max: number, steps: number) => {
   const scale = {} as Record<string, string>;
   for (let i = min; i <= max; i += steps) {
-    scale[String(i)] = i === 0 ? String(i) : pxRem(i);
+    scale[String(i)] = i === 0 ? String(i) : `${i / BASE_FONT_SIZE}rem`;
   }
   return scale;
 };
 
-const spacing = {
+export const spacing = {
+  ...Object.fromEntries(Object.entries(screens).map(([k, v]) => [`screen-${k}`, v])),
   ...createScale(0, 32, 1),
   ...createScale(32, 64, 2),
   ...createScale(68, 128, 4),
   ...createScale(136, 256, 8),
   ...createScale(272, 512, 16),
   ...createScale(544, 1024, 32),
-};
-
-export const screens = {
-  sm: "640px",
-  md: "768px",
-  lg: "1024px",
-  xl: "1280px",
-  "2xl": "1600px",
 };
 
 export default {
@@ -41,19 +46,23 @@ export default {
       inherit: "inherit",
       current: "currentColor",
       transparent: "transparent",
-      white: "#ffffff",
-      black: "#000000",
+      white: {
+        DEFAULT: "#ffffff",
+      },
+      black: {
+        DEFAULT: "#000000",
+      },
     },
     fontFamily: {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
-      sm: [pxRem(12), "1.5"],
-      base: [pxRem(16), " 1.5"],
-      lg: [pxRem(24), "1.25"],
+      sm: createFluidSize(12, 14),
+      base: createFluidSize(14, 18),
+      lg: createFluidSize(18, 24),
     },
     extend: {
-      spacing,
+      spacing: spacing,
       minWidth: spacing,
       maxWidth: spacing,
       minHeight: spacing,
