@@ -1,10 +1,21 @@
-import type React from "react";
-import { twMerge } from "tailwind-merge";
-import { defineConfig, type VariantProps as _VariantProps } from "cva";
+import { createTailwindMerge, getDefaultConfig, mergeConfigs } from "tailwind-merge";
+import { defineConfig } from "cva";
+
+// Extend the Tailwind Merge config with custom TW classes.
+// @see https://github.com/dcastil/tailwind-merge/blob/v1.14.0/src/lib/default-config.ts#L122
+const customTwMerge = createTailwindMerge(getDefaultConfig, (config) =>
+  mergeConfigs(config, {
+    extend: {
+      classGroups: {
+        z: [{ z: ["behind"] }],
+      },
+    },
+  })
+);
 
 const Cva = defineConfig({
   hooks: {
-    onComplete: twMerge,
+    onComplete: customTwMerge,
   },
 });
 
@@ -23,6 +34,11 @@ export const cva = Cva.cva;
 export const cx = Cva.cx;
 
 /**
+ * CX Class values.
+ */
+export type ClassValues = Parameters<typeof cx>;
+
+/**
  * Shallow merge any number of `cva` components into a single component.
  * @see https://github.com/joe-bell/cva
  */
@@ -31,11 +47,4 @@ export const compose = Cva.compose;
 /**
  * Extract variant props from a `cva` component.
  */
-export type VariantProps<T extends (...args: any) => any> = _VariantProps<T>;
-
-/**
- * Augment polymorphic components that use the radix-ui `Slot` component.
- */
-export type MaybeAsChild<P = {}, El extends keyof JSX.IntrinsicElements = "div"> =
-  | ({ asChild?: true; children: React.ReactElement } & React.ComponentPropsWithoutRef<El> & P)
-  | ({ asChild?: never; children: React.ReactNode } & React.ComponentPropsWithoutRef<El> & P);
+export { type VariantProps } from "cva";

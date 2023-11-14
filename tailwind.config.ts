@@ -58,7 +58,7 @@ export default {
     },
     fontSize: {
       sm: createFluidSize(12, 14),
-      base: createFluidSize(14, 18),
+      md: createFluidSize(14, 18),
       lg: createFluidSize(18, 24),
     },
     extend: {
