@@ -1,10 +1,10 @@
-import "~/features/app/styles.css";
+import "~/features/global.css";
 
 import NextHead from "next/head";
 import { DefaultSeo } from "next-seo";
-import { type AppProps } from "next/app";
+import type { AppProps } from "next/app";
+import type { PageWithLayout } from "~/features/page/types";
 import { defaultSeo } from "~/next-seo.config";
-import { type PageWithLayout } from "~/features/app/layout";
 
 type Props = AppProps & {
   Component: PageWithLayout;

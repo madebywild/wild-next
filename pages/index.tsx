@@ -1,9 +1,15 @@
+import type { GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
-import { AppLayout, type PageWithLayout } from "~/features/app/layout";
+import { Layout } from "~/features/page/layout";
+import type { PageWithLayout, InferPageProps } from "~/features/page/types";
 
-type Props = {};
+export const getStaticProps: GetStaticProps = () => {
+  return {
+    props: {},
+  };
+};
 
-const Index: PageWithLayout<Props> = () => {
+const Index: PageWithLayout<InferPageProps<typeof getStaticProps>> = () => {
   return (
     <div>
       <h1>Index</h1>
@@ -13,10 +19,10 @@ const Index: PageWithLayout<Props> = () => {
 
 Index.getLayout = (page) => {
   return (
-    <AppLayout>
+    <Layout>
       <NextSeo title="Index" />
       {page}
-    </AppLayout>
+    </Layout>
   );
 };
 

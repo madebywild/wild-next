@@ -1,13 +1,13 @@
 # dependencies
-/node_modules
-/.pnp
+node_modules
+.pnp
 .pnp.js
 
 # next.js
-/.next
-/out
-/build
-/dist
+.next
+out
+build
+dist
 
 # debug
 npm-debug.log*
@@ -18,7 +18,7 @@ yarn-error.log*
 .env
 
 # testing
-/coverage
+coverage
 
 # misc
 .DS_Store
@@ -32,4 +32,4 @@ yarn-error.log*
 # caches
 *.tsbuildinfo
 .eslintcache
-**/.cache
+**.cache

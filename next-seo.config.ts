@@ -1,7 +1,7 @@
 import { type DefaultSeoProps } from "next-seo";
 
 export const defaultSeo = {
-  title: "wild-next",
+  defaultTitle: "wild-next",
   titleTemplate: "%s | wild-next",
   description: "This is the wild-next boilerplate.",
   twitter: {
