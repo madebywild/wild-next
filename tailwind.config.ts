@@ -1,10 +1,11 @@
 import { type Config } from "tailwindcss";
 import addPlugin from "tailwindcss/plugin";
 import defaultTheme from "tailwindcss/defaultTheme";
+import { createTailwindMerge, getDefaultConfig, mergeConfigs } from "tailwind-merge";
 
 const BASE_FONT_SIZE = 10;
 
-export const screens = {
+const screens = {
   min: "320px",
   sm: "640px",
   md: "768px",
@@ -23,12 +24,12 @@ const createFluidSize = (min: number, max: number) => {
 const createScale = (min: number, max: number, steps: number) => {
   const scale = {} as Record<string, string>;
   for (let i = min; i <= max; i += steps) {
-    scale[String(i)] = i === 0 ? String(i) : `${i / BASE_FONT_SIZE}rem`;
+    scale[String(i)] = i === 0 ? "0" : `${i / BASE_FONT_SIZE}rem`;
   }
   return scale;
 };
 
-export const spacing = {
+const spacing = {
   ...Object.fromEntries(Object.entries(screens).map(([k, v]) => [`screen-${k}`, v])),
   ...createScale(0, 32, 1),
   ...createScale(32, 64, 2),
@@ -38,7 +39,7 @@ export const spacing = {
   ...createScale(544, 1024, 32),
 };
 
-export default {
+const twConfig = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./features/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens,
@@ -62,7 +63,7 @@ export default {
       lg: createFluidSize(18, 24),
     },
     extend: {
-      spacing: spacing,
+      spacing,
       minWidth: spacing,
       maxWidth: spacing,
       minHeight: spacing,
@@ -82,3 +83,19 @@ export default {
     }),
   ],
 } satisfies Config;
+
+// Extend the default config based on the custom Tailwind config.
+// Add all classNames that deviate from the standard naming convention.
+// @see https://github.com/dcastil/tailwind-merge/blob/v1.14.0/src/lib/default-config.ts#L122
+const twMerge = createTailwindMerge(getDefaultConfig, (c) =>
+  mergeConfigs(c, {
+    extend: {
+      classGroups: {
+        z: [{ z: ["behind"] }],
+      },
+    },
+  })
+);
+
+export { screens, twMerge };
+export default twConfig;

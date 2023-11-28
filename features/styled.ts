@@ -1,24 +1,11 @@
 import React from "react";
-import { createTailwindMerge, getDefaultConfig, mergeConfigs } from "tailwind-merge";
 import { defineConfig } from "cva";
 import { IS_CLIENT } from "~/features/constants";
-import { screens } from "~/tailwind.config";
-
-// Extend the Tailwind Merge config with custom TW classes.
-// @see https://github.com/dcastil/tailwind-merge/blob/v1.14.0/src/lib/default-config.ts#L122
-const customTwMerge = createTailwindMerge(getDefaultConfig, (config) =>
-  mergeConfigs(config, {
-    extend: {
-      classGroups: {
-        z: [{ z: ["behind"] }],
-      },
-    },
-  })
-);
+import { screens, twMerge } from "~/tailwind.config";
 
 const Cva = defineConfig({
   hooks: {
-    onComplete: customTwMerge,
+    onComplete: twMerge,
   },
 });
 
@@ -51,7 +38,8 @@ export const compose = Cva.compose;
 export type Screen = keyof typeof screens;
 
 /**
- * Create media queries for responsive breakpoints that match the Tailwind theme `screens` config.
+ * Create media queries for responsive breakpoints
+ * that match the Tailwind theme `screens` config.
  */
 export const MediaQuery = {
   up: (bp: Screen) => {
@@ -73,7 +61,13 @@ export const MediaQuery = {
 };
 
 /**
- * Use responsive breakpoints that match the Tailwind theme `screens` config.
+ * Use responsive breakpoints that match the Tailwind
+ * theme `screens` config. Works with standard media queries,
+ * as well as with the `MediaQuery` helpers.
+ *
+ * @example
+ * useMediaQuery("(min-width: 768px)")
+ * useMediaQuery(MediaQuery.up("md"))
  */
 export const useMediaQuery = (query: string, defaultState = false) => {
   const [state, setState] = React.useState(defaultState);
