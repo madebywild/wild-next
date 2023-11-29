@@ -1,3 +1,4 @@
+import * as R from "remeda";
 import { type Config } from "tailwindcss";
 import addPlugin from "tailwindcss/plugin";
 import defaultTheme from "tailwindcss/defaultTheme";
@@ -12,7 +13,7 @@ const screens = {
   lg: "1024px",
   xl: "1280px",
   max: "1600px",
-};
+} as const;
 
 const createFluidSize = (min: number, max: number) => {
   const minScreen = parseInt(screens.min);
@@ -30,14 +31,14 @@ const createScale = (min: number, max: number, steps: number) => {
 };
 
 const spacing = {
-  ...Object.fromEntries(Object.entries(screens).map(([k, v]) => [`screen-${k}`, v])),
+  ...R.fromPairs(R.map(R.toPairs(screens), ([k, v]) => [`screen-${k}`, v])),
   ...createScale(0, 32, 1),
   ...createScale(32, 64, 2),
   ...createScale(68, 128, 4),
   ...createScale(136, 256, 8),
   ...createScale(272, 512, 16),
   ...createScale(544, 1024, 32),
-};
+} as const;
 
 const twConfig = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./features/**/*.{js,ts,jsx,tsx}"],

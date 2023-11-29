@@ -1,4 +1,5 @@
 import React from "react";
+import * as R from "remeda";
 import { defineConfig } from "cva";
 import { IS_CLIENT } from "~/features/constants";
 import { screens, twMerge } from "~/tailwind.config";
@@ -33,38 +34,30 @@ export const cx = Cva.cx;
 export const compose = Cva.compose;
 
 /**
- * A record of all Tailwind screens.
- */
-export type Screen = keyof typeof screens;
-
-/**
- * Create media queries for responsive breakpoints
- * that match the Tailwind theme `screens` config.
+ * Create media queries based on Tailwind screens.
  */
 export const MediaQuery = {
-  up: (bp: Screen) => {
-    return `@media only screen and (min-width: ${screens[bp]})`;
+  up: <S extends keyof typeof screens>(bp: S) => {
+    return `@media only screen and (min-width: ${screens[bp]})` as const;
   },
-  down: (bp: Screen) => {
-    const next = `${parseInt(screens[bp]) - 0.02}px`;
-    return `@media only screen and (max-width: ${next})`;
+  down: <S extends keyof typeof screens>(bp: S) => {
+    const next = `${Number(screens[bp]) - 0.02}px`;
+    return `@media only screen and (max-width: ${next})` as const;
   },
-  between: (bpMin: Screen, bpMax: Screen) => {
-    const next = `${parseInt(screens[bpMax]) - 0.02}px`;
-    return `@media only screen and (min-width: ${screens[bpMin]}) and (max-width: ${next})`;
+  between: <SMax extends keyof typeof screens, SMin extends keyof typeof screens>(min: SMin, max: SMax) => {
+    const next = `${Number(screens[max]) - 0.02}px`;
+    return `@media only screen and (min-width: ${screens[min]}) and (max-width: ${next})` as const;
   },
-  only: (bp: Screen) => {
-    const keys = Object.keys(screens) as Screen[];
+  only: <S extends keyof typeof screens>(bp: S) => {
+    const keys = R.keys.strict(screens);
     const nextBp = keys[keys.indexOf(bp) + 1];
     return nextBp ? MediaQuery.between(bp, nextBp) : MediaQuery.up(bp);
   },
 };
 
 /**
- * Use responsive breakpoints that match the Tailwind
- * theme `screens` config. Works with standard media queries,
- * as well as with the `MediaQuery` helpers.
- *
+ * Use responsive breakpoints and detect whether a single media query matches.
+ * Works with standard media queries, as well as with the `MediaQuery` helpers.
  * @example
  * useMediaQuery("(min-width: 768px)")
  * useMediaQuery(MediaQuery.up("md"))
@@ -75,6 +68,7 @@ export const useMediaQuery = (query: string, defaultState = false) => {
 
   useIsoEffect(() => {
     let mounted = true;
+
     const mql = window.matchMedia(query.replaceAll("@media only screen and", "").trim());
 
     const onChange = () => {
