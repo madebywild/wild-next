@@ -6,8 +6,8 @@
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ],
-  "prettier.ignorePath": ".gitignore",
+  "prettier.ignorePath": ".formatignore",
   "eslint.options": {
-    "ignorePath": ".gitignore"
+    "ignorePath": ".formatignore"
   }
 }
