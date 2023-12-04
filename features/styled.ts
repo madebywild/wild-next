@@ -37,6 +37,9 @@ export const compose = Cva.compose;
  * Create media queries based on Tailwind screens.
  */
 export const MediaQuery = {
+  hasHover: () => {
+    return `@media (hover: hover)` as const;
+  },
   up: <S extends keyof typeof screens>(bp: S) => {
     return `@media only screen and (min-width: ${screens[bp]})` as const;
   },
@@ -69,7 +72,10 @@ export const useMediaQuery = (query: string, defaultState = false) => {
   useIsoEffect(() => {
     let mounted = true;
 
-    const mql = window.matchMedia(query.replaceAll("@media only screen and", "").trim());
+    // Remove the everything before the first parenthesis.
+    // This includes the `@media` prefix and any whitespace.
+    const processedQuery = query.substring(query.indexOf("(")).trim();
+    const mql = window.matchMedia(processedQuery);
 
     const onChange = () => {
       if (!mounted) return;
