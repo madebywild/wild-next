@@ -1,11 +1,10 @@
-import "~/features/app/fonts.css";
+import "~/features/global.css";
 
 import NextHead from "next/head";
 import { DefaultSeo } from "next-seo";
-import { type AppProps } from "next/app";
+import type { AppProps } from "next/app";
+import type { PageWithLayout } from "~/features/page/types";
 import { defaultSeo } from "~/next-seo.config";
-import { AppStyles } from "~/features/app/styles";
-import { type PageWithLayout } from "~/features/app/layout";
 
 type Props = AppProps & {
   Component: PageWithLayout;
@@ -24,10 +23,9 @@ const App = ({ Component, pageProps }: Props) => {
         <meta name="msapplication-TileColor" content="#000000" key="tile" />
         <meta name="theme-color" content="#ffffff" key="theme" />
         <link rel="manifest" href="/site.webmanifest" crossOrigin="use-credentials" />
-        <link rel="preload" href="/fonts/Inter-Regular.otf" as="font" type="font/otf" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </NextHead>
       <DefaultSeo {...defaultSeo} />
-      <AppStyles />
       {withLayout(<Component {...pageProps} />)}
     </>
   );

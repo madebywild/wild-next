@@ -1,6 +1,9 @@
 {
+  "tailwindCSS.rootFontSize": 10,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "tailwindcss.jsxPropImportChecking": false,
-  "tailwindcss.rootFontSize": 10,
-  "typescript.preferences.importModuleSpecifier": "non-relative"
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ]
 }

@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "license": "MIT",
   "engines": {
-    "node": ">=16.17.0",
-    "npm": ">=8.0.0"
+    "node": ">=20.9.0",
+    "npm": ">=10.1.0"
   },
   "browserslist": {
     "production": [
@@ -19,7 +19,58 @@
       "last 1 safari version"
     ]
   },
+  "prettier": "@madebywild/prettier-config",
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "plugin:@next/next/recommended",
+      "plugin:tailwindcss/recommended",
+      "@madebywild/eslint-config"
+    ],
+    "settings": {
+      "tailwindcss": {
+        "callees": [
+          "cva",
+          "cx"
+        ]
+      }
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.d.ts",
+          "**/*.config.ts?(x)",
+          "./pages/**/*.ts?(x)"
+        ],
+        "rules": {
+          "import/no-default-export": "off"
+        }
+      }
+    ],
+    "rules": {
+      "jsx-a11y/anchor-is-valid": "off",
+      "@next/next/no-img-element": "off"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "sh -c 'tsc --project . --noEmit'"
+    ],
+    "*.{json,md,css,js,jsx,ts,tsx}": [
+      "prettier --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --quiet --fix"
+    ]
+  },
   "scripts": {
+    "prepare": "husky install",
     "clean": "rimraf .next out node_modules/.cache",
     "dev": "next dev",
     "build": "next build",
@@ -27,34 +78,35 @@
     "export": "npm run build && next export",
     "analyze": "ANALYZE=true npm run build",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint --color --cache --cache-location 'node_modules/.cache/.eslintcache' . --ext .js,.jsx,.ts,.tsx",
-    "format": "prettier --write '**/*.{json,md,css,js,jsx,ts,tsx}' && npm run lint -- --fix",
-    "prepare": "husky install"
+    "lint": "eslint --color --cache --cache-location 'node_modules/.cache/eslint/.eslint-cache' 'pages/**/*.{js,jsx,ts,tsx}' 'features/**/*.{js,jsx,ts,tsx}'",
+    "format": "prettier --cache --cache-location 'node_modules/.cache/prettier/.prettier-cache' --write 'pages/**/*.{json,md,css,js,jsx,ts,tsx}' 'features/**/*.{json,md,css,js,jsx,ts,tsx}' && npm run lint -- --fix"
   },
   "dependencies": {
-    "next": "13.4.19",
-    "next-seo": "6.1.0",
+    "cva": "beta",
+    "next": "14.0.3",
+    "next-seo": "6.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "styled-components": "6.0.7"
+    "remeda": "1.29.0",
+    "tailwind-merge": "2.1.0"
   },
   "devDependencies": {
-    "@madebywild/eslint-config": "0.5.14",
+    "@madebywild/eslint-config": "0.5.15",
     "@madebywild/prettier-config": "0.1.0",
-    "@next/bundle-analyzer": "13.4.19",
-    "@next/eslint-plugin-next": "13.4.19",
+    "@next/bundle-analyzer": "14.0.3",
+    "@next/eslint-plugin-next": "14.0.3",
     "@svgr/webpack": "8.1.0",
-    "@types/node": "20.6.0",
-    "@types/react": "18.2.21",
-    "babel-plugin-twin": "1.1.0",
-    "eslint": "8.49.0",
+    "@types/node": "20.10.3",
+    "@types/react": "18.2.41",
+    "autoprefixer": "10.4.16",
+    "eslint": "8.55.0",
+    "eslint-plugin-tailwindcss": "3.13.0",
     "husky": "8.0.3",
-    "lint-staged": "14.0.1",
-    "prettier": "3.0.3",
-    "react-is": "18.2.0",
-    "rimraf": "5.0.1",
-    "tailwindcss": "3.3.3",
-    "twin.macro": "3.4.0",
-    "typescript": "5.2.2"
+    "lint-staged": "15.2.0",
+    "postcss": "8.4.32",
+    "prettier": "3.1.0",
+    "rimraf": "5.0.5",
+    "tailwindcss": "3.3.5",
+    "typescript": "5.3.2"
   }
 }

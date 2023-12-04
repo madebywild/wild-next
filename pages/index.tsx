@@ -1,19 +1,29 @@
+import type { GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
-import { AppLayout, type PageWithLayout } from "~/features/app/layout";
+import { Layout } from "~/features/page/layout";
+import type { PageWithLayout, InferPageProps } from "~/features/page/types";
 
-type Props = {};
+export const getStaticProps: GetStaticProps = () => {
+  return {
+    props: {},
+  };
+};
 
-const Index: PageWithLayout<Props> = () => {
+const Index: PageWithLayout<InferPageProps<typeof getStaticProps>> = () => {
   return (
-    <>
-      <NextSeo title="Index" />
+    <div>
       <h1>Index</h1>
-    </>
+    </div>
   );
 };
 
 Index.getLayout = (page) => {
-  return <AppLayout>{page}</AppLayout>;
+  return (
+    <Layout>
+      <NextSeo title="Index" />
+      {page}
+    </Layout>
+  );
 };
 
 export default Index;

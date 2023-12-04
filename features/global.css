@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-var.woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-white text-black cursor-default leading-none;
+  }
+
+  body {
+    @apply font-sans antialiased overflow-x-hidden min-w-screen-min;
+  }
+
+  html,
+  body,
+  #__next {
+    @apply h-full;
+  }
+}

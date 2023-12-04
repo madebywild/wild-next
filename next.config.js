@@ -7,6 +7,8 @@ const nextConfig = {
   poweredByHeader: false,
 
   // Add support for custom build dirs
+  // This env variable is supposed to be set by the build process.
+  // Do not set it manually in the .env file.
   distDir: process.env.DIST_DIR || ".next",
 
   // https://reactjs.org/docs/strict-mode.html
