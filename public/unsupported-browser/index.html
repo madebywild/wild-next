@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icon-180x180.png" />
+    <link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials" />
+    <title>Unsupported Browser</title>
+    <meta name="robots" content="noindex,nofollow" />
+
+    <style>
+      html {
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          system-ui,
+          sans-serif;
+      }
+
+      main {
+        min-height: 100vh;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 32px;
+        line-height: 1.25;
+        margin-bottom: 32px;
+        margin-top: 0;
+        font-weight: 400;
+      }
+
+      p {
+        font-size: 18px;
+        margin-bottom: 32px;
+      }
+
+      .container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+      }
+
+      .box {
+        margin-right: 32px;
+      }
+
+      .box > div {
+        display: none;
+      }
+
+      .box:last-child {
+        margin-right: 0;
+      }
+
+      .box a {
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .box a img {
+        width: 48px;
+        height: 48px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        h1 {
+          font-size: 64px;
+          margin-bottom: 64px;
+        }
+
+        p {
+          margin-bottom: 64px;
+          font-size: 27px;
+        }
+
+        .box {
+          margin-right: 40px;
+        }
+
+        .box > div {
+          display: block;
+        }
+
+        .box a {
+          margin-bottom: 16px;
+        }
+
+        .box a img {
+          width: 80px;
+          height: 80px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div>
+        <h1>
+          Unfortunately, your <br />
+          browser is out of date
+        </h1>
+        <p>
+          Update your current browser to the latest version <br />
+          or download one of these browsers:
+        </p>
+        <div class="container">
+          <div class="box">
+            <a href="https://www.google.com/chrome">
+              <img src="chrome.png" alt="Google Chrome" loading="lazy" width="240" height="240" />
+            </a>
+            <div>Google Chrome</div>
+          </div>
+          <div class="box">
+            <a href="https://www.mozilla.org/firefox">
+              <img src="firefox.png" alt="Firefox" loading="lazy" width="240" height="240" />
+            </a>
+            <div>Mozilla Firefox</div>
+          </div>
+          <div class="box">
+            <a href="https://www.microsoft.com/windows/microsoft-edge">
+              <img src="edge.png" alt="Edge" loading="lazy" width="240" height="240" />
+            </a>
+            <div>Microsoft Edge</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

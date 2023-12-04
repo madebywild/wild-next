@@ -16,12 +16,12 @@ const App = ({ Component, pageProps }: Props) => {
   return (
     <>
       <NextHead>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" key="viewport" />
-        <link key="icon-32" rel="icon" href="/favicon.ico" sizes="32x32" />
+        <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1.0" />
         <link key="icon-svg" rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link key="icon-32" rel="icon" href="/favicon.ico" sizes="32x32" />
         <link key="icon-180" rel="apple-touch-icon" href="/icon-180x180.png" />
-        <meta name="msapplication-TileColor" content="#000000" key="tile" />
-        <meta name="theme-color" content="#ffffff" key="theme" />
+        <meta key="tile" name="msapplication-TileColor" content="#000000" />
+        <meta key="theme" name="theme-color" content="#ffffff" />
         <link rel="manifest" href="/site.webmanifest" crossOrigin="use-credentials" />
         <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </NextHead>
