@@ -5,9 +5,5 @@
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-  ],
-  "prettier.ignorePath": ".formatignore",
-  "eslint.options": {
-    "ignorePath": ".formatignore"
-  }
+  ]
 }

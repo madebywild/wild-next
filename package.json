@@ -63,10 +63,10 @@
       "sh -c 'tsc --project . --noEmit'"
     ],
     "*.{json,md,css,js,jsx,ts,tsx}": [
-      "prettier --write --ignore-path .formatignore"
+      "prettier --write"
     ],
     "*.{js,jsx,ts,tsx}": [
-      "eslint --quiet --fix --ignore-path .formatignore"
+      "eslint --quiet --fix"
     ]
   },
   "scripts": {
@@ -78,8 +78,8 @@
     "export": "npm run build && next export",
     "analyze": "ANALYZE=true npm run build",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint --color --cache --cache-location 'node_modules/.cache/eslint/.eslint-cache' --ignore-path .formatignore . --ext .js,.jsx,.ts,.tsx",
-    "format": "prettier --cache --cache-location 'node_modules/.cache/prettier/.prettier-cache' --ignore-path .formatignore --write '**/*.{json,md,css,js,jsx,ts,tsx}' && npm run lint -- --fix"
+    "lint": "eslint --color --cache --cache-location 'node_modules/.cache/eslint/.eslint-cache' 'pages/**/*.{js,jsx,ts,tsx}' 'features/**/*.{js,jsx,ts,tsx}'",
+    "format": "prettier --cache --cache-location 'node_modules/.cache/prettier/.prettier-cache' --write 'pages/**/*.{json,md,css,js,jsx,ts,tsx}' 'features/**/*.{json,md,css,js,jsx,ts,tsx}' && npm run lint -- --fix"
   },
   "dependencies": {
     "cva": "beta",
