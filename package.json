@@ -83,30 +83,30 @@
   },
   "dependencies": {
     "cva": "beta",
-    "next": "14.0.3",
+    "next": "14.0.4",
     "next-seo": "6.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "remeda": "1.29.0",
-    "tailwind-merge": "2.1.0"
+    "remeda": "1.34.0",
+    "tailwind-merge": "2.2.0"
   },
   "devDependencies": {
     "@madebywild/eslint-config": "0.5.15",
     "@madebywild/prettier-config": "0.1.0",
-    "@next/bundle-analyzer": "14.0.3",
-    "@next/eslint-plugin-next": "14.0.3",
+    "@next/bundle-analyzer": "14.0.4",
+    "@next/eslint-plugin-next": "14.0.4",
     "@svgr/webpack": "8.1.0",
-    "@types/node": "20.10.3",
-    "@types/react": "18.2.41",
+    "@types/node": "20.10.7",
+    "@types/react": "18.2.47",
     "autoprefixer": "10.4.16",
-    "eslint": "8.55.0",
-    "eslint-plugin-tailwindcss": "3.13.0",
+    "eslint": "8.56.0",
+    "eslint-plugin-tailwindcss": "3.13.1",
     "husky": "8.0.3",
     "lint-staged": "15.2.0",
-    "postcss": "8.4.32",
-    "prettier": "3.1.0",
+    "postcss": "8.4.33",
+    "prettier": "3.1.1",
     "rimraf": "5.0.5",
-    "tailwindcss": "3.3.5",
-    "typescript": "5.3.2"
+    "tailwindcss": "3.4.1",
+    "typescript": "5.3.3"
   }
 }
