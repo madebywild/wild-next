@@ -1,7 +1,6 @@
 import * as R from "remeda";
 import { type Config } from "tailwindcss";
 import addPlugin from "tailwindcss/plugin";
-import defaultTheme from "tailwindcss/defaultTheme";
 import { createTailwindMerge, getDefaultConfig, mergeConfigs } from "tailwind-merge";
 
 const BASE_FONT_SIZE = 10;
@@ -56,7 +55,16 @@ const twConfig = {
       },
     },
     fontFamily: {
-      sans: ["Inter", ...defaultTheme.fontFamily.sans],
+      sans: [
+        "Inter",
+        "ui-sans-serif",
+        "system-ui",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        "Noto Color Emoji",
+      ],
     },
     fontSize: {
       sm: createFluidSize(12, 14),
