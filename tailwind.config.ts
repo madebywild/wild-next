@@ -2,7 +2,6 @@ import * as R from "remeda";
 import { type Config } from "tailwindcss";
 import addPlugin from "tailwindcss/plugin";
 import defaultTheme from "tailwindcss/defaultTheme";
-import { createTailwindMerge, getDefaultConfig, mergeConfigs } from "tailwind-merge";
 
 const BASE_FONT_SIZE = 10;
 
@@ -40,7 +39,7 @@ const spacing = {
   ...createScale(544, 1024, 32),
 } as const;
 
-const twConfig = {
+export default {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./features/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens,
@@ -84,19 +83,3 @@ const twConfig = {
     }),
   ],
 } satisfies Config;
-
-// Extend the default config based on the custom Tailwind config.
-// Add all classNames that deviate from the standard naming convention.
-// @see https://github.com/dcastil/tailwind-merge/blob/v1.14.0/src/lib/default-config.ts#L122
-const twMerge = createTailwindMerge(getDefaultConfig, (c) =>
-  mergeConfigs(c, {
-    extend: {
-      classGroups: {
-        z: [{ z: ["behind"] }],
-      },
-    },
-  })
-);
-
-export { screens, twMerge };
-export default twConfig;

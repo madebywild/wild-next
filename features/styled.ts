@@ -1,8 +1,21 @@
 import React from "react";
 import * as R from "remeda";
 import { defineConfig } from "cva";
+import { createTailwindMerge, getDefaultConfig, mergeConfigs } from "tailwind-merge";
 import { IS_CLIENT } from "~/features/constants";
-import { screens, twMerge } from "~/tailwind.config";
+
+// Extend the default config based on the custom Tailwind config.
+// Add all classNames that deviate from the standard naming convention.
+// @see https://github.com/dcastil/tailwind-merge/blob/v1.14.0/src/lib/default-config.ts#L122
+const twMerge = createTailwindMerge(getDefaultConfig, (c) =>
+  mergeConfigs(c, {
+    extend: {
+      classGroups: {
+        z: [{ z: ["behind"] }],
+      },
+    },
+  })
+);
 
 const Cva = defineConfig({
   hooks: {
@@ -32,6 +45,17 @@ export const cx = Cva.cx;
  * @see https://github.com/joe-bell/cva
  */
 export const compose = Cva.compose;
+
+// This is a copy of the `screens` object from the Tailwind config.
+// Make sure to keep this in sync with the Tailwind config.
+const screens = {
+  min: "320px",
+  sm: "640px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1280px",
+  max: "1600px",
+} as const;
 
 /**
  * Create media queries based on Tailwind screens.
