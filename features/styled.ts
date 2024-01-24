@@ -2,7 +2,9 @@ import React from "react";
 import * as R from "remeda";
 import { defineConfig } from "cva";
 import { createTailwindMerge, getDefaultConfig, mergeConfigs } from "tailwind-merge";
+import resolveConfig from "tailwindcss/resolveConfig";
 import { IS_CLIENT } from "~/features/constants";
+import tailwindConfig from "../tailwind.config";
 
 // Extend the default config based on the custom Tailwind config.
 // Add all classNames that deviate from the standard naming convention.
@@ -117,3 +119,9 @@ export const useMediaQuery = (query: string, defaultState = false) => {
 
   return state;
 };
+
+/**
+ * Extract the theme object from the Tailwind config.
+ * @see https://tailwindcss.com/docs/configuration#referencing-in-java-script
+ */
+export const { theme } = resolveConfig(tailwindConfig);
