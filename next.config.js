@@ -19,6 +19,9 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
+  // https://nextjs.org/docs/pages/building-your-application/deploying/static-exports
+  output: process.env.USE_STATIC_EXPORT === "true" ? "export" : undefined,
+
   webpack: (config) => {
     // https://react-svgr.com/
     config.module.rules.push({
